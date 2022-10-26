@@ -1,0 +1,29 @@
+
+# 1 "buzzer.c"
+
+# 5 "..\h\buzzer.h"
+typedef struct
+{
+unsigned int setBuzzerOnTime_ms;
+unsigned int setBuzzerOffTime_ms;
+unsigned int C_buzzerOnTime_ms;
+unsigned int C_buzzerOffTime_ms;
+unsigned char buzzerTimes;
+}struct_buzzer;
+extern struct_buzzer stu_buzzer;
+
+# 21
+void buzzerOn(unsigned int bzOnTime_ms,unsigned int bzOffTime_ms,unsigned char bzTimes);
+
+# 3 "buzzer.c"
+struct_buzzer stu_buzzer;
+
+# 10
+void buzzerOn(unsigned int bzOnTime_ms,unsigned int bzOffTime_ms,unsigned char bzTimes)
+{
+stu_buzzer.setBuzzerOnTime_ms = bzOnTime_ms;
+stu_buzzer.setBuzzerOffTime_ms = bzOffTime_ms;
+stu_buzzer.C_buzzerOnTime_ms = stu_buzzer.setBuzzerOnTime_ms;
+stu_buzzer.C_buzzerOffTime_ms = stu_buzzer.setBuzzerOffTime_ms;
+stu_buzzer.buzzerTimes = bzTimes;
+}

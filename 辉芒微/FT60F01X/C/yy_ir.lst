@@ -1,0 +1,1654 @@
+
+
+HI-TECH Software PIC PRO Macro Assembler V9.83 build 10920 
+                                                                                               Tue Sep 01 14:07:03 2020
+
+HI-TECH Software Omniscient Code Generator (PRO mode) build 10920
+     1                           	processor	16F684
+     2                           	opt	pw 120
+     3                           	opt	pm
+     4                           	psect	text44,local,class=CODE,delta=2
+     5                           	psect	nvCOMMON,global,class=COMMON,space=1,delta=1
+     6                           	psect	cinit,global,class=CODE,delta=2
+     7                           	psect	bssCOMMON,global,class=COMMON,space=1,delta=1
+     8                           	psect	clrtext,global,class=CODE,delta=2
+     9                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1
+    10                           	psect	maintext,global,class=CODE,delta=2
+    11                           	psect	swtext1,local,class=CONST,delta=2
+    12                           	psect	text45,local,class=CODE,delta=2
+    13                           	psect	text46,local,class=CODE,delta=2
+    14                           	psect	intentry,global,class=CODE,delta=2
+    15                           	psect	text47,local,class=CODE,delta=2
+    16                           	psect	pa_nodes,global,class=CODE,delta=2
+    17                           	dabs	1,0x4,1
+    18                           	dabs	1,0x0,1
+    19                           	dabs	1,0x2,1
+    20                           	dabs	1,0xA,1
+    21                           	dabs	1,0x5,1
+    22                           	dabs	1,0x6,1
+    23                           	dabs	1,0x7,1
+    24                           	dabs	1,0x8,1
+    25                           	dabs	1,0x9,1
+    26                           	dabs	1,0x3,1
+    27                           	dabs	1,0x1,1
+    28                           	dabs	1,0x13,2
+    29                           	dabs	1,0xE,2
+    30                           	dabs	1,0x1F,1
+    31                           	dabs	1,0x1E,1
+    32                           	dabs	1,0x15,1
+    33                           	dabs	1,0x14,1
+    34                           	dabs	1,0x13,1
+    35                           	dabs	1,0x19,1
+    36                           	dabs	1,0x1A,1
+    37                           	dabs	1,0x17,1
+    38                           	dabs	1,0xB,1
+    39                           	dabs	1,0x1B,1
+    40                           	dabs	1,0xA,1
+    41                           	dabs	1,0xC,1
+    42                           	dabs	1,0x5,1
+    43                           	dabs	1,0x7,1
+    44                           	dabs	1,0x16,1
+    45                           	dabs	1,0x0,1
+    46                           	dabs	1,0x1,1
+    47                           	dabs	1,0x2,1
+    48                           	dabs	1,0x3,1
+    49                           	dabs	1,0x4,1
+    50                           	dabs	1,0x5,1
+    51                           	dabs	1,0xA,1
+    52                           	dabs	1,0xB,1
+    53                           	dabs	1,0xC,1
+    54                           	dabs	1,0x11,1
+    55                           	dabs	1,0x12,1
+    56                           	dabs	1,0x18,1
+    57                           	dabs	1,0x1B,1
+    58                           	dabs	1,0x1C,1
+    59                           	dabs	1,0x1D,1
+    60                           	dabs	1,0x1D,1
+    61                           	dabs	1,0x3,1
+    62                           	dabs	1,0x10,1
+    63                           	dabs	1,0x12,1
+    64                           	dabs	1,0xF,1
+    65                           	dabs	1,0xE,1
+    66                           	dabs	1,0x18,1
+    67                           	dabs	1,0x1F,1
+    68                           	dabs	1,0xC,1
+    69                           	dabs	1,0x1F,1
+    70                           	dabs	1,0x3,1
+    71                           	dabs	1,0xC,1
+    72                           	dabs	1,0x19,1
+    73                           	dabs	1,0x19,1
+    74                           	dabs	1,0xC,1
+    75                           	dabs	1,0x19,1
+    76                           	dabs	1,0x19,1
+    77                           	dabs	1,0x1A,1
+    78                           	dabs	1,0x3,1
+    79                           	dabs	1,0xC,1
+    80                           	dabs	1,0x15,1
+    81                           	dabs	1,0x15,1
+    82                           	dabs	1,0x15,1
+    83                           	dabs	1,0x15,1
+    84                           	dabs	1,0x1F,1
+    85                           	dabs	1,0x1F,1
+    86                           	dabs	1,0x1F,1
+    87                           	dabs	1,0x19,1
+    88                           	dabs	1,0x1B,1
+    89                           	dabs	1,0x1B,1
+    90                           	dabs	1,0xC,1
+    91                           	dabs	1,0x19,1
+    92                           	dabs	1,0x19,1
+    93                           	dabs	1,0x19,1
+    94                           	dabs	1,0x3,1
+    95                           	dabs	1,0x15,1
+    96                           	dabs	1,0x15,1
+    97                           	dabs	1,0x17,1
+    98                           	dabs	1,0x17,1
+    99                           	dabs	1,0x17,1
+   100                           	dabs	1,0x17,1
+   101                           	dabs	1,0xC,1
+   102                           	dabs	1,0xC,1
+   103                           	dabs	1,0xB,1
+   104                           	dabs	1,0x1F,1
+   105                           	dabs	1,0x1F,1
+   106                           	dabs	1,0x1F,1
+   107                           	dabs	1,0x3,1
+   108                           	dabs	1,0xB,1
+   109                           	dabs	1,0xB,1
+   110                           	dabs	1,0x3,1
+   111                           	dabs	1,0xC,1
+   112                           	dabs	1,0x15,1
+   113                           	dabs	1,0x15,1
+   114                           	dabs	1,0x5,1
+   115                           	dabs	1,0x5,1
+   116                           	dabs	1,0x5,1
+   117                           	dabs	1,0x5,1
+   118                           	dabs	1,0x5,1
+   119                           	dabs	1,0x5,1
+   120                           	dabs	1,0x3,1
+   121                           	dabs	1,0xB,1
+   122                           	dabs	1,0xB,1
+   123                           	dabs	1,0x16,1
+   124                           	dabs	1,0x16,1
+   125                           	dabs	1,0x16,1
+   126                           	dabs	1,0x16,1
+   127                           	dabs	1,0x16,1
+   128                           	dabs	1,0x16,1
+   129                           	dabs	1,0x16,1
+   130                           	dabs	1,0xB,1
+   131                           	dabs	1,0x16,1
+   132                           	dabs	1,0x17,1
+   133                           	dabs	1,0x17,1
+   134                           	dabs	1,0x17,1
+   135                           	dabs	1,0x17,1
+   136                           	dabs	1,0x5,1
+   137                           	dabs	1,0x5,1
+   138                           	dabs	1,0x5,1
+   139                           	dabs	1,0x5,1
+   140                           	dabs	1,0x5,1
+   141                           	dabs	1,0x5,1
+   142                           	dabs	1,0xB,1
+   143                           	dabs	1,0xB,1
+   144                           	dabs	1,0x7,1
+   145                           	dabs	1,0x7,1
+   146                           	dabs	1,0x7,1
+   147                           	dabs	1,0x7,1
+   148                           	dabs	1,0x7,1
+   149                           	dabs	1,0x7,1
+   150                           	dabs	1,0x3,1
+   151                           	dabs	1,0x3,1
+   152                           	dabs	1,0x3,1
+   153                           	dabs	1,0x1B,1
+   154                           	dabs	1,0x18,1
+   155                           	dabs	1,0xB,1
+   156                           	dabs	1,0xB,1
+   157                           	dabs	1,0x10,1
+   158                           	dabs	1,0x10,1
+   159                           	dabs	1,0x10,1
+   160                           	dabs	1,0x1A,1
+   161                           	dabs	1,0xC,1
+   162                           	dabs	1,0x10,1
+   163                           	dabs	1,0x12,1
+   164                           	dabs	1,0x12,1
+   165                           	dabs	1,0xC,1
+   166                           	dabs	1,0xB,1
+   167                           	dabs	1,0xB,1
+   168                           	dabs	1,0x10,1
+   169                           	dabs	1,0x10,1
+   170                           	dabs	1,0xC,1
+   171                           	dabs	1,0x10,1
+   172                           	dabs	1,0xC,1
+   173                           	dabs	1,0x12,1
+   174                           	dabs	1,0x12,1
+   175                           	dabs	1,0x12,1
+   176                           	dabs	1,0x12,1
+   177                           	dabs	1,0x12,1
+   178                           	dabs	1,0x1F,1
+   179                           	dabs	1,0x18,1
+   180                           	dabs	1,0x18,1
+   181                           	dabs	1,0x18,1
+   182                           	dabs	1,0x18,1
+   183                           	dabs	1,0x3,1
+   184                           	dabs	1,0x3,1
+   185                           	dabs	1,0x1F,1
+   186                           	dabs	1,0x3,1
+   187                           	dabs	1,0x3,1
+   188                           	dabs	1,0x10,1
+   189                           	dabs	1,0x3,1
+   190                           	dabs	1,0x3,1
+   191                           	dabs	1,0x81,1
+   192                           	dabs	1,0x80,1
+   193                           	dabs	1,0x9F,1
+   194                           	dabs	1,0x9E,1
+   195                           	dabs	1,0x91,1
+   196                           	dabs	1,0x9C,1
+   197                           	dabs	1,0x9D,1
+   198                           	dabs	1,0x9A,1
+   199                           	dabs	1,0x96,1
+   200                           	dabs	1,0x96,1
+   201                           	dabs	1,0x81,1
+   202                           	dabs	1,0x81,1
+   203                           	dabs	1,0x8F,1
+   204                           	dabs	1,0x90,1
+   205                           	dabs	1,0x8E,1
+   206                           	dabs	1,0x8C,1
+   207                           	dabs	1,0x81,1
+   208                           	dabs	1,0x85,1
+   209                           	dabs	1,0x8C,1
+   210                           	dabs	1,0x8E,1
+   211                           	dabs	1,0x8F,1
+   212                           	dabs	1,0x92,1
+   213                           	dabs	1,0x95,1
+   214                           	dabs	1,0x96,1
+   215                           	dabs	1,0x9A,1
+   216                           	dabs	1,0x9B,1
+   217                           	dabs	1,0x9C,1
+   218                           	dabs	1,0x9D,1
+   219                           	dabs	1,0x85,1
+   220                           	dabs	1,0x87,1
+   221                           	dabs	1,0x99,1
+   222                           	dabs	1,0x95,1
+   223                           	dabs	1,0x95,1
+   224                           	dabs	1,0x9F,1
+   225                           	dabs	1,0x9F,1
+   226                           	dabs	1,0x9F,1
+   227                           	dabs	1,0x8C,1
+   228                           	dabs	1,0x91,1
+   229                           	dabs	1,0x91,1
+   230                           	dabs	1,0x91,1
+   231                           	dabs	1,0x91,1
+   232                           	dabs	1,0x91,1
+   233                           	dabs	1,0x91,1
+   234                           	dabs	1,0x91,1
+   235                           	dabs	1,0x91,1
+   236                           	dabs	1,0x8C,1
+   237                           	dabs	1,0x8C,1
+   238                           	dabs	1,0x8C,1
+   239                           	dabs	1,0x8C,1
+   240                           	dabs	1,0x8C,1
+   241                           	dabs	1,0x8C,1
+   242                           	dabs	1,0x8F,1
+   243                           	dabs	1,0x8F,1
+   244                           	dabs	1,0x81,1
+   245                           	dabs	1,0x96,1
+   246                           	dabs	1,0x96,1
+   247                           	dabs	1,0x96,1
+   248                           	dabs	1,0x96,1
+   249                           	dabs	1,0x96,1
+   250                           	dabs	1,0x96,1
+   251                           	dabs	1,0x96,1
+   252                           	dabs	1,0x96,1
+   253                           	dabs	1,0x96,1
+   254                           	dabs	1,0x96,1
+   255                           	dabs	1,0x96,1
+   256                           	dabs	1,0x96,1
+   257                           	dabs	1,0x8F,1
+   258                           	dabs	1,0x8F,1
+   259                           	dabs	1,0x8F,1
+   260                           	dabs	1,0x8F,1
+   261                           	dabs	1,0x8F,1
+   262                           	dabs	1,0x8F,1
+   263                           	dabs	1,0x8C,1
+   264                           	dabs	1,0x8F,1
+   265                           	dabs	1,0x81,1
+   266                           	dabs	1,0x81,1
+   267                           	dabs	1,0x81,1
+   268                           	dabs	1,0x81,1
+   269                           	dabs	1,0x9C,1
+   270                           	dabs	1,0x8E,1
+   271                           	dabs	1,0x8E,1
+   272                           	dabs	1,0x8F,1
+   273                           	dabs	1,0x81,1
+   274                           	dabs	1,0x81,1
+   275                           	dabs	1,0x8C,1
+   276                           	dabs	1,0x8C,1
+   277                           	dabs	1,0x8C,1
+   278                           	dabs	1,0x8C,1
+   279                           	dabs	1,0x85,1
+   280                           	dabs	1,0x85,1
+   281                           	dabs	1,0x85,1
+   282                           	dabs	1,0x85,1
+   283                           	dabs	1,0x85,1
+   284                           	dabs	1,0x85,1
+   285                           	dabs	1,0x87,1
+   286                           	dabs	1,0x87,1
+   287                           	dabs	1,0x87,1
+   288                           	dabs	1,0x87,1
+   289                           	dabs	1,0x87,1
+   290                           	dabs	1,0x87,1
+   291                           	dabs	1,0x90,1
+   292                           	dabs	1,0x90,1
+   293                           	dabs	1,0x90,1
+   294                           	dabs	1,0x90,1
+   295                           	dabs	1,0x90,1
+   296                           	dabs	1,0x8E,1
+   297                           	dabs	1,0x99,1
+   298                           	dabs	1,0x99,1
+   299                           	dabs	1,0x99,1
+   300                           	dabs	1,0x99,1
+   301                           	dabs	1,0x99,1
+   302                           	dabs	1,0x99,1
+   303                           	dabs	1,0x95,1
+   304                           	dabs	1,0x95,1
+   305                           	dabs	1,0x95,1
+   306                           	dabs	1,0x95,1
+   307                           	dabs	1,0x95,1
+   308                           	dabs	1,0x95,1
+   309                           	dabs	1,0x95,1
+   310                           	dabs	1,0x95,1
+   311                           	dabs	1,0x95,1
+   312                           	dabs	1,0x95,1
+   313                           	dabs	1,0x9D,1
+   314                           	dabs	1,0x9C,1
+   315                           	dabs	1,0x9C,1
+   316                           	dabs	1,0x9C,1
+   317                           	dabs	1,0x9C,1
+   318                           	dabs	1,0x9C,1
+   319                           	dabs	1,0x8E,1
+   320                           	dabs	1,0x8E,1
+   321                           	dabs	1,0x81,1
+   322                           	dabs	1,0x8E,1
+   323                           	dabs	1,0x81,1
+   324                           	dabs	1,0xB,1
+   325                           	dabs	1,0xC,1
+   326                           	dabs	1,0xD,1
+   327                           	dabs	1,0xE,1
+   328                           	dabs	1,0xF,1
+   329                           	dabs	1,0x10,1
+   330                           	dabs	1,0x11,1
+   331                           	dabs	1,0x13,1
+   332                           	dabs	1,0x14,1
+   333                           	dabs	1,0x15,1
+   334                           	dabs	1,0x16,1
+   335                           	dabs	1,0x17,1
+   336                           	dabs	1,0x12,1
+   337                           	dabs	1,0x18,1
+   338                           	dabs	1,0x1B,1
+   339                           	dabs	1,0x19,1
+   340                           	dabs	1,0x1A,1
+   341                           	dabs	1,0x1E,1
+   342                           	dabs	1,0x1F,1
+   343                           	dabs	1,0x1D,1
+   344                           	dabs	1,0x1C,1
+   345                           	dabs	1,0x82,1
+   346                           	dabs	1,0x83,1
+   347                           	dabs	1,0x84,1
+   348                           	dabs	1,0x85,1
+   349                           	dabs	1,0x8C,1
+   350                           	dabs	1,0x86,1
+   351                           	dabs	1,0x87,1
+   352                           	dabs	1,0x88,1
+   353                           	dabs	1,0x89,1
+   354                           	dabs	1,0x8A,1
+   355                           	dabs	1,0x8B,1
+   356                           	dabs	1,0x8E,1
+   357                           	dabs	1,0x8D,1
+   358                           	dabs	1,0x8F,1
+   359                           	dabs	1,0x92,1
+   360                           	dabs	1,0x90,1
+   361                           	dabs	1,0x91,1
+   362                           	dabs	1,0x93,1
+   363                           	dabs	1,0x94,1
+   364                           	dabs	1,0x95,1
+   365                           	dabs	1,0x9A,1
+   366                           	dabs	1,0x96,1
+   367                           	dabs	1,0x97,1
+   368                           	dabs	1,0x98,1
+   369                           	dabs	1,0x99,1
+   370                           	dabs	1,0x9B,1
+   371                           	dabs	1,0x9C,1
+   372                           	dabs	1,0x9D,1
+   373                           	dabs	1,0x9E,1
+   374                           	dabs	1,0x9F,1
+   375                           	dabs	1,0x7E,2
+   376  000A                     
+   377                           	psect	text44
+   378  0000                     __ptext44:	
+   379  0004                     _FSR	set	4	;_FSR
+   380  0000                     _INDF	set	0	;_INDF
+   381  0002                     _PCL	set	2	;_PCL
+   382  000A                     _PCLATH	set	10	;_PCLATH
+   383  0005                     _PORTA	set	5	;_PORTA
+   384  0006                     _SFR06	set	6	;_SFR06
+   385  0007                     _SFR07	set	7	;_SFR07
+   386  0008                     _SFR08	set	8	;_SFR08
+   387  0009                     _SFR09	set	9	;_SFR09
+   388  0003                     _STATUS	set	3	;_STATUS
+   389  0001                     _TMR0	set	1	;_TMR0
+   390  0013                     _CCPR1	set	19	;_CCPR1
+   391  000E                     _TMR1	set	14	;_TMR1
+   392  001F                     _ADCON0	set	31	;_ADCON0
+   393  001E                     _ADRESH	set	30	;_ADRESH
+   394  0015                     _CCP1CON	set	21	;_CCP1CON
+   395  0014                     _CCPR1H	set	20	;_CCPR1H
+   396  0013                     _CCPR1L	set	19	;_CCPR1L
+   397  0019                     _CMCON0	set	25	;_CMCON0
+   398  001A                     _CMCON1	set	26	;_CMCON1
+   399  0017                     _ECCPAS	set	23	;_ECCPAS
+   400  000B                     _INTCONbits	set	11	;_INTCONbits
+   401  001B                     _MSCKCONbits	set	27	;_MSCKCONbits
+   402  000A                     _PCLATHbits	set	10	;_PCLATHbits
+   403  000C                     _PIR1bits	set	12	;_PIR1bits
+   404  0005                     _PORTAbits	set	5	;_PORTAbits
+   405  0007                     _PORTC	set	7	;_PORTC
+   406  0016                     _PWM1CON	set	22	;_PWM1CON
+   407  0000                     _SFR00	set	0	;_SFR00
+   408  0001                     _SFR01	set	1	;_SFR01
+   409  0002                     _SFR02	set	2	;_SFR02
+   410  0003                     _SFR03	set	3	;_SFR03
+   411  0004                     _SFR04	set	4	;_SFR04
+   412  0005                     _SFR05	set	5	;_SFR05
+   413  000A                     _SFR0A	set	10	;_SFR0A
+   414  000B                     _SFR0B	set	11	;_SFR0B
+   415  000C                     _SFR0C	set	12	;_SFR0C
+   416  0011                     _SFR11	set	17	;_SFR11
+   417  0012                     _SFR12	set	18	;_SFR12
+   418  0018                     _SFR18	set	24	;_SFR18
+   419  001B                     _SFR1B	set	27	;_SFR1B
+   420  001C                     _SFR1C	set	28	;_SFR1C
+   421  001D                     _SFR1D	set	29	;_SFR1D
+   422  001D                     _SOSCPRHbits	set	29	;_SOSCPRHbits
+   423  0003                     _STATUSbits	set	3	;_STATUSbits
+   424  0010                     _T1CON	set	16	;_T1CON
+   425  0012                     _T2CONbits	set	18	;_T2CONbits
+   426  000F                     _TMR1H	set	15	;_TMR1H
+   427  000E                     _TMR1L	set	14	;_TMR1L
+   428  0018                     _WDTCONbits	set	24	;_WDTCONbits
+   429  00FF                     _ADFM	set	255	;_ADFM
+   430  0066                     _ADIF	set	102	;_ADIF
+   431  00F8                     _ADON	set	248	;_ADON
+   432  0018                     _C	set	24	;_C
+   433  0063                     _C1IF	set	99	;_C1IF
+   434  00CC                     _C1INV	set	204	;_C1INV
+   435  00CE                     _C1OUT	set	206	;_C1OUT
+   436  0064                     _C2IF	set	100	;_C2IF
+   437  00CD                     _C2INV	set	205	;_C2INV
+   438  00CF                     _C2OUT	set	207	;_C2OUT
+   439  00D0                     _C2SYNC	set	208	;_C2SYNC
+   440  0018                     _CARRY	set	24	;_CARRY
+   441  0065                     _CCP1IF	set	101	;_CCP1IF
+   442  00A8                     _CCP1M0	set	168	;_CCP1M0
+   443  00A9                     _CCP1M1	set	169	;_CCP1M1
+   444  00AA                     _CCP1M2	set	170	;_CCP1M2
+   445  00AB                     _CCP1M3	set	171	;_CCP1M3
+   446  00FA                     _CHS0	set	250	;_CHS0
+   447  00FB                     _CHS1	set	251	;_CHS1
+   448  00FC                     _CHS2	set	252	;_CHS2
+   449  00CB                     _CIS	set	203	;_CIS
+   450  00D9                     _CKCNTI	set	217	;_CKCNTI
+   451  00DA                     _CKMAVG	set	218	;_CKMAVG
+   452  0066                     _CKMEAIF	set	102	;_CKMEAIF
+   453  00C8                     _CM0	set	200	;_CM0
+   454  00C9                     _CM1	set	201	;_CM1
+   455  00CA                     _CM2	set	202	;_CM2
+   456  0019                     _DC	set	25	;_DC
+   457  00AC                     _DC1B0	set	172	;_DC1B0
+   458  00AD                     _DC1B1	set	173	;_DC1B1
+   459  00BC                     _ECCPAS0	set	188	;_ECCPAS0
+   460  00BD                     _ECCPAS1	set	189	;_ECCPAS1
+   461  00BE                     _ECCPAS2	set	190	;_ECCPAS2
+   462  00BF                     _ECCPASE	set	191	;_ECCPASE
+   463  0065                     _ECCPIF	set	101	;_ECCPIF
+   464  0067                     _EEIF	set	103	;_EEIF
+   465  005F                     _GIE	set	95	;_GIE
+   466  00F9                     _GO	set	249	;_GO
+   467  00F9                     _GO_DONE	set	249	;_GO_DONE
+   468  00F9                     _GO_nDONE	set	249	;_GO_nDONE
+   469  0019                     _HC	set	25	;_HC
+   470  005C                     _INTE	set	92	;_INTE
+   471  0059                     _INTF	set	89	;_INTF
+   472  001F                     _IRP	set	31	;_IRP
+   473  0062                     _OSFIF	set	98	;_OSFIF
+   474  00AE                     _P1M0	set	174	;_P1M0
+   475  00AF                     _P1M1	set	175	;_P1M1
+   476  0028                     _PA0	set	40	;_PA0
+   477  0029                     _PA1	set	41	;_PA1
+   478  002A                     _PA2	set	42	;_PA2
+   479  002B                     _PA3	set	43	;_PA3
+   480  002C                     _PA4	set	44	;_PA4
+   481  002D                     _PA5	set	45	;_PA5
+   482  001D                     _PAGE	set	29	;_PAGE
+   483  005B                     _PAIE	set	91	;_PAIE
+   484  0058                     _PAIF	set	88	;_PAIF
+   485  00B0                     _PDC0	set	176	;_PDC0
+   486  00B1                     _PDC1	set	177	;_PDC1
+   487  00B2                     _PDC2	set	178	;_PDC2
+   488  00B3                     _PDC3	set	179	;_PDC3
+   489  00B4                     _PDC4	set	180	;_PDC4
+   490  00B5                     _PDC5	set	181	;_PDC5
+   491  00B6                     _PDC6	set	182	;_PDC6
+   492  005E                     _PEIE	set	94	;_PEIE
+   493  00B7                     _PRSEN	set	183	;_PRSEN
+   494  00BA                     _PSSAC0	set	186	;_PSSAC0
+   495  00BB                     _PSSAC1	set	187	;_PSSAC1
+   496  00B8                     _PSSBD0	set	184	;_PSSBD0
+   497  00B9                     _PSSBD1	set	185	;_PSSBD1
+   498  0028                     _RA0	set	40	;_RA0
+   499  0029                     _RA1	set	41	;_RA1
+   500  002A                     _RA2	set	42	;_RA2
+   501  002B                     _RA3	set	43	;_RA3
+   502  002C                     _RA4	set	44	;_RA4
+   503  002D                     _RA5	set	45	;_RA5
+   504  005B                     _RAIE	set	91	;_RAIE
+   505  0058                     _RAIF	set	88	;_RAIF
+   506  0038                     _RC0	set	56	;_RC0
+   507  0039                     _RC1	set	57	;_RC1
+   508  003A                     _RC2	set	58	;_RC2
+   509  003B                     _RC3	set	59	;_RC3
+   510  003C                     _RC4	set	60	;_RC4
+   511  003D                     _RC5	set	61	;_RC5
+   512  001D                     _RP	set	29	;_RP
+   513  001D                     _RP0	set	29	;_RP0
+   514  001E                     _RP1	set	30	;_RP1
+   515  00DC                     _SLVREN	set	220	;_SLVREN
+   516  00C0                     _SWDTEN	set	192	;_SWDTEN
+   517  005D                     _T0IE	set	93	;_T0IE
+   518  005A                     _T0IF	set	90	;_T0IF
+   519  0084                     _T1CKPS0	set	132	;_T1CKPS0
+   520  0085                     _T1CKPS1	set	133	;_T1CKPS1
+   521  0087                     _T1GINV	set	135	;_T1GINV
+   522  00D1                     _T1GSS	set	209	;_T1GSS
+   523  0060                     _T1IF	set	96	;_T1IF
+   524  0083                     _T1OSCEN	set	131	;_T1OSCEN
+   525  0090                     _T2CKPS0	set	144	;_T2CKPS0
+   526  0091                     _T2CKPS1	set	145	;_T2CKPS1
+   527  0061                     _T2IF	set	97	;_T2IF
+   528  005D                     _TMR0IE	set	93	;_TMR0IE
+   529  005A                     _TMR0IF	set	90	;_TMR0IF
+   530  0081                     _TMR1CS	set	129	;_TMR1CS
+   531  0086                     _TMR1GE	set	134	;_TMR1GE
+   532  0060                     _TMR1IF	set	96	;_TMR1IF
+   533  0080                     _TMR1ON	set	128	;_TMR1ON
+   534  0061                     _TMR2IF	set	97	;_TMR2IF
+   535  0092                     _TMR2ON	set	146	;_TMR2ON
+   536  0093                     _TOUTPS0	set	147	;_TOUTPS0
+   537  0094                     _TOUTPS1	set	148	;_TOUTPS1
+   538  0095                     _TOUTPS2	set	149	;_TOUTPS2
+   539  0096                     _TOUTPS3	set	150	;_TOUTPS3
+   540  00FE                     _VCFG	set	254	;_VCFG
+   541  00C1                     _WDTPS0	set	193	;_WDTPS0
+   542  00C2                     _WDTPS1	set	194	;_WDTPS1
+   543  00C3                     _WDTPS2	set	195	;_WDTPS2
+   544  00C4                     _WDTPS3	set	196	;_WDTPS3
+   545  001A                     _Z	set	26	;_Z
+   546  001A                     _ZERO	set	26	;_ZERO
+   547  00F9                     _nDONE	set	249	;_nDONE
+   548  001B                     _nPD	set	27	;_nPD
+   549  001B                     _nPF	set	27	;_nPF
+   550  0082                     _nT1SYNC	set	130	;_nT1SYNC
+   551  001C                     _nTF	set	28	;_nTF
+   552  001C                     _nTO	set	28	;_nTO
+   553                           
+   554                           	psect	nvCOMMON
+   555  0065                     __pnvCOMMON:	
+   556  0065                     _RX_highTime:	
+   557  0065                     	ds	2
+   558  0081                     _OPTION	set	129	;_OPTION
+   559  0080                     _SFR80	set	128	;_SFR80
+   560  009F                     _ADCON1	set	159	;_ADCON1
+   561  009E                     _ADRESL	set	158	;_ADRESL
+   562  0091                     _ANSEL	set	145	;_ANSEL
+   563  009C                     _EECON1bits	set	156	;_EECON1bits
+   564  009D                     _EECON2bits	set	157	;_EECON2bits
+   565  009A                     _EEDATA	set	154	;_EEDATA
+   566  0096                     _IOC	set	150	;_IOC
+   567  0096                     _IOCAbits	set	150	;_IOCAbits
+   568  0081                     _OPTION_REG	set	129	;_OPTION_REG
+   569  0081                     _OPTIONbits	set	129	;_OPTIONbits
+   570  008F                     _OSCCONbits	set	143	;_OSCCONbits
+   571  0090                     _OSCTUNE	set	144	;_OSCTUNE
+   572  008E                     _PCONbits	set	142	;_PCONbits
+   573  008C                     _PIE1bits	set	140	;_PIE1bits
+   574  0081                     _SFR81	set	129	;_SFR81
+   575  0085                     _SFR85	set	133	;_SFR85
+   576  008C                     _SFR8C	set	140	;_SFR8C
+   577  008E                     _SFR8E	set	142	;_SFR8E
+   578  008F                     _SFR8F	set	143	;_SFR8F
+   579  0092                     _SFR92	set	146	;_SFR92
+   580  0095                     _SFR95	set	149	;_SFR95
+   581  0096                     _SFR96	set	150	;_SFR96
+   582  009A                     _SFR9A	set	154	;_SFR9A
+   583  009B                     _SFR9B	set	155	;_SFR9B
+   584  009C                     _SFR9C	set	156	;_SFR9C
+   585  009D                     _SFR9D	set	157	;_SFR9D
+   586  0085                     _TRISAbits	set	133	;_TRISAbits
+   587  0087                     _TRISC	set	135	;_TRISC
+   588  0099                     _VRCON	set	153	;_VRCON
+   589  0095                     _WPU	set	149	;_WPU
+   590  0095                     _WPUAbits	set	149	;_WPUAbits
+   591  04FC                     _ADCS0	set	1276	;_ADCS0
+   592  04FD                     _ADCS1	set	1277	;_ADCS1
+   593  04FE                     _ADCS2	set	1278	;_ADCS2
+   594  0466                     _ADIE	set	1126	;_ADIE
+   595  0488                     _ANS0	set	1160	;_ANS0
+   596  0489                     _ANS1	set	1161	;_ANS1
+   597  048A                     _ANS2	set	1162	;_ANS2
+   598  048B                     _ANS3	set	1163	;_ANS3
+   599  048C                     _ANS4	set	1164	;_ANS4
+   600  048D                     _ANS5	set	1165	;_ANS5
+   601  048E                     _ANS6	set	1166	;_ANS6
+   602  048F                     _ANS7	set	1167	;_ANS7
+   603  0463                     _C1IE	set	1123	;_C1IE
+   604  0464                     _C2IE	set	1124	;_C2IE
+   605  0465                     _CCP1IE	set	1125	;_CCP1IE
+   606  0466                     _CKMEAIE	set	1126	;_CKMEAIE
+   607  0465                     _ECCPIE	set	1125	;_ECCPIE
+   608  0467                     _EEIE	set	1127	;_EEIE
+   609  047A                     _HFIOFR	set	1146	;_HFIOFR
+   610  047A                     _HTS	set	1146	;_HTS
+   611  040E                     _INTEDG	set	1038	;_INTEDG
+   612  04B0                     _IOC0	set	1200	;_IOC0
+   613  04B1                     _IOC1	set	1201	;_IOC1
+   614  04B2                     _IOC2	set	1202	;_IOC2
+   615  04B3                     _IOC3	set	1203	;_IOC3
+   616  04B4                     _IOC4	set	1204	;_IOC4
+   617  04B5                     _IOC5	set	1205	;_IOC5
+   618  04B0                     _IOCA0	set	1200	;_IOCA0
+   619  04B1                     _IOCA1	set	1201	;_IOCA1
+   620  04B2                     _IOCA2	set	1202	;_IOCA2
+   621  04B3                     _IOCA3	set	1203	;_IOCA3
+   622  04B4                     _IOCA4	set	1204	;_IOCA4
+   623  04B5                     _IOCA5	set	1205	;_IOCA5
+   624  047C                     _IRCF0	set	1148	;_IRCF0
+   625  047D                     _IRCF1	set	1149	;_IRCF1
+   626  047E                     _IRCF2	set	1150	;_IRCF2
+   627  0479                     _LFIOFR	set	1145	;_LFIOFR
+   628  047F                     _LFMOD	set	1151	;_LFMOD
+   629  0479                     _LTS	set	1145	;_LTS
+   630  0462                     _OSFIE	set	1122	;_OSFIE
+   631  047B                     _OSTS	set	1147	;_OSTS
+   632  0408                     _PS0	set	1032	;_PS0
+   633  0409                     _PS1	set	1033	;_PS1
+   634  040A                     _PS2	set	1034	;_PS2
+   635  040B                     _PSA	set	1035	;_PSA
+   636  04E0                     _RD	set	1248	;_RD
+   637  0474                     _SBODEN	set	1140	;_SBODEN
+   638  0474                     _SBOREN	set	1140	;_SBOREN
+   639  0478                     _SCS	set	1144	;_SCS
+   640  040D                     _T0CS	set	1037	;_T0CS
+   641  040C                     _T0SE	set	1036	;_T0SE
+   642  0460                     _T1IE	set	1120	;_T1IE
+   643  0461                     _T2IE	set	1121	;_T2IE
+   644  0460                     _TMR1IE	set	1120	;_TMR1IE
+   645  0461                     _TMR2IE	set	1121	;_TMR2IE
+   646  0428                     _TRISA0	set	1064	;_TRISA0
+   647  0429                     _TRISA1	set	1065	;_TRISA1
+   648  042A                     _TRISA2	set	1066	;_TRISA2
+   649  042B                     _TRISA3	set	1067	;_TRISA3
+   650  042C                     _TRISA4	set	1068	;_TRISA4
+   651  042D                     _TRISA5	set	1069	;_TRISA5
+   652  0438                     _TRISC0	set	1080	;_TRISC0
+   653  0439                     _TRISC1	set	1081	;_TRISC1
+   654  043A                     _TRISC2	set	1082	;_TRISC2
+   655  043B                     _TRISC3	set	1083	;_TRISC3
+   656  043C                     _TRISC4	set	1084	;_TRISC4
+   657  043D                     _TRISC5	set	1085	;_TRISC5
+   658  0480                     _TUN0	set	1152	;_TUN0
+   659  0481                     _TUN1	set	1153	;_TUN1
+   660  0482                     _TUN2	set	1154	;_TUN2
+   661  0483                     _TUN3	set	1155	;_TUN3
+   662  0484                     _TUN4	set	1156	;_TUN4
+   663  0475                     _ULPWUE	set	1141	;_ULPWUE
+   664  04C8                     _VR0	set	1224	;_VR0
+   665  04C9                     _VR1	set	1225	;_VR1
+   666  04CA                     _VR2	set	1226	;_VR2
+   667  04CB                     _VR3	set	1227	;_VR3
+   668  04CF                     _VREN	set	1231	;_VREN
+   669  04CD                     _VRR	set	1229	;_VRR
+   670  04A8                     _WPU0	set	1192	;_WPU0
+   671  04A9                     _WPU1	set	1193	;_WPU1
+   672  04AA                     _WPU2	set	1194	;_WPU2
+   673  04AC                     _WPU4	set	1196	;_WPU4
+   674  04AD                     _WPU5	set	1197	;_WPU5
+   675  04A8                     _WPUA0	set	1192	;_WPUA0
+   676  04A9                     _WPUA1	set	1193	;_WPUA1
+   677  04AA                     _WPUA2	set	1194	;_WPUA2
+   678  04AC                     _WPUA4	set	1196	;_WPUA4
+   679  04AD                     _WPUA5	set	1197	;_WPUA5
+   680  04E8                     _WR	set	1256	;_WR
+   681  04E2                     _WREN	set	1250	;_WREN
+   682  04E2                     _WREN1	set	1250	;_WREN1
+   683  04E4                     _WREN2	set	1252	;_WREN2
+   684  04E5                     _WREN3	set	1253	;_WREN3
+   685  04E3                     _WRERR	set	1251	;_WRERR
+   686  0470                     _nBOD	set	1136	;_nBOD
+   687  0470                     _nBOR	set	1136	;_nBOR
+   688  040F                     _nPAPU	set	1039	;_nPAPU
+   689  0471                     _nPOR	set	1137	;_nPOR
+   690  040F                     _nRAPU	set	1039	;_nRAPU
+   691  000B                     _INTCON	set	11	;_INTCON
+   692  000C                     _PIR1	set	12	;_PIR1
+   693  000D                     _SFR0D	set	13	;_SFR0D
+   694  000E                     _SFR0E	set	14	;_SFR0E
+   695  000F                     _SFR0F	set	15	;_SFR0F
+   696  0010                     _SFR10	set	16	;_SFR10
+   697  0011                     _TMR2	set	17	;_TMR2
+   698  0013                     _SFR13	set	19	;_SFR13
+   699  0014                     _SFR14	set	20	;_SFR14
+   700  0015                     _SFR15	set	21	;_SFR15
+   701  0016                     _SFR16	set	22	;_SFR16
+   702  0017                     _SFR17	set	23	;_SFR17
+   703  0012                     _T2CON	set	18	;_T2CON
+   704  0018                     _WDTCON	set	24	;_WDTCON
+   705  001B                     _MSCKCON	set	27	;_MSCKCON
+   706  0019                     _SFR19	set	25	;_SFR19
+   707  001A                     _SFR1A	set	26	;_SFR1A
+   708  001E                     _SFR1E	set	30	;_SFR1E
+   709  001F                     _SFR1F	set	31	;_SFR1F
+   710  001D                     _SOSCPRH	set	29	;_SOSCPRH
+   711  001C                     _SOSCPRL	set	28	;_SOSCPRL
+   712  0082                     _SFR82	set	130	;_SFR82
+   713  0083                     _SFR83	set	131	;_SFR83
+   714  0084                     _SFR84	set	132	;_SFR84
+   715  0085                     _TRISA	set	133	;_TRISA
+   716  008C                     _PIE1	set	140	;_PIE1
+   717  0086                     _SFR86	set	134	;_SFR86
+   718  0087                     _SFR87	set	135	;_SFR87
+   719  0088                     _SFR88	set	136	;_SFR88
+   720  0089                     _SFR89	set	137	;_SFR89
+   721  008A                     _SFR8A	set	138	;_SFR8A
+   722  008B                     _SFR8B	set	139	;_SFR8B
+   723  008E                     _PCON	set	142	;_PCON
+   724  008D                     _SFR8D	set	141	;_SFR8D
+   725  008F                     _OSCCON	set	143	;_OSCCON
+   726  0092                     _PR2	set	146	;_PR2
+   727  0090                     _SFR90	set	144	;_SFR90
+   728  0091                     _SFR91	set	145	;_SFR91
+   729  0093                     _SFR93	set	147	;_SFR93
+   730  0094                     _SFR94	set	148	;_SFR94
+   731  0095                     _WPUA	set	149	;_WPUA
+   732  009A                     _EEDAT	set	154	;_EEDAT
+   733  0096                     _IOCA	set	150	;_IOCA
+   734  0097                     _SFR97	set	151	;_SFR97
+   735  0098                     _SFR98	set	152	;_SFR98
+   736  0099                     _SFR99	set	153	;_SFR99
+   737  009B                     _EEADR	set	155	;_EEADR
+   738  009C                     _EECON1	set	156	;_EECON1
+   739  009D                     _EECON2	set	157	;_EECON2
+   740  009E                     _SFR9E	set	158	;_SFR9E
+   741  009F                     _SFR9F	set	159	;_SFR9F
+   742                           
+   743                           	psect	cinit
+   744  0136                     start_initialization:	
+   745                           
+   746                           ; Clear objects allocated to COMMON
+   747  0136  3040               	movlw	low __pbssCOMMON
+   748  0137  0084               	movwf	4
+   749  0138  3062               	movlw	low (__pbssCOMMON+34)
+   750  0139  212E               	fcall	clear_ram
+   751  013A                     end_of_initialization:	
+   752                           ;End of C runtime variable initialization code
+   753                           
+   754  013A  0183               	clrf	3
+   755  013B  280D               	ljmp	_main	;jump to C main() function
+   756                           
+   757                           	psect	bssCOMMON
+   758  0040                     __pbssCOMMON:	
+   759  0040                     _UART_RX_buff:	
+   760  0040                     	ds	15
+   761  004F                     _TX_data:	
+   762  004F                     	ds	4
+   763  0053                     _TX_data1:	
+   764  0053                     	ds	4
+   765  0057                     _TX_highTime:	
+   766  0057                     	ds	2
+   767  0059                     _TX_lowTime:	
+   768  0059                     	ds	2
+   769  005B                     _F_RX:	
+   770  005B                     	ds	1
+   771  005C                     _RX_EN:	
+   772  005C                     	ds	1
+   773  005D                     _RX_data:	
+   774  005D                     	ds	1
+   775  005E                     _RX_dataBit:	
+   776  005E                     	ds	1
+   777  005F                     _RX_dataNum:	
+   778  005F                     	ds	1
+   779  0060                     _TX_dataBit:	
+   780  0060                     	ds	1
+   781  0061                     _Time_FLAG:	
+   782  0061                     	ds	1
+   783                           
+   784                           	psect	clrtext
+   785  012E                     clear_ram:	
+   786                           ;	Called with FSR containing the base address, and
+   787                           ;	W with the last address+1
+   788                           
+   789  012E  0064               	clrwdt	;clear the watchdog before getting into this loop
+   790  012F                     clrloop:	
+   791  012F  0180               	clrf	0	;clear RAM location pointed to by FSR
+   792  0130  0A84               	incf	4,f	;increment pointer
+   793  0131  0604               	xorwf	4,w	;XOR with final address
+   794  0132  1903               	btfsc	3,2	;have we reached the end yet?
+   795  0133  3400               	retlw	0	;all done for this memory range, return
+   796  0134  0604               	xorwf	4,w	;XOR again to restore value
+   797  0135  292F               	goto	clrloop	;do the next byte
+   798                           
+   799                           	psect	cstackCOMMON
+   800  0062                     __pcstackCOMMON:	
+   801  0062                     ?_sys_init:	
+   802  0062                     ?_ISR:	
+   803                           ; 0 bytes @ 0x0
+   804                           
+   805  0062                     ??_ISR:	
+   806                           ; 0 bytes @ 0x0
+   807                           
+   808  0062                     ?_main:	
+   809                           ; 0 bytes @ 0x0
+   810                           
+   811                           
+   812                           ; 2 bytes @ 0x0
+   813  0062                     	ds	3
+   814  0065                     ??_sys_init:	
+   815  0065                     ??_main:	
+   816                           ; 0 bytes @ 0x3
+   817                           
+   818                           
+   819                           	psect	maintext
+   820  000D                     __pmaintext:	
+   821                           ; 0 bytes @ 0x3
+   822 ;;Data sizes: Strings 0, constant 0, data 0, bss 34, persistent 2 stack 0
+   823 ;;Auto spaces:   Size  Autos    Used
+   824 ;; COMMON          62      3      39
+   825 ;;
+   826 ;; Pointer list with targets:
+   827 ;;
+   828 ;; Critical Paths under _main in COMMON
+   829 ;;
+   830 ;;   None.
+   831 ;;
+   832 ;; Critical Paths under _ISR in COMMON
+   833 ;;
+   834 ;;   None.
+   835 ;;
+   836 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   837 ;;
+   838 ;;
+   839 ;;Call Graph Tables:
+   840 ;;
+   841 ;; ---------------------------------------------------------------------------------
+   842 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+   843 ;; ---------------------------------------------------------------------------------
+   844 ;; (0) _main                                                 0     0      0       0
+   845 ;;                           _sys_init
+   846 ;; ---------------------------------------------------------------------------------
+   847 ;; (1) _sys_init                                             0     0      0       0
+   848 ;; ---------------------------------------------------------------------------------
+   849 ;; Estimated maximum stack depth 1
+   850 ;; ---------------------------------------------------------------------------------
+   851 ;; (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+   852 ;; ---------------------------------------------------------------------------------
+   853 ;; (2) _ISR                                                  3     3      0       0
+   854 ;;                                              0 COMMON     3     3      0
+   855 ;; ---------------------------------------------------------------------------------
+   856 ;; Estimated maximum stack depth 2
+   857 ;; ---------------------------------------------------------------------------------
+   858 ;; Call Graph Graphs:
+   859 ;; _main (ROOT)
+   860 ;;   _sys_init
+   861 ;;
+   862 ;; _ISR (ROOT)
+   863 ;;
+   864 ;; Address spaces:
+   865 ;;Name               Size   Autos  Total    Cost      Usage
+   866 ;;BITCOMMON           3E      0       0       0        0.0%
+   867 ;;EEDATA             100      0       0       0        0.0%
+   868 ;;NULL                 0      0       0       0        0.0%
+   869 ;;CODE                 0      0       0       0        0.0%
+   870 ;;COMMON              3E      3      27       1       62.9%
+   871 ;;BITSFR0              0      0       0       1        0.0%
+   872 ;;SFR0                 0      0       0       1        0.0%
+   873 ;;BITSFR1              0      0       0       2        0.0%
+   874 ;;SFR1                 0      0       0       2        0.0%
+   875 ;;STACK                0      0       1       2        0.0%
+   876 ;;ABS                  0      0      27       3        0.0%
+   877 ;;DATA                 0      0      28       4        0.0%
+   878                           
+   879                           
+   880 ;; *************** function _main *****************
+   881 ;; Defined at:
+   882 ;;		line 94 in file "yy_ir.C"
+   883 ;; Parameters:    Size  Location     Type
+   884 ;;		None
+   885 ;; Auto vars:     Size  Location     Type
+   886 ;;		None
+   887 ;; Return value:  Size  Location     Type
+   888 ;;                  2  909[COMMON] int 
+   889 ;; Registers used:
+   890 ;;		wreg, fsr0l, fsr0h, status,2, status,0, pclath, cstack
+   891 ;; Tracked objects:
+   892 ;;		On entry : 17F/0
+   893 ;;		On exit  : 20/0
+   894 ;;		Unchanged: FFE00/0
+   895 ;; Data sizes:     COMMON
+   896 ;;      Params:         0
+   897 ;;      Locals:         0
+   898 ;;      Temps:          0
+   899 ;;      Totals:         0
+   900 ;;Total ram usage:        0 bytes
+   901 ;; Hardware stack levels required when called:    2
+   902 ;; This function calls:
+   903 ;;		_sys_init
+   904 ;; This function is called by:
+   905 ;;		Startup code after reset
+   906 ;; This function uses a non-reentrant model
+   907 ;;
+   908  000D                     _main:	
+   909                           
+   910                           ;yy_ir.C: 95: sys_init();
+   911                           
+   912                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+pclath+cstack]
+   913  000D  20F5               	fcall	_sys_init
+   914                           
+   915                           ;yy_ir.C: 96: F_RX = RESET;
+   916  000E  01DB               	clrf	_F_RX
+   917                           
+   918                           ;yy_ir.C: 97: RX_EN = DISABLE;
+   919  000F  01DC               	clrf	_RX_EN
+   920                           
+   921                           ;yy_ir.C: 98: (T0IE = 0,T0IF = 0);
+   922  0010  128B               	bcf	11,5
+   923  0011  110B               	bcf	11,2
+   924  0012                     l1972:	
+   925                           
+   926                           ;yy_ir.C: 100: {
+   927                           ;yy_ir.C: 104: RX_highTime = 0;
+   928  0012  01E5               	clrf	_RX_highTime
+   929  0013  01E6               	clrf	_RX_highTime+1
+   930  0014                     l1978:	
+   931                           ;yy_ir.C: 105: while(RX_highTime<5000)
+   932                           
+   933  0014  3013               	movlw	19
+   934  0015  0266               	subwf	_RX_highTime+1,w
+   935  0016  3088               	movlw	136
+   936  0017  1903               	skipnz
+   937  0018  0265               	subwf	_RX_highTime,w
+   938                           
+   939                           ;yy_ir.C: 106: {
+   940                           ;yy_ir.C: 107: if(PA3)
+   941  0019  1283               	bcf	3,5	;RP0=0, select bank0
+   942  001A  1803               	btfsc	3,0
+   943  001B  2824               	goto	L3
+   944  001C  1D85               	btfss	5,3
+   945  001D  2812               	goto	l1972
+   946                           
+   947                           ;yy_ir.C: 108: RX_highTime++;
+   948  001E  0AE5               	incf	_RX_highTime,f
+   949  001F  1903               	skipnz
+   950  0020  0AE6               	incf	_RX_highTime+1,f
+   951  0021  2814               	goto	l1978
+   952  0022                     l917:	
+   953  0022  0064               	clrwdt	;#
+   954  0023  1283               	bcf	3,5	;RP0=0, select bank0
+   955  0024                     L3:	
+   956  0024  1985               	btfsc	5,3
+   957  0025  2822               	goto	l917
+   958                           
+   959                           ;yy_ir.C: 115: }
+   960                           ;yy_ir.C: 116: RX_dataNum = 0;
+   961  0026  01DF               	clrf	_RX_dataNum
+   962                           
+   963                           ;yy_ir.C: 117: for(RX_dataNum = 0;RX_dataNum < 8;RX_dataNum++)
+   964  0027  01DF               	clrf	_RX_dataNum
+   965  0028                     l1982:	
+   966  0028  3008               	movlw	8
+   967  0029  025F               	subwf	_RX_dataNum,w
+   968  002A  1803               	btfsc	3,0
+   969  002B  283F               	goto	l1998
+   970  002C                     l921:	
+   971  002C  1985               	btfsc	5,3
+   972  002D  282C               	goto	l921
+   973  002E  3008               	movlw	8
+   974                           
+   975                           ;yy_ir.C: 120: RX_EN = ENABLE;
+   976  002F  01DC               	clrf	_RX_EN
+   977  0030  0ADC               	incf	_RX_EN,f
+   978                           
+   979                           ;yy_ir.C: 121: RX_dataBit = 8;
+   980  0031  00DE               	movwf	_RX_dataBit
+   981                           
+   982                           ;yy_ir.C: 122: TMR0 = 100;
+   983  0032  3064               	movlw	100
+   984  0033  0081               	movwf	1	;volatile
+   985                           
+   986                           ;yy_ir.C: 123: (T0IF = 0,T0IE = 1);
+   987  0034  110B               	bcf	11,2
+   988  0035  168B               	bsf	11,5
+   989  0036                     l1992:	
+   990                           ;yy_ir.C: 124: while(RX_EN);
+   991                           
+   992  0036  08DC               	movf	_RX_EN,f
+   993  0037  1D03               	skipz
+   994  0038  2836               	goto	l1992
+   995                           
+   996                           ;yy_ir.C: 125: (T0IE = 0,T0IF = 0);
+   997  0039  128B               	bcf	11,5
+   998  003A  110B               	bcf	11,2
+   999  003B                     l927:	
+  1000                           ;yy_ir.C: 126: while(!PA3);
+  1001                           
+  1002  003B  1D85               	btfss	5,3
+  1003  003C  283B               	goto	l927
+  1004  003D  0ADF               	incf	_RX_dataNum,f
+  1005  003E  2828               	goto	l1982
+  1006  003F                     l1998:	
+  1007                           
+  1008                           ;yy_ir.C: 127: }
+  1009                           ;yy_ir.C: 128: RX_data = UART_RX_buff[7];
+  1010  003F  0847               	movf	_UART_RX_buff+7,w
+  1011  0040  00DD               	movwf	_RX_data
+  1012                           
+  1013                           ;yy_ir.C: 129: switch(RX_data)
+  1014  0041  286B               	goto	l2034
+  1015  0042                     l2000:	
+  1016  0042  3004               	movlw	4
+  1017  0043  0685               	xorwf	5,f
+  1018  0044  2876               	goto	l2036
+  1019  0045                     l2004:	
+  1020  0045  30FF               	movlw	255
+  1021  0046  01D6               	clrf	_TX_data1+3
+  1022  0047  00D5               	movwf	_TX_data1+2
+  1023  0048  30A2               	movlw	162
+  1024  0049  00D4               	movwf	_TX_data1+1
+  1025  004A  305D               	movlw	93
+  1026  004B                     L1:	
+  1027  004B  00D3               	movwf	_TX_data1
+  1028  004C  01DB               	clrf	_F_RX
+  1029  004D  0ADB               	incf	_F_RX,f
+  1030  004E  2876               	goto	l2036
+  1031  004F                     l2008:	
+  1032  004F  30FF               	movlw	255
+  1033  0050  01D6               	clrf	_TX_data1+3
+  1034  0051  00D5               	movwf	_TX_data1+2
+  1035  0052  30E2               	movlw	226
+  1036  0053  00D4               	movwf	_TX_data1+1
+  1037  0054  301D               	movlw	29
+  1038  0055  284B               	goto	L1
+  1039  0056                     l2012:	
+  1040  0056  30FF               	movlw	255
+  1041  0057  01D6               	clrf	_TX_data1+3
+  1042  0058  00D5               	movwf	_TX_data1+2
+  1043  0059  3038               	movlw	56
+  1044  005A  00D4               	movwf	_TX_data1+1
+  1045  005B  30C7               	movlw	199
+  1046  005C  284B               	goto	L1
+  1047  005D                     l2024:	
+  1048  005D  30FF               	movlw	255
+  1049  005E  01D6               	clrf	_TX_data1+3
+  1050  005F  00D5               	movwf	_TX_data1+2
+  1051  0060  3098               	movlw	152
+  1052  0061  00D4               	movwf	_TX_data1+1
+  1053  0062  3067               	movlw	103
+  1054  0063  284B               	goto	L1
+  1055  0064                     l2028:	
+  1056  0064  30FF               	movlw	255
+  1057  0065  01D6               	clrf	_TX_data1+3
+  1058  0066  00D5               	movwf	_TX_data1+2
+  1059  0067  3002               	movlw	2
+  1060  0068  00D4               	movwf	_TX_data1+1
+  1061  0069  30FD               	movlw	253
+  1062  006A  284B               	goto	L1
+  1063  006B                     l2034:	
+  1064  006B  085D               	movf	_RX_data,w
+  1065                           
+  1066                           ; Switch size 1, requested type "space"
+  1067                           ; Number of cases is 9, Range of values is 0 to 12
+  1068                           ; switch strategies available:
+  1069                           ; Name         Instructions Cycles
+  1070                           ; direct_byte           19     6 (fixed)
+  1071                           ; simple_byte           28    15 (average)
+  1072                           ; jumptable            260     6 (fixed)
+  1073                           ; rangetable            17     6 (fixed)
+  1074                           ; spacedrange           32     9 (fixed)
+  1075                           ; locatedrange          13     3 (fixed)
+  1076                           ;	Chosen strategy is direct_byte
+  1077  006C  0084               	movwf	4
+  1078  006D  300D               	movlw	13
+  1079  006E  0204               	subwf	4,w
+  1080  006F  1803               	skipnc
+  1081  0070  2876               	goto	l2036
+  1082  0071  3001               	movlw	high S2104
+  1083  0072  008A               	movwf	10
+  1084  0073  3021               	movlw	low S2104
+  1085  0074  0704               	addwf	4,w
+  1086  0075  0082               	movwf	2
+  1087  0076                     l2036:	
+  1088                           
+  1089                           ;yy_ir.C: 151: if(F_RX)
+  1090  0076  085B               	movf	_F_RX,w
+  1091  0077  1903               	btfsc	3,2
+  1092  0078  28B2               	goto	l2062
+  1093                           
+  1094                           ;yy_ir.C: 152: {
+  1095                           ;yy_ir.C: 153: TX_dataBit = 32;
+  1096  0079  3020               	movlw	32
+  1097  007A  00E0               	movwf	_TX_dataBit
+  1098                           
+  1099                           ;yy_ir.C: 154: TX_highTime = 692;
+  1100  007B  30B4               	movlw	180
+  1101  007C  00D7               	movwf	_TX_highTime
+  1102  007D  3002               	movlw	2
+  1103  007E  00D8               	movwf	_TX_highTime+1
+  1104                           
+  1105                           ;yy_ir.C: 156: TX_lowTime = 346;
+  1106  007F  305A               	movlw	90
+  1107  0080  00D9               	movwf	_TX_lowTime
+  1108  0081  3001               	movlw	1
+  1109  0082  00DA               	movwf	_TX_lowTime+1
+  1110                           
+  1111                           ;yy_ir.C: 157: (TMR2ON = 1);
+  1112  0083  1512               	bsf	18,2
+  1113                           
+  1114                           ;yy_ir.C: 158: TX_data = TX_data1;
+  1115  0084  0856               	movf	_TX_data1+3,w
+  1116  0085  00D2               	movwf	_TX_data+3
+  1117  0086  0855               	movf	_TX_data1+2,w
+  1118  0087  00D1               	movwf	_TX_data+2
+  1119  0088  0854               	movf	_TX_data1+1,w
+  1120  0089  00D0               	movwf	_TX_data+1
+  1121  008A  0853               	movf	_TX_data1,w
+  1122  008B  00CF               	movwf	_TX_data
+  1123  008C                     l2054:	
+  1124                           ;yy_ir.C: 159: while(TX_dataBit)
+  1125                           
+  1126  008C  08E0               	movf	_TX_dataBit,f
+  1127  008D  1903               	btfsc	3,2
+  1128  008E  28A5               	goto	l2056
+  1129                           
+  1130                           ;yy_ir.C: 160: {
+  1131                           ;yy_ir.C: 165: if(!TX_lowTime)
+  1132  008F  085A               	movf	_TX_lowTime+1,w
+  1133  0090  0459               	iorwf	_TX_lowTime,w
+  1134  0091  1D03               	skipz
+  1135  0092  288C               	goto	l2054
+  1136                           
+  1137                           ;yy_ir.C: 166: {
+  1138                           ;yy_ir.C: 167: if(TX_data & 0x80000000)
+  1139  0093  1FD2               	btfss	_TX_data+3,7
+  1140  0094  2899               	goto	l2048
+  1141                           
+  1142                           ;yy_ir.C: 168: {
+  1143                           ;yy_ir.C: 169: TX_highTime = 43;
+  1144  0095  302B               	movlw	43
+  1145  0096  00D7               	movwf	_TX_highTime
+  1146  0097  3081               	movlw	129
+  1147  0098  289B               	goto	L2
+  1148  0099                     l2048:	
+  1149                           ;yy_ir.C: 171: }
+  1150                           
+  1151                           ;yy_ir.C: 170: TX_lowTime = 129;
+  1152                           
+  1153                           
+  1154                           ;yy_ir.C: 172: else
+  1155                           ;yy_ir.C: 173: {
+  1156                           ;yy_ir.C: 174: TX_highTime = 43;
+  1157  0099  302B               	movlw	43
+  1158  009A  00D7               	movwf	_TX_highTime
+  1159  009B                     L2:	
+  1160  009B  01D8               	clrf	_TX_highTime+1
+  1161                           
+  1162                           ;yy_ir.C: 175: TX_lowTime = 43;
+  1163  009C  00D9               	movwf	_TX_lowTime
+  1164  009D  01DA               	clrf	_TX_lowTime+1
+  1165                           
+  1166                           ;yy_ir.C: 176: }
+  1167                           ;yy_ir.C: 177: TX_data = TX_data<<1;
+  1168  009E  1003               	clrc
+  1169  009F  0DCF               	rlf	_TX_data,f
+  1170  00A0  0DD0               	rlf	_TX_data+1,f
+  1171  00A1  0DD1               	rlf	_TX_data+2,f
+  1172  00A2  0DD2               	rlf	_TX_data+3,f
+  1173                           
+  1174                           ;yy_ir.C: 178: TX_dataBit--;
+  1175  00A3  03E0               	decf	_TX_dataBit,f
+  1176  00A4  288C               	goto	l2054
+  1177  00A5                     l2056:	
+  1178  00A5  085A               	movf	_TX_lowTime+1,w
+  1179  00A6  0459               	iorwf	_TX_lowTime,w
+  1180  00A7  1D03               	skipz
+  1181  00A8  28A5               	goto	l2056
+  1182                           
+  1183                           ;yy_ir.C: 182: TX_highTime = 43;
+  1184  00A9  302B               	movlw	43
+  1185  00AA  00D7               	movwf	_TX_highTime
+  1186  00AB  01D8               	clrf	_TX_highTime+1
+  1187  00AC                     l2060:	
+  1188                           ;yy_ir.C: 183: while(TX_highTime);
+  1189                           
+  1190  00AC  0858               	movf	_TX_highTime+1,w
+  1191  00AD  0457               	iorwf	_TX_highTime,w
+  1192  00AE  1D03               	skipz
+  1193  00AF  28AC               	goto	l2060
+  1194                           
+  1195                           ;yy_ir.C: 184: PA4 = 0;
+  1196  00B0  1205               	bcf	5,4
+  1197                           
+  1198                           ;yy_ir.C: 185: (TMR2ON = 0);
+  1199  00B1  1112               	bcf	18,2
+  1200  00B2                     l2062:	
+  1201                           
+  1202                           ;yy_ir.C: 186: }
+  1203                           ;yy_ir.C: 188: F_RX = RESET;
+  1204  00B2  01DB               	clrf	_F_RX
+  1205  00B3  2812               	goto	l1972
+  1206  00B4                     __end_of_main:	
+  1207                           
+  1208                           	psect	swtext1
+  1209  0121                     __pswtext1:	
+  1210  0121                     S2104:	
+  1211  0121  2842               	ljmp	l2000
+  1212  0122  2842               	ljmp	l2000
+  1213  0123  2876               	ljmp	l2036
+  1214  0124  2845               	ljmp	l2004
+  1215  0125  284F               	ljmp	l2008
+  1216  0126  2856               	ljmp	l2012
+  1217  0127  2856               	ljmp	l2012
+  1218  0128  2845               	ljmp	l2004
+  1219  0129  2876               	ljmp	l2036
+  1220  012A  285D               	ljmp	l2024
+  1221  012B  2876               	ljmp	l2036
+  1222  012C  2876               	ljmp	l2036
+  1223  012D  2864               	ljmp	l2028
+  1224                           
+  1225                           	psect	text45
+  1226  00F5                     __ptext45:	
+  1227 ;; =============== function _main ends ============
+  1228                           
+  1229                           
+  1230 ;; *************** function _sys_init *****************
+  1231 ;; Defined at:
+  1232 ;;		line 8 in file "SYS_INIT.C"
+  1233 ;; Parameters:    Size  Location     Type
+  1234 ;;		None
+  1235 ;; Auto vars:     Size  Location     Type
+  1236 ;;		None
+  1237 ;; Return value:  Size  Location     Type
+  1238 ;;		None               void
+  1239 ;; Registers used:
+  1240 ;;		wreg, status,2, status,0
+  1241 ;; Tracked objects:
+  1242 ;;		On entry : 17F/0
+  1243 ;;		On exit  : 20/20
+  1244 ;;		Unchanged: FFE00/0
+  1245 ;; Data sizes:     COMMON
+  1246 ;;      Params:         0
+  1247 ;;      Locals:         0
+  1248 ;;      Temps:          0
+  1249 ;;      Totals:         0
+  1250 ;;Total ram usage:        0 bytes
+  1251 ;; Hardware stack levels used:    1
+  1252 ;; Hardware stack levels required when called:    1
+  1253 ;; This function calls:
+  1254 ;;		Nothing
+  1255 ;; This function is called by:
+  1256 ;;		_main
+  1257 ;; This function uses a non-reentrant model
+  1258 ;;
+  1259  00F5                     _sys_init:	
+  1260                           
+  1261                           ;SYS_INIT.C: 9: OSCCON = (OSCCON &0x8F)|(7<<4);
+  1262                           
+  1263                           ; Regs used in _sys_init: [wreg+status,2+status,0]
+  1264  00F5  1683               	bsf	3,5	;RP0=1, select bank1
+  1265  00F6  080F               	movf	15,w
+  1266  00F7  398F               	andlw	143
+  1267  00F8  3870               	iorlw	112
+  1268  00F9  008F               	movwf	15	;volatile
+  1269                           
+  1270                           ;SYS_INIT.C: 11: TRISA2 = 0;
+  1271  00FA  1105               	bcf	5,2
+  1272                           
+  1273                           ;SYS_INIT.C: 12: PA2 = 1;
+  1274  00FB  1283               	bcf	3,5	;RP0=0, select bank0
+  1275  00FC  1505               	bsf	5,2
+  1276                           
+  1277                           ;SYS_INIT.C: 14: TRISA5 = 0;
+  1278  00FD  1683               	bsf	3,5	;RP0=1, select bank1
+  1279  00FE  1285               	bcf	5,5
+  1280                           
+  1281                           ;SYS_INIT.C: 15: PA5 = 0;
+  1282  00FF  1283               	bcf	3,5	;RP0=0, select bank0
+  1283  0100  1285               	bcf	5,5
+  1284                           
+  1285                           ;SYS_INIT.C: 17: TRISA4 = 0;
+  1286  0101  1683               	bsf	3,5	;RP0=1, select bank1
+  1287  0102  1205               	bcf	5,4
+  1288                           
+  1289                           ;SYS_INIT.C: 18: PA4 = 0;
+  1290  0103  1283               	bcf	3,5	;RP0=0, select bank0
+  1291  0104  1205               	bcf	5,4
+  1292  0105  0064               	clrwdt	;#
+  1293                           
+  1294                           ;SYS_INIT.C: 25: WDTCON = (WDTCON &0xE1)|(10<<1);
+  1295  0106  1283               	bcf	3,5	;RP0=0, select bank0
+  1296  0107  0818               	movf	24,w
+  1297  0108  39E1               	andlw	225
+  1298  0109  3814               	iorlw	20
+  1299  010A  0098               	movwf	24	;volatile
+  1300  010B  3001               	movlw	1
+  1301                           
+  1302                           ;SYS_INIT.C: 27: SWDTEN = DISABLE;
+  1303  010C  1018               	bcf	24,0
+  1304                           
+  1305                           ;SYS_INIT.C: 36: OPTION = (0B00000000+1);
+  1306  010D  1683               	bsf	3,5	;RP0=1, select bank1
+  1307  010E  0081               	movwf	1	;volatile
+  1308                           
+  1309                           ;SYS_INIT.C: 39: TMR0 = 152;
+  1310  010F  3098               	movlw	152
+  1311  0110  1283               	bcf	3,5	;RP0=0, select bank0
+  1312  0111  0081               	movwf	1	;volatile
+  1313                           
+  1314                           ;SYS_INIT.C: 46: T2CON &= (0<<3);
+  1315  0112  0192               	clrf	18	;volatile
+  1316                           
+  1317                           ;SYS_INIT.C: 47: T2CON &= 1;
+  1318  0113  3001               	movlw	1
+  1319  0114  0592               	andwf	18,f	;volatile
+  1320                           
+  1321                           ;SYS_INIT.C: 48: PR2 = 52;
+  1322  0115  3034               	movlw	52
+  1323  0116  1683               	bsf	3,5	;RP0=1, select bank1
+  1324  0117  0092               	movwf	18	;volatile
+  1325                           
+  1326                           ;SYS_INIT.C: 59: GIE = ENABLE;
+  1327  0118  178B               	bsf	11,7
+  1328                           
+  1329                           ;SYS_INIT.C: 60: PEIE = ENABLE;
+  1330  0119  170B               	bsf	11,6
+  1331                           
+  1332                           ;SYS_INIT.C: 61: T0IF = RESET;
+  1333  011A  110B               	bcf	11,2
+  1334                           
+  1335                           ;SYS_INIT.C: 62: T0IE = ENABLE;
+  1336  011B  168B               	bsf	11,5
+  1337                           
+  1338                           ;SYS_INIT.C: 63: TMR2IF = RESET;
+  1339  011C  1283               	bcf	3,5	;RP0=0, select bank0
+  1340  011D  108C               	bcf	12,1
+  1341                           
+  1342                           ;SYS_INIT.C: 64: TMR2IE = ENABLE;
+  1343  011E  1683               	bsf	3,5	;RP0=1, select bank1
+  1344  011F  148C               	bsf	12,1
+  1345  0120  0008               	return
+  1346  0121                     __end_of_sys_init:	
+  1347                           
+  1348                           	psect	text46
+  1349  00B4                     __ptext46:	
+  1350 ;; =============== function _sys_init ends ============
+  1351                           
+  1352                           
+  1353 ;; *************** function _ISR *****************
+  1354 ;; Defined at:
+  1355 ;;		line 35 in file "yy_ir.C"
+  1356 ;; Parameters:    Size  Location     Type
+  1357 ;;		None
+  1358 ;; Auto vars:     Size  Location     Type
+  1359 ;;		None
+  1360 ;; Return value:  Size  Location     Type
+  1361 ;;		None               void
+  1362 ;; Registers used:
+  1363 ;;		wreg, fsr0l, fsr0h, status,2, status,0
+  1364 ;; Tracked objects:
+  1365 ;;		On entry : 0/0
+  1366 ;;		On exit  : 0/0
+  1367 ;;		Unchanged: FFFDF/0
+  1368 ;; Data sizes:     COMMON
+  1369 ;;      Params:         0
+  1370 ;;      Locals:         0
+  1371 ;;      Temps:          3
+  1372 ;;      Totals:         3
+  1373 ;;Total ram usage:        3 bytes
+  1374 ;; Hardware stack levels used:    1
+  1375 ;; This function calls:
+  1376 ;;		Nothing
+  1377 ;; This function is called by:
+  1378 ;;		Interrupt level 1
+  1379 ;; This function uses a non-reentrant model
+  1380 ;;
+  1381  00B4                     _ISR:	
+  1382                           
+  1383                           ;yy_ir.C: 36: if(T0IE && T0IF)
+  1384  00B4  1A8B               	btfsc	11,5
+  1385  00B5  1D0B               	btfss	11,2
+  1386  00B6  28CD               	goto	i1l894
+  1387  00B7  3098               	movlw	152
+  1388                           
+  1389                           ;yy_ir.C: 37: {
+  1390                           ;yy_ir.C: 38: static u8 T_100us = 0;
+  1391                           ;yy_ir.C: 39: static u16 T_1ms = 0;
+  1392                           ;yy_ir.C: 40: T0IF = RESET;
+  1393  00B8  110B               	bcf	11,2
+  1394                           
+  1395                           ;yy_ir.C: 41: TMR0 = 152;
+  1396  00B9  1283               	bcf	3,5	;RP0=0, select bank0
+  1397  00BA  0081               	movwf	1	;volatile
+  1398                           
+  1399                           ;yy_ir.C: 54: if(RX_EN)
+  1400  00BB  085C               	movf	_RX_EN,w
+  1401  00BC  1903               	btfsc	3,2
+  1402  00BD  28CD               	goto	i1l894
+  1403                           
+  1404                           ;yy_ir.C: 55: {
+  1405                           ;yy_ir.C: 56: if(PA3)
+  1406  00BE  1D85               	btfss	5,3
+  1407  00BF  28C2               	goto	i1l900
+  1408                           
+  1409                           ;yy_ir.C: 57: RX_data = (RX_data>>1)|0x80;
+  1410  00C0  1403               	setc
+  1411  00C1  28C3               	goto	L4
+  1412  00C2                     i1l900:	
+  1413                           
+  1414                           ;yy_ir.C: 58: else
+  1415                           ;yy_ir.C: 59: RX_data >>= 1;
+  1416  00C2  1003               	clrc
+  1417  00C3                     L4:	
+  1418  00C3  0CDD               	rrf	_RX_data,f
+  1419                           
+  1420                           ;yy_ir.C: 60: RX_dataBit--;
+  1421  00C4  0BDE               	decfsz	_RX_dataBit,f
+  1422                           
+  1423                           ;yy_ir.C: 61: if(!RX_dataBit)
+  1424  00C5  28EC               	goto	i1l903
+  1425                           
+  1426                           ;yy_ir.C: 62: {
+  1427                           ;yy_ir.C: 63: UART_RX_buff[RX_dataNum] = RX_data;
+  1428  00C6  085F               	movf	_RX_dataNum,w
+  1429  00C7  3E40               	addlw	_UART_RX_buff& (0+255)
+  1430  00C8  0084               	movwf	4
+  1431  00C9  085D               	movf	_RX_data,w
+  1432  00CA  0080               	movwf	0
+  1433                           
+  1434                           ;yy_ir.C: 64: RX_EN = DISABLE;
+  1435  00CB  01DC               	clrf	_RX_EN
+  1436  00CC  28EC               	goto	i1l903
+  1437  00CD                     i1l894:	
+  1438                           
+  1439                           ;yy_ir.C: 67: }
+  1440                           ;yy_ir.C: 68: }
+  1441                           ;yy_ir.C: 70: if(TMR2IE && TMR2IF)
+  1442  00CD  1683               	bsf	3,5	;RP0=1, select bank1
+  1443  00CE  1C8C               	btfss	12,1
+  1444  00CF  28EC               	goto	i1l903
+  1445  00D0  1283               	bcf	3,5	;RP0=0, select bank0
+  1446  00D1  1C8C               	btfss	12,1
+  1447  00D2  28EC               	goto	i1l903
+  1448                           
+  1449                           ;yy_ir.C: 71: {
+  1450                           ;yy_ir.C: 72: TMR2IF = RESET;
+  1451  00D3  108C               	bcf	12,1
+  1452                           
+  1453                           ;yy_ir.C: 73: if(TX_highTime)
+  1454  00D4  0858               	movf	_TX_highTime+1,w
+  1455  00D5  0457               	iorwf	_TX_highTime,w
+  1456  00D6  1903               	skipnz
+  1457  00D7  28E1               	goto	i1l1954
+  1458                           
+  1459                           ;yy_ir.C: 74: {
+  1460                           ;yy_ir.C: 75: TX_highTime--;
+  1461  00D8  3001               	movlw	1
+  1462  00D9  02D7               	subwf	_TX_highTime,f
+  1463  00DA  3000               	movlw	0
+  1464  00DB  1C03               	skipc
+  1465  00DC  03D8               	decf	_TX_highTime+1,f
+  1466  00DD  02D8               	subwf	_TX_highTime+1,f
+  1467                           
+  1468                           ;yy_ir.C: 76: PA4 = ~PA4;
+  1469  00DE  3010               	movlw	16
+  1470  00DF  0685               	xorwf	5,f
+  1471  00E0  28EC               	goto	i1l903
+  1472  00E1                     i1l1954:	
+  1473                           
+  1474                           ;yy_ir.C: 79: else if(TX_lowTime)
+  1475  00E1  085A               	movf	_TX_lowTime+1,w
+  1476  00E2  0459               	iorwf	_TX_lowTime,w
+  1477  00E3  1903               	skipnz
+  1478  00E4  28EC               	goto	i1l903
+  1479                           
+  1480                           ;yy_ir.C: 80: {
+  1481                           ;yy_ir.C: 81: TX_lowTime--;
+  1482  00E5  3001               	movlw	1
+  1483  00E6  02D9               	subwf	_TX_lowTime,f
+  1484  00E7  3000               	movlw	0
+  1485  00E8  1C03               	skipc
+  1486  00E9  03DA               	decf	_TX_lowTime+1,f
+  1487  00EA  02DA               	subwf	_TX_lowTime+1,f
+  1488                           
+  1489                           ;yy_ir.C: 82: PA4 = 0;
+  1490  00EB  1205               	bcf	5,4
+  1491  00EC                     i1l903:	
+  1492  00EC  0864               	movf	??_ISR+2,w
+  1493  00ED  008A               	movwf	10
+  1494  00EE  0863               	movf	??_ISR+1,w
+  1495  00EF  0084               	movwf	4
+  1496  00F0  0E62               	swapf	??_ISR^(0+-128),w
+  1497  00F1  0083               	movwf	3
+  1498  00F2  0EFE               	swapf	126,f
+  1499  00F3  0E7E               	swapf	126,w
+  1500  00F4  0009               	retfie
+  1501  00F5                     __end_of_ISR:	
+  1502                           
+  1503                           	psect	intentry
+  1504  0004                     __pintentry:	
+  1505                           ; Regs used in _ISR: [wreg-fsr0h+status,2+status,0]
+  1506                           
+  1507  0004                     interrupt_function:	
+  1508  007E                     saved_w	set	btemp
+  1509  0004  00FE               	movwf	btemp
+  1510  0005  0E03               	swapf	3,w
+  1511  0006  00E2               	movwf	??_ISR
+  1512  0007  0804               	movf	4,w
+  1513  0008  00E3               	movwf	??_ISR+1
+  1514  0009  080A               	movf	10,w
+  1515  000A  00E4               	movwf	??_ISR+2
+  1516  000B  28B4               	ljmp	_ISR
+  1517                           
+  1518                           	psect	text47
+  1519  0000                     __ptext47:	
+  1520 ;; =============== function _ISR ends ============
+  1521                           
+  1522  007E                     btemp	set	126	;btemp
+  1523  007E                     wtemp0	set	126
+
+
+HI-TECH Software PICC Macro Assembler V9.83 build 10920 
+Symbol Table                                                                                   Tue Sep 01 14:07:03 2020
+
+                   _C 0018                     _Z 001A                     pc 0002                    _DC 0019  
+                  _HC 0019                    _GO 00F9                    _RD 04E0                    _RP 001D  
+                  _WR 04E8                    fsr 0004                   l431 0000                   _CM0 00C8  
+                 _CM1 00C9                   _CM2 00CA                   l921 002C                   l917 0022  
+                 l927 003B                   _CIS 00CB                   _PA0 0028                   _PA1 0029  
+                 _GIE 005F                   _PA2 002A                   _PA3 002B                   _PA4 002C  
+                 _PA5 002D                   _RA0 0028                   _RA1 0029                   _RA2 002A  
+                 _RA3 002B                   _RC0 0038                   _RA4 002C                   _RC1 0039  
+                 _RA5 002D                   _RC2 003A                   _RC3 003B                   _RC4 003C  
+                 _RC5 003D                   _IOC 0096                   _FSR 0004                   _PCL 0002  
+                 _PR2 0092                   _PS0 0408                   _PS1 0409                   _PS2 040A  
+                 _RP0 001D                   _IRP 001F                   _RP1 001E                   _HTS 047A  
+                 _ISR 00B4                   _SCS 0478                   _PSA 040B                   _LTS 0479  
+                 _VR0 04C8                   _VR1 04C9                   _VR2 04CA                   _VR3 04CB  
+                 _VRR 04CD                   _WPU 0095                   _nPD 001B                   _nPF 001B  
+                 _nTF 001C                   _nTO 001C                   fsr0 0004                   indf 0000  
+                S2104 0121                  ?_ISR 0062                  l2000 0042                  _C1IE 0463  
+                l2012 0056                  l2004 0045                  _C1IF 0063                  _C2IE 0464  
+                l2040 0000                  l2024 005D                  l2008 004F                  _C2IF 0064  
+                l2034 006B                  l2060 00AC                  l2052 0000                  l2028 0064  
+                l2036 0076                  l2054 008C                  l2038 0000                  l2062 00B2  
+                l2056 00A5                  l2048 0099                  l1900 0000                  l1910 0000  
+                l1902 0000                  l1920 0000                  l1912 0000                  l1904 0000  
+                l1914 0000                  l1906 0000                  l1916 0000                  l1908 0000  
+                l1918 0000                  l1890 0000                  l1882 0000                  l1970 0000  
+                l1962 0000                  l1892 0000                  l1884 0000                  l1972 0012  
+                l1964 0000                  l1894 0000                  l1886 0000                  l1990 0000  
+                l1982 0028                  l1966 0000                  l1896 0000                  l1888 0000  
+                l1992 0036                  l1968 0000                  l1898 0000                  l1986 0000  
+                l1978 0014                  l1988 0000                  l1998 003F                  _ADIE 0466  
+                _ADIF 0066                  _ADFM 00FF                  _ADON 00F8                  _P1M0 00AE  
+                _CHS0 00FA                  _P1M1 00AF                  _CHS1 00FB                  _CHS2 00FC  
+                _EEIE 0467                  _EEIF 0067                  _ANS0 0488                  _ANS1 0489  
+                _ANS2 048A                  _ANS3 048B                  _ANS4 048C                  _ANS5 048D  
+                _ANS6 048E                  _ANS7 048F                  _T0IE 005D                  _T0IF 005A  
+                _T0CS 040D                  _IOC0 04B0                  _T1IE 0460                  _IOC1 04B1  
+                _IOC2 04B2                  _T1IF 0060                  _IOC3 04B3                  _IOC4 04B4  
+                _T2IE 0461                  _IOC5 04B5                  _T2IF 0061                  _PDC0 00B0  
+                _PDC1 00B1                  _PDC2 00B2                  _PDC3 00B3                  _PDC4 00B4  
+                _IOCA 0096                  _T0SE 040C                  _PDC5 00B5                  _PDC6 00B6  
+                _INDF 0000                  _PAGE 001D                  _PAIE 005B                  _PAIF 0058  
+                _PIE1 008C                  _RAIE 005B                  _PEIE 005E                  _RAIF 0058  
+                _INTE 005C                  _INTF 0059                  _PCON 008E                  _PIR1 000C  
+                _VCFG 00FE                  _TMR0 0001                  _F_RX 005B                  _TMR1 000E  
+                _TMR2 0011                  _OSTS 047B                  _TUN0 0480                  _TUN1 0481  
+                _TUN2 0482                  _TUN3 0483                  _TUN4 0484                  _VREN 04CF  
+                _WPU0 04A8                  _WPU1 04A9                  _WPU2 04AA                  _WPU4 04AC  
+                _WPU5 04AD                  _ZERO 001A                  _WREN 04E2                  _WPUA 0095  
+                _nBOD 0470                  _nBOR 0470                  _nPOR 0471                  _main 000D  
+                btemp 007E                  start 000C                 ??_ISR 0062                 _C1INV 00CC  
+               _DC1B0 00AC                 _DC1B1 00AD                 _C2INV 00CD                 _C1OUT 00CE  
+               _C2OUT 00CF                 _ADCS0 04FC                 _ADCS1 04FD                 _ADCS2 04FE  
+               ?_main 0062                 _EEADR 009B                 _CCPR1 0013                 _EEDAT 009A  
+          _RX_dataBit 005E                 _CARRY 0018                 _ANSEL 0091            _RX_dataNum 005F  
+               _T1CON 0010                 _IOCA0 04B0                 _IOCA1 04B1                 _T2CON 0012  
+               _IOCA2 04B2                 _IOCA3 04B3                 _IOCA4 04B4                 _IOCA5 04B5  
+               _T1GSS 00D1                 _IRCF0 047C                 _IRCF1 047D                 _IRCF2 047E  
+               _LFMOD 047F                 i1l900 00C2                 i1l903 00EC                 i1l894 00CD  
+               _SFR00 0000                 _SFR01 0001                 _SFR10 0010                 _SFR02 0002  
+               _SFR11 0011                 _SFR03 0003                 _SFR12 0012                 _SFR04 0004  
+               _SFR13 0013                 _SFR05 0005                 _SFR14 0014                 _SFR06 0006  
+               _SFR15 0015                 _SFR07 0007                 _SFR16 0016                 _SFR08 0008  
+               _SFR17 0017                 _SFR09 0009                 _SFR18 0018                 _SFR19 0019  
+               _SFR80 0080                 _SFR81 0081                 _SFR0A 000A                 _SFR90 0090  
+               _SFR82 0082                 _SFR0B 000B                 _SFR91 0091                 _SFR83 0083  
+               _SFR1A 001A                 _SFR0C 000C                 _SFR84 0084                 _SFR0D 000D  
+               _SFR92 0092                 _SFR1B 001B                 _SFR93 0093                 _SFR0E 000E  
+               _SFR85 0085                 _SFR1C 001C                 _SFR94 0094                 _SFR86 0086  
+               _SFR0F 000F                 _SFR1D 001D                 _SFR87 0087                 _SFR1E 001E  
+               _SFR95 0095                 _SFR88 0088                 _SFR1F 001F                 _SFR96 0096  
+               _SFR97 0097                 _SFR89 0089                 _SFR98 0098                 _SFR99 0099  
+               _SFR8A 008A                 _SFR8B 008B                 _SFR9A 009A                 _SFR8C 008C  
+               _SFR8D 008D                 _SFR9B 009B                 _SFR9C 009C                 _SFR8E 008E  
+               _SFR9D 009D                 _SFR8F 008F                 _SFR9E 009E                 _SFR9F 009F  
+               _OSFIE 0462                 _OSFIF 0062                 _TMR1H 000F                 _TMR1L 000E  
+               _PORTA 0005                 _PORTC 0007                 _PRSEN 00B7                 _TRISA 0085  
+               _TRISC 0087                 _WREN1 04E2                 _WREN2 04E4                 _WREN3 04E5  
+               _VRCON 0099                 _WPUA0 04A8                 _WPUA1 04A9                 _WPUA2 04AA  
+               _WPUA4 04AC                 _WPUA5 04AD                 _WRERR 04E3                 _RX_EN 005C  
+               _nDONE 00F9                 _nPAPU 040F                 _nRAPU 040F            _TX_dataBit 0060  
+               pclath 000A                 status 0003                 wtemp0 007E            _TX_lowTime 0059  
+        __end_of_main 00B4                ??_main 0065                _C2SYNC 00D0                _ADCON0 001F  
+              _ADCON1 009F                _CCP1M0 00A8                _CCP1M1 00A9                _CCP1M2 00AA  
+              _CCP1M3 00AB                _CCP1IE 0465                _CCP1IF 0065                _ADRESH 001E  
+              _ADRESL 009E                _EEDATA 009A                _ECCPAS 0017                _ECCPIE 0465  
+              _ECCPIF 0065                _CCPR1H 0014                _CCPR1L 0013                _EECON1 009C  
+              _EECON2 009D                _CMCON0 0019                _CKCNTI 00D9                _CMCON1 001A  
+              _CKMAVG 00DA                _HFIOFR 047A                _T1GINV 0087                _LFIOFR 0479  
+              i1l1930 0000                i1l1922 0000                i1l1936 0000                i1l1928 0000  
+              i1l1954 00E1                i1l1946 0000                i1l1938 0000                i1l1958 0000  
+              _INTEDG 040E                _PCLATH 000A                _INTCON 000B                _SBODEN 0474  
+              _SBOREN 0474                _OSCCON 008F                _TMR1GE 0086                _TMR0IE 005D  
+              _TMR0IF 005A                _TMR1IE 0460                _TMR1IF 0060                _TMR1CS 0081  
+              _TMR2IE 0461                _TMR2IF 0061                _PSSAC0 00BA                _PSSAC1 00BB  
+              _PSSBD0 00B8                _PSSBD1 00B9                _OPTION 0081                _TMR1ON 0080  
+              _TMR2ON 0092                _WDTCON 0018                _WDTPS0 00C1                _WDTPS1 00C2  
+              _WDTPS2 00C3                _WDTPS3 00C4                _TRISA0 0428                _TRISA1 0429  
+              _TRISA2 042A                _TRISA3 042B                _TRISC0 0438                _TRISA4 042C  
+              _TRISC1 0439                _TRISA5 042D                _TRISC2 043A                _TRISC3 043B  
+              _TRISC4 043C                _TRISC5 043D                _SLVREN 00DC                _STATUS 0003  
+              _SWDTEN 00C0                _ULPWUE 0475           _RX_highTime 0065                clrloop 012F  
+         _TX_highTime 0057                saved_w 007E      __end_of_sys_init 0121        __pcstackCOMMON 0062  
+          __pnvCOMMON 0065            __pmaintext 000D            __pintentry 0004               _CCP1CON 0015  
+             _ECCPAS0 00BC               _ECCPAS1 00BD               _ECCPAS2 00BE               _ECCPASE 00BF  
+             _CKMEAIE 0466               _CKMEAIF 0066               _T1CKPS0 0084               _T1CKPS1 0085  
+             _T2CKPS0 0090               _T2CKPS1 0091               _T1OSCEN 0083               _GO_DONE 00F9  
+             _MSCKCON 001B               _OSCTUNE 0090               _PWM1CON 0016               _SOSCPRH 001D  
+             _SOSCPRL 001C               _TOUTPS0 0093               _TOUTPS1 0094               _TOUTPS2 0095  
+             _TOUTPS3 0096               _RX_data 005D               _TX_data 004F               _nT1SYNC 0082  
+           ?_sys_init 0062          __size_of_ISR 0041             _T2CONbits 0012  end_of_initialization 013A  
+           _PORTAbits 0005            ??_sys_init 0065             _TRISAbits 0085   start_initialization 0136  
+         __end_of_ISR 00F5             _Time_FLAG 0061           __pbssCOMMON 0040             __pswtext1 0121  
+   __size_of_sys_init 002C     interrupt_function 0004              _IOCAbits 0096              _PIE1bits 008C  
+            _PCONbits 008E              _PIR1bits 000C              _GO_nDONE 00F9              _WPUAbits 0095  
+            _TX_data1 0053            _EECON1bits 009C            _EECON2bits 009D           _MSCKCONbits 001B  
+            __ptext44 0000              __ptext45 00F5              __ptext46 00B4              __ptext47 0000  
+        _UART_RX_buff 0040         __size_of_main 00A7              clear_ram 012E              _sys_init 00F5  
+          _PCLATHbits 000A            _INTCONbits 000B              intlevel1 0000            _OSCCONbits 008F  
+          _OPTION_REG 0081           _SOSCPRHbits 001D            _OPTIONbits 0081            _WDTCONbits 0018  
+          _STATUSbits 0003  

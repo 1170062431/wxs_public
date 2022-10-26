@@ -1,0 +1,75 @@
+C51 COMPILER V9.51   SYSTEM_CLOCK                                                          07/24/2019 18:22:41 PAGE 1   
+
+
+C51 COMPILER V9.51, COMPILATION OF MODULE SYSTEM_CLOCK
+OBJECT MODULE PLACED IN .\output\system_clock.obj
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE source\system_clock.c OMF2 BROWSE DEBUG PRINT(.\lst\system_clock.lst) TABS(
+                    -2) OBJECT(.\output\system_clock.obj)
+
+line level    source
+
+   1          #ifndef _SYSTEM_CLOCK_C_
+   2          #define _SYSTEM_CLOCK_C_
+   3          /*********************************************************************************************************
+             -************/
+   4          #include "include/ca51f5_config.h"    
+   5          #include "include/ca51f5sfr.h"
+   6          #include "include/ca51f5xsfr.h"
+   7          #include "include/gpiodef_f5.h"
+   8          #include "include/system_clock.h"
+   9          
+  10          #include <intrins.h>
+  11          /*********************************************************************************************************
+             -************/
+  12          
+  13          
+  14          /***********************************************************************************
+  15          函数名  ：    Sys_Clk_Set_IRCH                      
+  16          功能描述：    设置系统时钟为IRCH
+  17          输入参数：    无
+  18          返回值  ：    无
+  19          ***********************************************************************************/
+  20          void Sys_Clk_Set_IRCH(void)
+  21          {
+  22   1        CKCON |= IHCKE;                     //IRCH时钟使能
+  23   1        CKCON = (CKCON&0xFE) | CKSEL_IRCH;  //系统时钟切换到IRCH
+  24   1      }
+  25          /***********************************************************************************/
+  26          
+  27          
+  28          
+  29          /***********************************************************************************
+  30          函数名  ：    Sys_Clk_Set_IRCL                      
+  31          功能描述：    设置系统时钟为IRCL
+  32          输入参数：    无
+  33          返回值  ：    无
+  34          ***********************************************************************************/
+  35          void Sys_Clk_Set_IRCL(void)
+  36          {
+  37   1        CKCON |= ILCKE;                     //IRCL时钟使能
+  38   1        CKCON = (CKCON&0xFE) | CKSEL_IRCL;  //系统时钟切换到IRCL  
+  39   1      }
+  40          /***********************************************************************************/
+  41          /*********************************************************************************************************
+             -************/
+  42          #endif
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     26    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+C51 COMPILER V9.51   SYSTEM_CLOCK                                                          07/24/2019 18:22:41 PAGE 2   
+
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

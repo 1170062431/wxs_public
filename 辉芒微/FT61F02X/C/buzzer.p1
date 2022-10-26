@@ -1,0 +1,45 @@
+Version 3.2 HI-TECH Software Intermediate Code
+[s S1 `ui 1 `ui 1 `ui 1 `ui 1 `uc 1 ]
+[n S1 . setBuzzerOnTime_ms setBuzzerOffTime_ms C_buzzerOnTime_ms C_buzzerOffTime_ms buzzerTimes ]
+"3 buzzer.c
+[v _stu_buzzer `S1  1 e ]
+[; ;buzzer.h: 5: typedef struct
+[; ;buzzer.h: 6: {
+[; ;buzzer.h: 7: unsigned int setBuzzerOnTime_ms;
+[; ;buzzer.h: 8: unsigned int setBuzzerOffTime_ms;
+[; ;buzzer.h: 9: unsigned int C_buzzerOnTime_ms;
+[; ;buzzer.h: 10: unsigned int C_buzzerOffTime_ms;
+[; ;buzzer.h: 11: unsigned char buzzerTimes;
+[; ;buzzer.h: 12: }struct_buzzer;
+[; ;buzzer.h: 13: extern struct_buzzer stu_buzzer;
+[; ;buzzer.h: 21: void buzzerOn(unsigned int bzOnTime_ms,unsigned int bzOffTime_ms,unsigned char bzTimes);
+[; ;buzzer.c: 3: struct_buzzer stu_buzzer;
+"11 buzzer.c
+[v _buzzerOn `(v  1 ef3`ui`ui`uc ]
+{
+[; ;buzzer.c: 10: void buzzerOn(unsigned int bzOnTime_ms,unsigned int bzOffTime_ms,unsigned char bzTimes)
+[; ;buzzer.c: 11: {
+[e :U _buzzerOn ]
+[v _bzOnTime_ms `ui  1 r1 ]
+[v _bzOffTime_ms `ui  1 r2 ]
+[v _bzTimes `uc  1 r3 ]
+[f ]
+[; ;buzzer.c: 12: stu_buzzer.setBuzzerOnTime_ms = bzOnTime_ms;
+"12
+[e = . _stu_buzzer 0 _bzOnTime_ms ]
+[; ;buzzer.c: 13: stu_buzzer.setBuzzerOffTime_ms = bzOffTime_ms;
+"13
+[e = . _stu_buzzer 1 _bzOffTime_ms ]
+[; ;buzzer.c: 14: stu_buzzer.C_buzzerOnTime_ms = stu_buzzer.setBuzzerOnTime_ms;
+"14
+[e = . _stu_buzzer 2 . _stu_buzzer 0 ]
+[; ;buzzer.c: 15: stu_buzzer.C_buzzerOffTime_ms = stu_buzzer.setBuzzerOffTime_ms;
+"15
+[e = . _stu_buzzer 3 . _stu_buzzer 1 ]
+[; ;buzzer.c: 16: stu_buzzer.buzzerTimes = bzTimes;
+"16
+[e = . _stu_buzzer 4 _bzTimes ]
+[; ;buzzer.c: 17: }
+"17
+[e :UE 2 ]
+}

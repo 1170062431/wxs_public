@@ -1,0 +1,59 @@
+C51 COMPILER V9.56.0.0   USER_IO_CFG                                                       12/27/2021 17:20:29 PAGE 1   
+
+
+C51 COMPILER V9.56.0.0, COMPILATION OF MODULE USER_IO_CFG
+OBJECT MODULE PLACED IN .\output\user_io_cfg.obj
+COMPILER INVOKED BY: E:\Keil_v5_BYD\C51\BIN\C51.EXE user\user_io_cfg.c COMPACT OMF2 OPTIMIZE(8,SPEED) BROWSE DEBUG PRINT
+                    -(.\lst\user_io_cfg.lst) TABS(2) OBJECT(.\output\user_io_cfg.obj)
+
+line level    source
+
+   1          #include "user_io_cfg.h"
+   2          
+   3          void io_init()
+   4          {  
+   5   1        SET_IO_CFG(IO_IR_REC_CFG,PU_OPEN,PD_CLOSE,OPR_CLOSE,INPUT);
+   6   1        SET_IO_SEL(IO_IR_REC_SEL,SMIT_EN,PU_STRONG,PD_STRONG,DRV_LV3,SL_LV3);
+   7   1      
+   8   1        SET_IO_CFG(IO_KEY_PWR_CFG,PU_OPEN,PD_CLOSE,OPR_CLOSE,INPUT);
+   9   1        SET_IO_SEL(IO_KEY_PWR_SEL,SMIT_EN,PU_STRONG,PD_STRONG,DRV_LV3,SL_LV3);
+  10   1      
+  11   1        SET_IO_CFG(IO_LED_DAT_CFG,PU_CLOSE,PD_CLOSE,OPR_CLOSE,P34_PWM2_SETTING);
+  12   1        SET_IO_SEL(IO_LED_DAT_SEL,SMIT_EN,PU_STRONG,PD_STRONG,DRV_LV3,SL_LV3);
+  13   1        IO_LED_DAT = 0;
+  14   1      
+  15   1        SET_IO_CFG(IO_MIC_AD_CFG,PU_OPEN,PD_CLOSE,OPR_CLOSE,INPUT);
+  16   1        SET_IO_SEL(IO_MIC_AD_SEL,SMIT_EN,PU_WEEK,PD_WEEK,DRV_LV3,SL_LV3);
+  17   1      
+  18   1        keySta = 0;
+  19   1        keyCode = IRKEY_NON;
+  20   1      
+  21   1        light.sta = STA_POWEROFF;
+  22   1        light.brightness = LED_BRIGHTNESS_MAX;
+  23   1        light.mode = MODE_qiCaiLiuShui;
+  24   1        light.rgb = 0;
+  25   1        light.num = LED_NUM;
+  26   1        light.gap = 0;
+  27   1        light.speed = LED_SPEED_MAX;
+  28   1        light.dir = 0;
+  29   1        light.mic = 0;
+  30   1      }
+  31          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    103    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

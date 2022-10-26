@@ -1,0 +1,51 @@
+C51 COMPILER V9.56.0.0   TIMER1                                                            12/27/2021 17:20:29 PAGE 1   
+
+
+C51 COMPILER V9.56.0.0, COMPILATION OF MODULE TIMER1
+OBJECT MODULE PLACED IN .\output\timer1.obj
+COMPILER INVOKED BY: E:\Keil_v5_BYD\C51\BIN\C51.EXE user\timer1.c COMPACT OMF2 OPTIMIZE(8,SPEED) BROWSE DEBUG PRINT(.\ls
+                    -t\timer1.lst) TABS(2) OBJECT(.\output\timer1.obj)
+
+line level    source
+
+   1          
+   2          /*********************************************************************************************************
+             -************/
+   3          #include "timer1.h"
+   4          /*********************************************************************************************************
+             -************/
+   5          
+   6          void TIMER1_ISR (void) interrupt 3     //每10ms中断一次
+   7          {
+   8   1        TH1 = TH_VAL1;
+   9   1        TL1 = TL_VAL1;
+  10   1        
+  11   1      }
+  12          void timer1_init(void)
+  13          {
+  14   1        TMOD = (TMOD&0xCF)|0x00;      //模式选择: 定时器1，模式1。
+  15   1        TH1 = TH_VAL1;              //高8位装初值
+  16   1        TL1 = TL_VAL1;              //低8位装初值
+  17   1        
+  18   1        TR1 = 1;                  //定时器1使能  
+  19   1        ET1 = 1;                  //定时器1中断使能
+  20   1        PT1 = 0;                  //设置定时器1中断优先级为低优先级
+  21   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     26    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

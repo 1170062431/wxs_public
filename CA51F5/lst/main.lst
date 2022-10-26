@@ -1,0 +1,467 @@
+C51 COMPILER V9.56.0.0   MAIN                                                              12/27/2021 17:20:29 PAGE 1   
+
+
+C51 COMPILER V9.56.0.0, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\output\main.obj
+COMPILER INVOKED BY: E:\Keil_v5_BYD\C51\BIN\C51.EXE user\main.c COMPACT OMF2 OPTIMIZE(8,SPEED) BROWSE DEBUG PRINT(.\lst\
+                    -main.lst) TABS(2) OBJECT(.\output\main.obj)
+
+line level    source
+
+   1          #ifndef _MAIN_C_
+   2          #define _MAIN_C_
+   3          /****************************************************************************************/
+   4          #include "main.h"
+   5          /*****************************************************************************************
+   6          ******************************************************************************************/
+   7          _LIGHT light;
+   8            
+   9          unsigned int LED_DAT[LED_NUM] = { 0 };  //LED 数据表,0-254--R+G,255-509--G+B,510-764--B+R,765--W,886--OFF
+  10            /* //
+  11          unsigned char LED_DAT[LED_NUM][3] = { //LED 数据表  
+  12            {0x00,0x00,0x00},   //led1++
+  13            {0x00,0x00,0x00},   //led2++
+  14            {0x00,0x00,0x00},   //led3++
+  15            {0x00,0x00,0x00},   //led4++
+  16            {0x00,0x00,0x00},   //led5++
+  17            {0x00,0x00,0x00},   //led6++
+  18          };
+  19          //  */
+  20          void main(void)
+  21          {
+  22   1        io_init();
+  23   1        timer0_init();
+  24   1        pwm2_init();
+  25   1        
+  26   1      #ifdef UART0_EN
+                Uart0_Initial(UART0_BAUTRATE);  //初始化UART0
+              #endif
+  29   1      
+  30   1        EA = 1;                         //开全局中断
+  31   1      
+  32   1      #ifdef PRINT_EN
+                uart_printf("CA51F551S1 Demo Code\n");
+              #endif
+  35   1      
+  36   1        F_1ms = 0;
+  37   1        F_1s = 0;
+  38   1        T_1ms = 0;
+  39   1        
+  40   1        while(1)
+  41   1        {
+  42   2          if(F_1ms)
+  43   2          {
+  44   3            F_1ms = 0;
+  45   3            keyScan();
+  46   3            if(keySta || (keyCode != IRKEY_NON))
+  47   3            {
+  48   4            /* //
+  49   4              if(!F_keyDone)
+  50   4              {
+  51   4                user_printf("IR keyCode = 0x%08lx ",keyCode);
+  52   4                user_printf("keySta = 0x%08lx ",keySta);
+  53   4                user_printf("keyDownTime_ms = %d ",keyDownTime_ms);
+  54   4                user_printf("\n");
+C51 COMPILER V9.56.0.0   MAIN                                                              12/27/2021 17:20:29 PAGE 2   
+
+  55   4              }
+  56   4            //  */
+  57   4              keyAction();
+  58   4            }
+  59   3            else
+  60   3              F_keyDone = 0;
+  61   3            if(T_1ms%20 == 0)
+  62   3            {
+  63   4              led_rgb_refreash();
+  64   4              send_led_data();
+  65   4            }
+  66   3          }
+  67   2          if(F_1s)
+  68   2          {
+  69   3            F_1s = 0;
+  70   3          #ifdef PRINT_EN
+                    uart_printf("1s\n");
+                  #endif
+  73   3          }
+  74   2        }
+  75   1      
+  76   1      }
+  77          
+  78          void led_rgb_refreash()   //>=10ms
+  79          {
+  80   1        static u16 temp_rgb;
+  81   1        static u8 F_huXi = 0;
+  82   1        u8 led_index,led_on_num;
+  83   1        u8 gap,num;
+  84   1        
+  85   1        if(light.sta == STA_POWEROFF)
+  86   1        {
+  87   2          for(led_index=0;led_index<LED_NUM;led_index++)
+  88   2          {
+  89   3            LED_DAT[led_index] = 886;
+  90   3          }
+  91   2          return;
+  92   2        }
+  93   1        
+  94   1        temp_rgb = light.rgb;
+  95   1        
+  96   1        if(light.mic)
+  97   1          led_on_num = light.mic_ad;
+  98   1        else
+  99   1          led_on_num = LED_NUM;
+ 100   1        
+ 101   1        switch (light.mode)
+ 102   1        {
+ 103   2        case MODE_qiCaiLiuShui:
+ 104   2          if(light.dir == 0)
+ 105   2          {
+ 106   3            for(led_index=0;led_index<led_on_num;led_index++)
+ 107   3            {
+ 108   4              LED_DAT[led_index] = temp_rgb;
+ 109   4              temp_rgb = (temp_rgb+11)%765;
+ 110   4            }
+ 111   3            for(led_index=led_on_num;led_index<LED_NUM;led_index++)
+ 112   3            {
+ 113   4              LED_DAT[led_index] = 886;
+ 114   4            }
+ 115   3          }
+ 116   2          else if(light.dir == 1)
+C51 COMPILER V9.56.0.0   MAIN                                                              12/27/2021 17:20:29 PAGE 3   
+
+ 117   2          {
+ 118   3            for(led_index=LED_NUM;led_index>LED_NUM-led_on_num;led_index--)
+ 119   3            {
+ 120   4              LED_DAT[led_index-1] = temp_rgb;
+ 121   4              temp_rgb = (temp_rgb+11)%765;
+ 122   4            }
+ 123   3            for(led_index=LED_NUM-led_on_num;led_index>0;led_index--)
+ 124   3            {
+ 125   4              LED_DAT[led_index-1] = 886;
+ 126   4            }
+ 127   3          }
+ 128   2          else if(light.dir == 2)   //mic enable
+ 129   2          {
+ 130   3            for(led_index=0;led_index<LED_NUM;led_index++)
+ 131   3            {
+ 132   4              LED_DAT[led_index] = temp_rgb;
+ 133   4              temp_rgb = (temp_rgb+11)%765;
+ 134   4            }
+ 135   3            for(led_index=led_on_num/2;led_index<LED_NUM-led_on_num/2;led_index++)
+ 136   3            {
+ 137   4              LED_DAT[led_index] = 886;
+ 138   4            }
+ 139   3          }
+ 140   2          else if(light.dir == 3)   //mic enable
+ 141   2          {
+ 142   3            for(led_index=LED_NUM;led_index>0;led_index--)
+ 143   3            {
+ 144   4              LED_DAT[led_index-1] = temp_rgb;
+ 145   4              temp_rgb = (temp_rgb+11)%765;
+ 146   4            }
+ 147   3            for(led_index=0;led_index<(LED_NUM-led_on_num)/2;led_index++)
+ 148   3            {
+ 149   4              LED_DAT[led_index] = 886;
+ 150   4            }
+ 151   3            for(led_index=LED_NUM;led_index>(LED_NUM+led_on_num)/2;led_index--)
+ 152   3            {
+ 153   4              LED_DAT[led_index-1] = 886;
+ 154   4            }
+ 155   3          }
+ 156   2          
+ 157   2          if(T_1ms%40 <= 3)
+ 158   2          {
+ 159   3            if(light.rgb < 11)
+ 160   3              light.rgb += (765-11);
+ 161   3            else
+ 162   3              light.rgb -= 11;
+ 163   3          }
+ 164   2          
+ 165   2          if(light.mic_ad)
+ 166   2            light.mic_ad --;
+ 167   2          break;
+ 168   2        case MODE_danSeChangLiang:
+ 169   2          for(led_index=0;led_index<led_on_num;led_index++)
+ 170   2          {
+ 171   3            LED_DAT[led_index] = temp_rgb;
+ 172   3          }
+ 173   2          if(light.dir == 0)
+ 174   2          {
+ 175   3            for(led_index=led_on_num;led_index<LED_NUM;led_index++)
+ 176   3            {
+ 177   4              LED_DAT[led_index] = 886;
+ 178   4            }
+C51 COMPILER V9.56.0.0   MAIN                                                              12/27/2021 17:20:29 PAGE 4   
+
+ 179   3          }
+ 180   2          else if(light.dir == 1)
+ 181   2          {
+ 182   3            for(led_index=LED_NUM-led_on_num;led_index>0;led_index--)
+ 183   3            {
+ 184   4              LED_DAT[led_index-1] = 886;
+ 185   4            }
+ 186   3          }
+ 187   2          else if(light.dir == 2)   //mic enable
+ 188   2          {
+ 189   3            for(led_index=led_on_num/2;led_index<LED_NUM-led_on_num/2;led_index++)
+ 190   3            {
+ 191   4              LED_DAT[led_index] = 886;
+ 192   4            }
+ 193   3          }
+ 194   2          else if(light.dir == 3)   //mic enable
+ 195   2          {
+ 196   3            for(led_index=0;led_index<(LED_NUM-led_on_num)/2;led_index++)
+ 197   3            {
+ 198   4              LED_DAT[led_index] = 886;
+ 199   4            }
+ 200   3            for(led_index=LED_NUM;led_index>(LED_NUM+led_on_num)/2;led_index--)
+ 201   3            {
+ 202   4              LED_DAT[led_index-1] = 886;
+ 203   4            }
+ 204   3          }
+ 205   2          if(light.mic_ad)
+ 206   2            light.mic_ad --;
+ 207   2          break;
+ 208   2        case MODE_sanSePaoMa:
+ 209   2          for(led_index=0;led_index<LED_NUM;led_index++)
+ 210   2          {
+ 211   3            LED_DAT[led_index] = temp_rgb;
+ 212   3            temp_rgb = (temp_rgb+255)%765;
+ 213   3          }
+ 214   2          if(!light.mic)
+ 215   2          {
+ 216   3            if(T_1ms%200 <= 3)
+ 217   3            {
+ 218   4              if(light.rgb < 255)
+ 219   4                light.rgb += (765-255);
+ 220   4              else
+ 221   4                light.rgb -= 255;
+ 222   4            }
+ 223   3          }
+ 224   2          else if(light.mic_ad)
+ 225   2          {
+ 226   3            if(T_1ms%100 <= 3)
+ 227   3            {
+ 228   4              if(light.rgb < 255)
+ 229   4                light.rgb += (765-255);
+ 230   4              else
+ 231   4                light.rgb -= 255;
+ 232   4            }
+ 233   3            light.mic_ad = 0;
+ 234   3          }
+ 235   2          
+ 236   2          /*
+ 237   2          if(light.mic_ad)
+ 238   2          {
+ 239   2            light.mic_ad --;
+ 240   2            if(light.rgb < 255)
+C51 COMPILER V9.56.0.0   MAIN                                                              12/27/2021 17:20:29 PAGE 5   
+
+ 241   2              light.rgb++;
+ 242   2            else
+ 243   2              light.rgb = 0;
+ 244   2          }
+ 245   2        //  */
+ 246   2          break;
+ 247   2        case MODE_danSeJianBian:
+ 248   2          for(led_index=0;led_index<LED_NUM;led_index++)
+ 249   2          {
+ 250   3            LED_DAT[led_index] = temp_rgb;
+ 251   3          }
+ 252   2          if(!light.mic)
+ 253   2          {
+ 254   3            if(T_1ms%40 <= 3)
+ 255   3              light.rgb = (light.rgb+3)%765;
+ 256   3          }
+ 257   2          else if(light.mic_ad)
+ 258   2          {
+ 259   3            if(T_1ms%40 <= 3)
+ 260   3              light.rgb = (light.rgb+6)%765;
+ 261   3            light.mic_ad = 0;
+ 262   3          }
+ 263   2          
+ 264   2          break;
+ 265   2        case MODE_danSeJianGePaoMa:
+ 266   2        //  if(light.gap == 0)
+ 267   2          {
+ 268   3            light.gap = 3;
+ 269   3            light.num = 3;
+ 270   3        //    light.step = 0;
+ 271   3          }
+ 272   2        //  else
+ 273   2          {
+ 274   3            if(T_1ms%200 <= 10)
+ 275   3              light.step++;
+ 276   3            if(light.step >= light.gap+light.num)
+ 277   3            {
+ 278   4              light.step = 0;
+ 279   4            }
+ 280   3            if(light.step <= light.gap)
+ 281   3            {
+ 282   4              gap = light.step;
+ 283   4              num = 3;
+ 284   4            }
+ 285   3            else
+ 286   3            {
+ 287   4              gap = 0;
+ 288   4              num = light.step-light.gap;
+ 289   4            }
+ 290   3          }
+ 291   2          if(light.mic && !light.mic_ad)
+ 292   2            break;
+ 293   2          for(led_index=0;led_index<LED_NUM;led_index++)
+ 294   2          {
+ 295   3            while(gap)
+ 296   3            {
+ 297   4              gap--;
+ 298   4              LED_DAT[led_index] = 886;
+ 299   4              led_index++;
+ 300   4              if(led_index == LED_NUM)
+ 301   4                return;
+ 302   4            }
+C51 COMPILER V9.56.0.0   MAIN                                                              12/27/2021 17:20:29 PAGE 6   
+
+ 303   3            while(num)
+ 304   3            {
+ 305   4              num--;
+ 306   4              LED_DAT[led_index] = temp_rgb;
+ 307   4              led_index++;
+ 308   4              if(led_index == LED_NUM)
+ 309   4                return;
+ 310   4            }
+ 311   3            gap = light.gap;
+ 312   3            num = light.num;
+ 313   3          }
+ 314   2          light.mic_ad = 0;
+ 315   2          break;
+ 316   2        case MODE_danSeQieHuan:
+ 317   2          if(T_1ms%20 <= 3)
+ 318   2            light.step++;
+ 319   2          if(light.step > LED_NUM)
+ 320   2          {
+ 321   3            light.step = 1;
+ 322   3            light.rgb = (light.rgb+230)%765;
+ 323   3            temp_rgb = light.rgb;
+ 324   3          }
+ 325   2          for(led_index=0;led_index<light.step;led_index++)
+ 326   2          {
+ 327   3            LED_DAT[led_index] = temp_rgb;
+ 328   3          }
+ 329   2          break;
+ 330   2        case MODE_shanSHuo:
+ 331   2          if((T_1ms < 500)&&(light.mic_ad == 0))
+ 332   2          {
+ 333   3            for(led_index=0;led_index<LED_NUM;led_index++)
+ 334   3            {
+ 335   4              LED_DAT[led_index] = 886;
+ 336   4            }
+ 337   3          }
+ 338   2          else if(!light.mic || light.mic_ad)
+ 339   2          {
+ 340   3            for(led_index=0;led_index<LED_NUM;led_index++)
+ 341   3            {
+ 342   4              LED_DAT[led_index] = temp_rgb;
+ 343   4            }
+ 344   3          }
+ 345   2          light.mic_ad = 0;
+ 346   2          break;
+ 347   2        case MODE_huXi:
+ 348   2          for(led_index=0;led_index<LED_NUM;led_index++)
+ 349   2          {
+ 350   3            LED_DAT[led_index] = temp_rgb;
+ 351   3          }
+ 352   2          if(T_1ms%40 <= 3)
+ 353   2          {
+ 354   3            if(F_huXi)
+ 355   3            {
+ 356   4              if(light.brightness)
+ 357   4                light.brightness--;
+ 358   4              else
+ 359   4                F_huXi = 0;
+ 360   4            }
+ 361   3            else
+ 362   3            {
+ 363   4              if(light.brightness < LED_BRIGHTNESS_MAX)
+ 364   4                light.brightness++;
+C51 COMPILER V9.56.0.0   MAIN                                                              12/27/2021 17:20:29 PAGE 7   
+
+ 365   4              else
+ 366   4                F_huXi = 1;
+ 367   4            }
+ 368   3          }
+ 369   2        default:
+ 370   2          break;
+ 371   2        }
+ 372   1      }
+ 373          
+ 374          void send_led_data()
+ 375          {
+ 376   1      //  /*  
+ 377   1        unsigned char led_data_temp[3] = { 0x00,0x00,0x00 };    //LED 数据表
+ 378   1      //  */
+ 379   1        unsigned char led_index = 0,color_index = 0;
+ 380   1        unsigned int temp;
+ 381   1        
+ 382   1        for(led_index=0;led_index<LED_NUM;led_index++)    //每级 RGB LED 为 3 个字节数据
+ 383   1        {
+ 384   2          temp = LED_DAT[led_index];
+ 385   2          if(temp < 255)
+ 386   2          {
+ 387   3            led_data_temp[DATA_R] = (255-temp)*light.brightness/LED_BRIGHTNESS_MAX;
+ 388   3            led_data_temp[DATA_G] = (temp)*light.brightness/LED_BRIGHTNESS_MAX;
+ 389   3            led_data_temp[DATA_B] = 0;
+ 390   3          }
+ 391   2          else if(temp < 510)
+ 392   2          {
+ 393   3            led_data_temp[DATA_R] = 0;
+ 394   3            led_data_temp[DATA_G] = (510-temp)*light.brightness/LED_BRIGHTNESS_MAX;
+ 395   3            led_data_temp[DATA_B] = (temp-255)*light.brightness/LED_BRIGHTNESS_MAX;
+ 396   3          }
+ 397   2          else if(temp < 765)
+ 398   2          {
+ 399   3            led_data_temp[DATA_R] = (temp-510)*light.brightness/LED_BRIGHTNESS_MAX;
+ 400   3            led_data_temp[DATA_G] = 0;
+ 401   3            led_data_temp[DATA_B] = (765-temp)*light.brightness/LED_BRIGHTNESS_MAX;
+ 402   3          }
+ 403   2          else if(temp == 765)
+ 404   2          {
+ 405   3            led_data_temp[DATA_R] = 125*light.brightness/LED_BRIGHTNESS_MAX;
+ 406   3            led_data_temp[DATA_G] = 125*light.brightness/LED_BRIGHTNESS_MAX;
+ 407   3            led_data_temp[DATA_B] = 125*light.brightness/LED_BRIGHTNESS_MAX;
+ 408   3          }
+ 409   2          else if(temp == 886)
+ 410   2          {
+ 411   3            led_data_temp[DATA_R] = 0;
+ 412   3            led_data_temp[DATA_G] = 0;
+ 413   3            led_data_temp[DATA_B] = 0;
+ 414   3          }
+ 415   2          for(color_index=0;color_index<3;color_index++)
+ 416   2          {
+ 417   3          //  while(LEFLG & LEBSY1);    //等待数据全部发送,这个没用
+ 418   3            while(LEFLG & LEF1);    //等待数据全部发送
+ 419   3            LEDAT1 = led_data_temp[color_index%3]; //写入 LED 数据到 LEDAT 寄存器
+ 420   3          }
+ 421   2        }
+ 422   1      }
+ 423          
+ 424          
+ 425          #endif
+
+C51 COMPILER V9.56.0.0   MAIN                                                              12/27/2021 17:20:29 PAGE 8   
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   2051    ----
+   CONSTANT SIZE    =      3    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =    160       7
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+   EDATA SIZE       =   ----    ----
+   HDATA SIZE       =   ----    ----
+   XDATA CONST SIZE =   ----    ----
+   FAR CONST SIZE   =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

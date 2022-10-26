@@ -1,0 +1,1087 @@
+Version 3.2 HI-TECH Software Intermediate Code
+"10 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _INDF `Vuc  1 e@0 ]
+"14 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _TMR0 `Vuc  1 e@1 ]
+"18 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _PCL `Vuc  1 e@2 ]
+"22 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _STATUS `Vuc  1 e@3 ]
+"24 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _CARRY `Vb  1 e@24 ]
+"25 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _DC `Vb  1 e@25 ]
+"26 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _ZERO `Vb  1 e@26 ]
+"27 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _nPD `Vb  1 e@27 ]
+"28 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _nTO `Vb  1 e@28 ]
+"29 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _RP `Vb  1 e@29 ]
+"31 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _C `Vb  1 e@24 ]
+"32 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _HC `Vb  1 e@25 ]
+"33 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _Z `Vb  1 e@26 ]
+"34 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _nPF `Vb  1 e@27 ]
+"35 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _nTF `Vb  1 e@28 ]
+"36 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _PAGE `Vb  1 e@29 ]
+[s S2 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S2 . CARRY DC ZERO nPD nTO RP ]
+[s S3 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S3 . C HC Z nPF nTF PAGE ]
+[u S1 `S2 1 `S3 1 ]
+[n S1 . . . ]
+"55 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _STATUSbits `VS1  1 e@3 ]
+"59 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _FSR `Vuc  1 e@4 ]
+"63 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _PORTA `Vuc  1 e@5 ]
+"65 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _RA0 `Vb  1 e@40 ]
+"66 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _RA1 `Vb  1 e@41 ]
+"67 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _RA2 `Vb  1 e@42 ]
+"68 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _RA3 `Vb  1 e@43 ]
+"69 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _RA4 `Vb  1 e@44 ]
+"70 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _RA5 `Vb  1 e@45 ]
+"72 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _PA0 `Vb  1 e@40 ]
+"73 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _PA1 `Vb  1 e@41 ]
+"74 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _PA2 `Vb  1 e@42 ]
+"75 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _PA3 `Vb  1 e@43 ]
+"76 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _PA4 `Vb  1 e@44 ]
+"77 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _PA5 `Vb  1 e@45 ]
+[s S5 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S5 . RA0 RA1 RA2 RA3 RA4 RA5 ]
+[s S6 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S6 . PA0 PA1 PA2 PA3 PA4 PA5 ]
+[u S4 `S5 1 `S6 1 ]
+[n S4 . . . ]
+"96 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _PORTAbits `VS4  1 e@5 ]
+"100 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _PCLATH `Vuc  1 e@10 ]
+[s S8 :3 `uc 1 ]
+[n S8 . PCLATH ]
+[u S7 `S8 1 ]
+[n S7 . . ]
+"107 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _PCLATHbits `VS7  1 e@10 ]
+"111 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _INTCON `Vuc  1 e@11 ]
+"113 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _PAIF `Vb  1 e@88 ]
+"114 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _INTF `Vb  1 e@89 ]
+"115 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _T0IF `Vb  1 e@90 ]
+"116 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _PAIE `Vb  1 e@91 ]
+"117 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _INTE `Vb  1 e@92 ]
+"118 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _T0IE `Vb  1 e@93 ]
+"119 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _PEIE `Vb  1 e@94 ]
+"120 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _GIE `Vb  1 e@95 ]
+[s S10 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S10 . PAIF INTF T0IF PAIE INTE T0IE PEIE GIE ]
+[u S9 `S10 1 ]
+[n S9 . . ]
+"133 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _INTCONbits `VS9  1 e@11 ]
+"137 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _PIR1 `Vuc  1 e@12 ]
+"139 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _TMR2IF `Vb  1 e@97 ]
+"140 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _CKMEAIF `Vb  1 e@102 ]
+"141 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _EEIF `Vb  1 e@103 ]
+[s S12 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S12 . . TMR2IF . . . . CKMEAIF EEIF ]
+[u S11 `S12 1 ]
+[n S11 . . ]
+"154 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _PIR1bits `VS11  1 e@12 ]
+"159 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _TMR2 `Vuc  1 e@17 ]
+"163 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _T2CON `Vuc  1 e@18 ]
+"165 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _T2CKPS0 `Vb  1 e@144 ]
+"166 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _T2CKPS1 `Vb  1 e@145 ]
+"167 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _TMR2ON `Vb  1 e@146 ]
+"168 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _TOUTPS0 `Vb  1 e@147 ]
+"169 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _TOUTPS1 `Vb  1 e@148 ]
+"170 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _TOUTPS2 `Vb  1 e@149 ]
+"171 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _TOUTPS3 `Vb  1 e@150 ]
+[s S14 :2 `uc 1 :1 `uc 1 :4 `uc 1 ]
+[n S14 . T2CKPS TMR2ON TOUTPS ]
+[s S15 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S15 . T2CKPS0 T2CKPS1 . TOUTPS0 TOUTPS1 TOUTPS2 TOUTPS3 ]
+[u S13 `S14 1 `S15 1 ]
+[n S13 . . . ]
+"188 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _T2CONbits `VS13  1 e@18 ]
+"193 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _WDTCON `Vuc  1 e@24 ]
+"195 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SWDTEN `Vb  1 e@192 ]
+"196 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _WDTPS0 `Vb  1 e@193 ]
+"197 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _WDTPS1 `Vb  1 e@194 ]
+"198 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _WDTPS2 `Vb  1 e@195 ]
+"199 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _WDTPS3 `Vb  1 e@196 ]
+[s S17 :1 `uc 1 :4 `uc 1 ]
+[n S17 . SWDTEN WDTPS ]
+[s S18 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S18 . . WDTPS0 WDTPS1 WDTPS2 WDTPS3 ]
+[u S16 `S17 1 `S18 1 ]
+[n S16 . . . ]
+"213 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _WDTCONbits `VS16  1 e@24 ]
+"217 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _MSCKCON `Vuc  1 e@27 ]
+"219 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _CKCNTI `Vb  1 e@217 ]
+"220 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _CKMAVG `Vb  1 e@218 ]
+"221 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SLVREN `Vb  1 e@220 ]
+[s S20 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S20 . . CKCNTI CKMAVG . SLVREN ]
+[u S19 `S20 1 ]
+[n S19 . . ]
+"232 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _MSCKCONbits `VS19  1 e@27 ]
+"236 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SOSCPRL `Vuc  1 e@28 ]
+"240 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SOSCPRH `Vuc  1 e@29 ]
+[s S22 :4 `uc 1 ]
+[n S22 . SOSCPRH ]
+[u S21 `S22 1 ]
+[n S21 . . ]
+"247 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SOSCPRHbits `VS21  1 e@29 ]
+"257 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _OPTION `Vuc  1 e@129 ]
+"259 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _PS0 `Vb  1 e@1032 ]
+"260 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _PS1 `Vb  1 e@1033 ]
+"261 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _PS2 `Vb  1 e@1034 ]
+"262 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _PSA `Vb  1 e@1035 ]
+"263 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _T0SE `Vb  1 e@1036 ]
+"264 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _T0CS `Vb  1 e@1037 ]
+"265 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _INTEDG `Vb  1 e@1038 ]
+"266 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _nPAPU `Vb  1 e@1039 ]
+[s S24 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S24 . PS PSA T0SE T0CS INTEDG nPAPU ]
+[s S25 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S25 . PS0 PS1 PS2 ]
+[u S23 `S24 1 `S25 1 ]
+[n S23 . . . ]
+"282 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _OPTIONbits `VS23  1 e@129 ]
+"286 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _TRISA `Vuc  1 e@133 ]
+"288 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _TRISA0 `Vb  1 e@1064 ]
+"289 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _TRISA1 `Vb  1 e@1065 ]
+"290 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _TRISA2 `Vb  1 e@1066 ]
+"291 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _TRISA4 `Vb  1 e@1068 ]
+"292 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _TRISA5 `Vb  1 e@1069 ]
+[s S27 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S27 . TRISA0 TRISA1 TRISA2 . TRISA4 TRISA5 ]
+[u S26 `S27 1 ]
+[n S26 . . ]
+"303 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _TRISAbits `VS26  1 e@133 ]
+"308 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _PIE1 `Vuc  1 e@140 ]
+"310 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _TMR2IE `Vb  1 e@1121 ]
+"311 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _CKMEAIE `Vb  1 e@1126 ]
+"312 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _EEIE `Vb  1 e@1127 ]
+[s S29 :1 `uc 1 :1 `uc 1 :4 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S29 . . TMR2IE . CKMEAIE EEIE ]
+[u S28 `S29 1 ]
+[n S28 . . ]
+"322 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _PIE1bits `VS28  1 e@140 ]
+"326 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _PCON `Vuc  1 e@142 ]
+"328 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _nBOR `Vb  1 e@1136 ]
+"329 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _nPOR `Vb  1 e@1137 ]
+[s S31 :1 `uc 1 :1 `uc 1 ]
+[n S31 . nBOR nPOR ]
+[u S30 `S31 1 ]
+[n S30 . . ]
+"336 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _PCONbits `VS30  1 e@142 ]
+"340 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _OSCCON `Vuc  1 e@143 ]
+"342 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _LFIOFR `Vb  1 e@1145 ]
+"343 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _HFIOFR `Vb  1 e@1146 ]
+"344 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _IRCF0 `Vb  1 e@1148 ]
+"345 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _IRCF1 `Vb  1 e@1149 ]
+"346 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _IRCF2 `Vb  1 e@1150 ]
+"347 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _LFMOD `Vb  1 e@1151 ]
+[s S33 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 ]
+[n S33 . . LFIOFR HFIOFR . IRCF LFMOD ]
+[s S34 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S34 . . IRCF0 IRCF1 IRCF2 ]
+[u S32 `S33 1 `S34 1 ]
+[n S32 . . . ]
+"364 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _OSCCONbits `VS32  1 e@143 ]
+"368 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _PR2 `Vuc  1 e@146 ]
+"372 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _WPUA `Vuc  1 e@149 ]
+"373 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _WPU `Vuc  1 e@149 ]
+"375 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _WPUA0 `Vb  1 e@1192 ]
+"376 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _WPUA1 `Vb  1 e@1193 ]
+"377 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _WPUA2 `Vb  1 e@1194 ]
+"378 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _WPUA4 `Vb  1 e@1196 ]
+"379 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _WPUA5 `Vb  1 e@1197 ]
+"381 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _WPU0 `Vb  1 e@1192 ]
+"382 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _WPU1 `Vb  1 e@1193 ]
+"383 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _WPU2 `Vb  1 e@1194 ]
+"384 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _WPU4 `Vb  1 e@1196 ]
+"385 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _WPU5 `Vb  1 e@1197 ]
+[s S36 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S36 . WPUA0 WPUA1 WPUA2 . WPUA4 WPUA5 ]
+[s S37 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S37 . WPU0 WPU1 WPU2 . WPU4 WPU5 ]
+[u S35 `S36 1 `S37 1 ]
+[n S35 . . . ]
+"404 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _WPUAbits `VS35  1 e@149 ]
+"408 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _IOCA `Vuc  1 e@150 ]
+"409 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _IOC `Vuc  1 e@150 ]
+"411 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _IOCA0 `Vb  1 e@1200 ]
+"412 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _IOCA1 `Vb  1 e@1201 ]
+"413 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _IOCA2 `Vb  1 e@1202 ]
+"414 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _IOCA3 `Vb  1 e@1203 ]
+"415 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _IOCA4 `Vb  1 e@1204 ]
+"416 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _IOCA5 `Vb  1 e@1205 ]
+"418 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _IOC0 `Vb  1 e@1200 ]
+"419 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _IOC1 `Vb  1 e@1201 ]
+"420 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _IOC2 `Vb  1 e@1202 ]
+"421 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _IOC3 `Vb  1 e@1203 ]
+"422 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _IOC4 `Vb  1 e@1204 ]
+"423 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _IOC5 `Vb  1 e@1205 ]
+[s S39 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S39 . IOCA0 IOCA1 IOCA2 IOCA3 IOCA4 IOCA5 ]
+[s S40 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S40 . IOC0 IOC1 IOC2 IOC3 IOC4 IOC5 ]
+[u S38 `S39 1 `S40 1 ]
+[n S38 . . . ]
+"442 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _IOCAbits `VS38  1 e@150 ]
+"446 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _EEDAT `Vuc  1 e@154 ]
+"447 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _EEDATA `Vuc  1 e@154 ]
+"451 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _EEADR `Vuc  1 e@155 ]
+"455 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _EECON1 `Vuc  1 e@156 ]
+"457 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _RD `Vb  1 e@1248 ]
+"458 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _WREN1 `Vb  1 e@1250 ]
+"459 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _WRERR `Vb  1 e@1251 ]
+"460 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _WREN2 `Vb  1 e@1252 ]
+"461 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _WREN3 `Vb  1 e@1253 ]
+[s S42 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S42 . RD . WREN1 WRERR WREN2 WREN3 ]
+[u S41 `S42 1 ]
+[n S41 . . ]
+"472 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _EECON1bits `VS41  1 e@156 ]
+"476 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _EECON2 `Vuc  1 e@157 ]
+"478 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _WR `Vb  1 e@1256 ]
+[s S44 :1 `uc 1 ]
+[n S44 . WR ]
+[u S43 `S44 1 ]
+[n S43 . . ]
+"484 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _EECON2bits `VS43  1 e@157 ]
+"487 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR00 `Vuc  1 e@0 ]
+"488 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR01 `Vuc  1 e@1 ]
+"489 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR02 `Vuc  1 e@2 ]
+"490 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR03 `Vuc  1 e@3 ]
+"491 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR04 `Vuc  1 e@4 ]
+"492 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR05 `Vuc  1 e@5 ]
+"493 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR06 `Vuc  1 e@6 ]
+"494 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR07 `Vuc  1 e@7 ]
+"495 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR08 `Vuc  1 e@8 ]
+"496 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR09 `Vuc  1 e@9 ]
+"497 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR0A `Vuc  1 e@10 ]
+"498 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR0B `Vuc  1 e@11 ]
+"499 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR0C `Vuc  1 e@12 ]
+"500 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR0D `Vuc  1 e@13 ]
+"501 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR0E `Vuc  1 e@14 ]
+"502 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR0F `Vuc  1 e@15 ]
+"504 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR10 `Vuc  1 e@16 ]
+"505 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR11 `Vuc  1 e@17 ]
+"506 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR12 `Vuc  1 e@18 ]
+"507 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR13 `Vuc  1 e@19 ]
+"508 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR14 `Vuc  1 e@20 ]
+"509 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR15 `Vuc  1 e@21 ]
+"510 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR16 `Vuc  1 e@22 ]
+"511 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR17 `Vuc  1 e@23 ]
+"512 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR18 `Vuc  1 e@24 ]
+"513 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR19 `Vuc  1 e@25 ]
+"514 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR1A `Vuc  1 e@26 ]
+"515 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR1B `Vuc  1 e@27 ]
+"516 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR1C `Vuc  1 e@28 ]
+"517 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR1D `Vuc  1 e@29 ]
+"518 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR1E `Vuc  1 e@30 ]
+"519 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR1F `Vuc  1 e@31 ]
+"522 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR80 `Vuc  1 e@128 ]
+"523 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR81 `Vuc  1 e@129 ]
+"524 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR82 `Vuc  1 e@130 ]
+"525 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR83 `Vuc  1 e@131 ]
+"526 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR84 `Vuc  1 e@132 ]
+"527 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR85 `Vuc  1 e@133 ]
+"528 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR86 `Vuc  1 e@134 ]
+"529 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR87 `Vuc  1 e@135 ]
+"530 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR88 `Vuc  1 e@136 ]
+"531 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR89 `Vuc  1 e@137 ]
+"532 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR8A `Vuc  1 e@138 ]
+"533 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR8B `Vuc  1 e@139 ]
+"534 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR8C `Vuc  1 e@140 ]
+"535 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR8D `Vuc  1 e@141 ]
+"536 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR8E `Vuc  1 e@142 ]
+"537 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR8F `Vuc  1 e@143 ]
+"539 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR90 `Vuc  1 e@144 ]
+"540 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR91 `Vuc  1 e@145 ]
+"541 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR92 `Vuc  1 e@146 ]
+"542 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR93 `Vuc  1 e@147 ]
+"543 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR94 `Vuc  1 e@148 ]
+"544 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR95 `Vuc  1 e@149 ]
+"545 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR96 `Vuc  1 e@150 ]
+"546 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR97 `Vuc  1 e@151 ]
+"547 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR98 `Vuc  1 e@152 ]
+"548 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR99 `Vuc  1 e@153 ]
+"549 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR9A `Vuc  1 e@154 ]
+"550 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR9B `Vuc  1 e@155 ]
+"551 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR9C `Vuc  1 e@156 ]
+"552 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR9D `Vuc  1 e@157 ]
+"553 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR9E `Vuc  1 e@158 ]
+"554 d:\program files (x86)\fmd\fmdide\data\include\DEVICE.h
+[v _SFR9F `Vuc  1 e@159 ]
+[c E579 0 1 .. ]
+[n E579 . DISABLE ENABLE  ]
+[c E573 0 1 .. ]
+[n E573 . RESET SET  ]
+[; ;DEVICE.h: 10: volatile unsigned char INDF @ 0x000;
+[; ;DEVICE.h: 14: volatile unsigned char TMR0 @ 0x001;
+[; ;DEVICE.h: 18: volatile unsigned char PCL @ 0x002;
+[; ;DEVICE.h: 22: volatile unsigned char STATUS @ 0x003;
+[; ;DEVICE.h: 24: volatile bit CARRY @ ((unsigned)&STATUS*8)+0;
+[; ;DEVICE.h: 25: volatile bit DC @ ((unsigned)&STATUS*8)+1;
+[; ;DEVICE.h: 26: volatile bit ZERO @ ((unsigned)&STATUS*8)+2;
+[; ;DEVICE.h: 27: volatile bit nPD @ ((unsigned)&STATUS*8)+3;
+[; ;DEVICE.h: 28: volatile bit nTO @ ((unsigned)&STATUS*8)+4;
+[; ;DEVICE.h: 29: volatile bit RP @ ((unsigned)&STATUS*8)+5;
+[; ;DEVICE.h: 31: volatile bit C @ ((unsigned)&STATUS*8)+0;
+[; ;DEVICE.h: 32: volatile bit HC @ ((unsigned)&STATUS*8)+1;
+[; ;DEVICE.h: 33: volatile bit Z @ ((unsigned)&STATUS*8)+2;
+[; ;DEVICE.h: 34: volatile bit nPF @ ((unsigned)&STATUS*8)+3;
+[; ;DEVICE.h: 35: volatile bit nTF @ ((unsigned)&STATUS*8)+4;
+[; ;DEVICE.h: 36: volatile bit PAGE @ ((unsigned)&STATUS*8)+5;
+[; ;DEVICE.h: 38: volatile union {
+[; ;DEVICE.h: 39: struct {
+[; ;DEVICE.h: 40: unsigned CARRY : 1;
+[; ;DEVICE.h: 41: unsigned DC : 1;
+[; ;DEVICE.h: 42: unsigned ZERO : 1;
+[; ;DEVICE.h: 43: unsigned nPD : 1;
+[; ;DEVICE.h: 44: unsigned nTO : 1;
+[; ;DEVICE.h: 45: unsigned RP : 1;
+[; ;DEVICE.h: 46: };
+[; ;DEVICE.h: 47: struct {
+[; ;DEVICE.h: 48: unsigned C : 1;
+[; ;DEVICE.h: 49: unsigned HC : 1;
+[; ;DEVICE.h: 50: unsigned Z : 1;
+[; ;DEVICE.h: 51: unsigned nPF : 1;
+[; ;DEVICE.h: 52: unsigned nTF : 1;
+[; ;DEVICE.h: 53: unsigned PAGE : 1;
+[; ;DEVICE.h: 54: };
+[; ;DEVICE.h: 55: } STATUSbits @ 0x003;
+[; ;DEVICE.h: 59: volatile unsigned char FSR @ 0x004;
+[; ;DEVICE.h: 63: volatile unsigned char PORTA @ 0x005;
+[; ;DEVICE.h: 65: volatile bit RA0 @ ((unsigned)&PORTA*8)+0;
+[; ;DEVICE.h: 66: volatile bit RA1 @ ((unsigned)&PORTA*8)+1;
+[; ;DEVICE.h: 67: volatile bit RA2 @ ((unsigned)&PORTA*8)+2;
+[; ;DEVICE.h: 68: volatile bit RA3 @ ((unsigned)&PORTA*8)+3;
+[; ;DEVICE.h: 69: volatile bit RA4 @ ((unsigned)&PORTA*8)+4;
+[; ;DEVICE.h: 70: volatile bit RA5 @ ((unsigned)&PORTA*8)+5;
+[; ;DEVICE.h: 72: volatile bit PA0 @ ((unsigned)&PORTA*8)+0;
+[; ;DEVICE.h: 73: volatile bit PA1 @ ((unsigned)&PORTA*8)+1;
+[; ;DEVICE.h: 74: volatile bit PA2 @ ((unsigned)&PORTA*8)+2;
+[; ;DEVICE.h: 75: volatile bit PA3 @ ((unsigned)&PORTA*8)+3;
+[; ;DEVICE.h: 76: volatile bit PA4 @ ((unsigned)&PORTA*8)+4;
+[; ;DEVICE.h: 77: volatile bit PA5 @ ((unsigned)&PORTA*8)+5;
+[; ;DEVICE.h: 79: volatile union {
+[; ;DEVICE.h: 80: struct {
+[; ;DEVICE.h: 81: unsigned RA0 : 1;
+[; ;DEVICE.h: 82: unsigned RA1 : 1;
+[; ;DEVICE.h: 83: unsigned RA2 : 1;
+[; ;DEVICE.h: 84: unsigned RA3 : 1;
+[; ;DEVICE.h: 85: unsigned RA4 : 1;
+[; ;DEVICE.h: 86: unsigned RA5 : 1;
+[; ;DEVICE.h: 87: };
+[; ;DEVICE.h: 88: struct {
+[; ;DEVICE.h: 89: unsigned PA0 : 1;
+[; ;DEVICE.h: 90: unsigned PA1 : 1;
+[; ;DEVICE.h: 91: unsigned PA2 : 1;
+[; ;DEVICE.h: 92: unsigned PA3 : 1;
+[; ;DEVICE.h: 93: unsigned PA4 : 1;
+[; ;DEVICE.h: 94: unsigned PA5 : 1;
+[; ;DEVICE.h: 95: };
+[; ;DEVICE.h: 96: } PORTAbits @ 0x005;
+[; ;DEVICE.h: 100: volatile unsigned char PCLATH @ 0x00A;
+[; ;DEVICE.h: 103: volatile union {
+[; ;DEVICE.h: 104: struct {
+[; ;DEVICE.h: 105: unsigned PCLATH : 3;
+[; ;DEVICE.h: 106: };
+[; ;DEVICE.h: 107: } PCLATHbits @ 0x00A;
+[; ;DEVICE.h: 111: volatile unsigned char INTCON @ 0x00B;
+[; ;DEVICE.h: 113: volatile bit PAIF @ ((unsigned)&INTCON*8)+0;
+[; ;DEVICE.h: 114: volatile bit INTF @ ((unsigned)&INTCON*8)+1;
+[; ;DEVICE.h: 115: volatile bit T0IF @ ((unsigned)&INTCON*8)+2;
+[; ;DEVICE.h: 116: volatile bit PAIE @ ((unsigned)&INTCON*8)+3;
+[; ;DEVICE.h: 117: volatile bit INTE @ ((unsigned)&INTCON*8)+4;
+[; ;DEVICE.h: 118: volatile bit T0IE @ ((unsigned)&INTCON*8)+5;
+[; ;DEVICE.h: 119: volatile bit PEIE @ ((unsigned)&INTCON*8)+6;
+[; ;DEVICE.h: 120: volatile bit GIE @ ((unsigned)&INTCON*8)+7;
+[; ;DEVICE.h: 122: volatile union {
+[; ;DEVICE.h: 123: struct {
+[; ;DEVICE.h: 124: unsigned PAIF : 1;
+[; ;DEVICE.h: 125: unsigned INTF : 1;
+[; ;DEVICE.h: 126: unsigned T0IF : 1;
+[; ;DEVICE.h: 127: unsigned PAIE : 1;
+[; ;DEVICE.h: 128: unsigned INTE : 1;
+[; ;DEVICE.h: 129: unsigned T0IE : 1;
+[; ;DEVICE.h: 130: unsigned PEIE : 1;
+[; ;DEVICE.h: 131: unsigned GIE : 1;
+[; ;DEVICE.h: 132: };
+[; ;DEVICE.h: 133: } INTCONbits @ 0x00B;
+[; ;DEVICE.h: 137: volatile unsigned char PIR1 @ 0x00C;
+[; ;DEVICE.h: 139: volatile bit TMR2IF @ ((unsigned)&PIR1*8)+1;
+[; ;DEVICE.h: 140: volatile bit CKMEAIF @ ((unsigned)&PIR1*8)+6;
+[; ;DEVICE.h: 141: volatile bit EEIF @ ((unsigned)&PIR1*8)+7;
+[; ;DEVICE.h: 143: volatile union {
+[; ;DEVICE.h: 144: struct {
+[; ;DEVICE.h: 145: unsigned : 1;
+[; ;DEVICE.h: 146: unsigned TMR2IF : 1;
+[; ;DEVICE.h: 147: unsigned : 1;
+[; ;DEVICE.h: 148: unsigned : 1;
+[; ;DEVICE.h: 149: unsigned : 1;
+[; ;DEVICE.h: 150: unsigned : 1;
+[; ;DEVICE.h: 151: unsigned CKMEAIF : 1;
+[; ;DEVICE.h: 152: unsigned EEIF : 1;
+[; ;DEVICE.h: 153: };
+[; ;DEVICE.h: 154: } PIR1bits @ 0x00C;
+[; ;DEVICE.h: 159: volatile unsigned char TMR2 @ 0x011;
+[; ;DEVICE.h: 163: volatile unsigned char T2CON @ 0x012;
+[; ;DEVICE.h: 165: volatile bit T2CKPS0 @ ((unsigned)&T2CON*8)+0;
+[; ;DEVICE.h: 166: volatile bit T2CKPS1 @ ((unsigned)&T2CON*8)+1;
+[; ;DEVICE.h: 167: volatile bit TMR2ON @ ((unsigned)&T2CON*8)+2;
+[; ;DEVICE.h: 168: volatile bit TOUTPS0 @ ((unsigned)&T2CON*8)+3;
+[; ;DEVICE.h: 169: volatile bit TOUTPS1 @ ((unsigned)&T2CON*8)+4;
+[; ;DEVICE.h: 170: volatile bit TOUTPS2 @ ((unsigned)&T2CON*8)+5;
+[; ;DEVICE.h: 171: volatile bit TOUTPS3 @ ((unsigned)&T2CON*8)+6;
+[; ;DEVICE.h: 173: volatile union {
+[; ;DEVICE.h: 174: struct {
+[; ;DEVICE.h: 175: unsigned T2CKPS : 2;
+[; ;DEVICE.h: 176: unsigned TMR2ON : 1;
+[; ;DEVICE.h: 177: unsigned TOUTPS : 4;
+[; ;DEVICE.h: 178: };
+[; ;DEVICE.h: 179: struct {
+[; ;DEVICE.h: 180: unsigned T2CKPS0 : 1;
+[; ;DEVICE.h: 181: unsigned T2CKPS1 : 1;
+[; ;DEVICE.h: 182: unsigned : 1;
+[; ;DEVICE.h: 183: unsigned TOUTPS0 : 1;
+[; ;DEVICE.h: 184: unsigned TOUTPS1 : 1;
+[; ;DEVICE.h: 185: unsigned TOUTPS2 : 1;
+[; ;DEVICE.h: 186: unsigned TOUTPS3 : 1;
+[; ;DEVICE.h: 187: };
+[; ;DEVICE.h: 188: } T2CONbits @ 0x012;
+[; ;DEVICE.h: 193: volatile unsigned char WDTCON @ 0x018;
+[; ;DEVICE.h: 195: volatile bit SWDTEN @ ((unsigned)&WDTCON*8)+0;
+[; ;DEVICE.h: 196: volatile bit WDTPS0 @ ((unsigned)&WDTCON*8)+1;
+[; ;DEVICE.h: 197: volatile bit WDTPS1 @ ((unsigned)&WDTCON*8)+2;
+[; ;DEVICE.h: 198: volatile bit WDTPS2 @ ((unsigned)&WDTCON*8)+3;
+[; ;DEVICE.h: 199: volatile bit WDTPS3 @ ((unsigned)&WDTCON*8)+4;
+[; ;DEVICE.h: 201: volatile union {
+[; ;DEVICE.h: 202: struct {
+[; ;DEVICE.h: 203: unsigned SWDTEN : 1;
+[; ;DEVICE.h: 204: unsigned WDTPS : 4;
+[; ;DEVICE.h: 205: };
+[; ;DEVICE.h: 206: struct {
+[; ;DEVICE.h: 207: unsigned : 1;
+[; ;DEVICE.h: 208: unsigned WDTPS0 : 1;
+[; ;DEVICE.h: 209: unsigned WDTPS1 : 1;
+[; ;DEVICE.h: 210: unsigned WDTPS2 : 1;
+[; ;DEVICE.h: 211: unsigned WDTPS3 : 1;
+[; ;DEVICE.h: 212: };
+[; ;DEVICE.h: 213: } WDTCONbits @ 0x018;
+[; ;DEVICE.h: 217: volatile unsigned char MSCKCON @ 0x01B;
+[; ;DEVICE.h: 219: volatile bit CKCNTI @ ((unsigned)&MSCKCON*8)+1;
+[; ;DEVICE.h: 220: volatile bit CKMAVG @ ((unsigned)&MSCKCON*8)+2;
+[; ;DEVICE.h: 221: volatile bit SLVREN @ ((unsigned)&MSCKCON*8)+4;
+[; ;DEVICE.h: 224: volatile union {
+[; ;DEVICE.h: 225: struct {
+[; ;DEVICE.h: 226: unsigned : 1;
+[; ;DEVICE.h: 227: unsigned CKCNTI : 1;
+[; ;DEVICE.h: 228: unsigned CKMAVG : 1;
+[; ;DEVICE.h: 229: unsigned : 1;
+[; ;DEVICE.h: 230: unsigned SLVREN : 1;
+[; ;DEVICE.h: 231: };
+[; ;DEVICE.h: 232: } MSCKCONbits @ 0x01B;
+[; ;DEVICE.h: 236: volatile unsigned char SOSCPRL @ 0x01C;
+[; ;DEVICE.h: 240: volatile unsigned char SOSCPRH @ 0x01D;
+[; ;DEVICE.h: 243: volatile union {
+[; ;DEVICE.h: 244: struct {
+[; ;DEVICE.h: 245: unsigned SOSCPRH : 4;
+[; ;DEVICE.h: 246: };
+[; ;DEVICE.h: 247: } SOSCPRHbits @ 0x01D;
+[; ;DEVICE.h: 257: volatile unsigned char OPTION @ 0x081;
+[; ;DEVICE.h: 259: volatile bit PS0 @ ((unsigned)&OPTION*8)+0;
+[; ;DEVICE.h: 260: volatile bit PS1 @ ((unsigned)&OPTION*8)+1;
+[; ;DEVICE.h: 261: volatile bit PS2 @ ((unsigned)&OPTION*8)+2;
+[; ;DEVICE.h: 262: volatile bit PSA @ ((unsigned)&OPTION*8)+3;
+[; ;DEVICE.h: 263: volatile bit T0SE @ ((unsigned)&OPTION*8)+4;
+[; ;DEVICE.h: 264: volatile bit T0CS @ ((unsigned)&OPTION*8)+5;
+[; ;DEVICE.h: 265: volatile bit INTEDG @ ((unsigned)&OPTION*8)+6;
+[; ;DEVICE.h: 266: volatile bit nPAPU @ ((unsigned)&OPTION*8)+7;
+[; ;DEVICE.h: 268: volatile union {
+[; ;DEVICE.h: 269: struct {
+[; ;DEVICE.h: 270: unsigned PS : 3;
+[; ;DEVICE.h: 271: unsigned PSA : 1;
+[; ;DEVICE.h: 272: unsigned T0SE : 1;
+[; ;DEVICE.h: 273: unsigned T0CS : 1;
+[; ;DEVICE.h: 274: unsigned INTEDG : 1;
+[; ;DEVICE.h: 275: unsigned nPAPU : 1;
+[; ;DEVICE.h: 276: };
+[; ;DEVICE.h: 277: struct {
+[; ;DEVICE.h: 278: unsigned PS0 : 1;
+[; ;DEVICE.h: 279: unsigned PS1 : 1;
+[; ;DEVICE.h: 280: unsigned PS2 : 1;
+[; ;DEVICE.h: 281: };
+[; ;DEVICE.h: 282: } OPTIONbits @ 0x081;
+[; ;DEVICE.h: 286: volatile unsigned char TRISA @ 0x085;
+[; ;DEVICE.h: 288: volatile bit TRISA0 @ ((unsigned)&TRISA*8)+0;
+[; ;DEVICE.h: 289: volatile bit TRISA1 @ ((unsigned)&TRISA*8)+1;
+[; ;DEVICE.h: 290: volatile bit TRISA2 @ ((unsigned)&TRISA*8)+2;
+[; ;DEVICE.h: 291: volatile bit TRISA4 @ ((unsigned)&TRISA*8)+4;
+[; ;DEVICE.h: 292: volatile bit TRISA5 @ ((unsigned)&TRISA*8)+5;
+[; ;DEVICE.h: 294: volatile union {
+[; ;DEVICE.h: 295: struct {
+[; ;DEVICE.h: 296: unsigned TRISA0 : 1;
+[; ;DEVICE.h: 297: unsigned TRISA1 : 1;
+[; ;DEVICE.h: 298: unsigned TRISA2 : 1;
+[; ;DEVICE.h: 299: unsigned : 1;
+[; ;DEVICE.h: 300: unsigned TRISA4 : 1;
+[; ;DEVICE.h: 301: unsigned TRISA5 : 1;
+[; ;DEVICE.h: 302: };
+[; ;DEVICE.h: 303: } TRISAbits @ 0x085;
+[; ;DEVICE.h: 308: volatile unsigned char PIE1 @ 0x08C;
+[; ;DEVICE.h: 310: volatile bit TMR2IE @ ((unsigned)&PIE1*8)+1;
+[; ;DEVICE.h: 311: volatile bit CKMEAIE @ ((unsigned)&PIE1*8)+6;
+[; ;DEVICE.h: 312: volatile bit EEIE @ ((unsigned)&PIE1*8)+7;
+[; ;DEVICE.h: 314: volatile union {
+[; ;DEVICE.h: 315: struct {
+[; ;DEVICE.h: 316: unsigned : 1;
+[; ;DEVICE.h: 317: unsigned TMR2IE : 1;
+[; ;DEVICE.h: 318: unsigned : 4;
+[; ;DEVICE.h: 319: unsigned CKMEAIE : 1;
+[; ;DEVICE.h: 320: unsigned EEIE : 1;
+[; ;DEVICE.h: 321: };
+[; ;DEVICE.h: 322: } PIE1bits @ 0x08C;
+[; ;DEVICE.h: 326: volatile unsigned char PCON @ 0x08E;
+[; ;DEVICE.h: 328: volatile bit nBOR @ ((unsigned)&PCON*8)+0;
+[; ;DEVICE.h: 329: volatile bit nPOR @ ((unsigned)&PCON*8)+1;
+[; ;DEVICE.h: 331: volatile union {
+[; ;DEVICE.h: 332: struct {
+[; ;DEVICE.h: 333: unsigned nBOR : 1;
+[; ;DEVICE.h: 334: unsigned nPOR : 1;
+[; ;DEVICE.h: 335: };
+[; ;DEVICE.h: 336: } PCONbits @ 0x08E;
+[; ;DEVICE.h: 340: volatile unsigned char OSCCON @ 0x08F;
+[; ;DEVICE.h: 342: volatile bit LFIOFR @ ((unsigned)&OSCCON*8)+1;
+[; ;DEVICE.h: 343: volatile bit HFIOFR @ ((unsigned)&OSCCON*8)+2;
+[; ;DEVICE.h: 344: volatile bit IRCF0 @ ((unsigned)&OSCCON*8)+4;
+[; ;DEVICE.h: 345: volatile bit IRCF1 @ ((unsigned)&OSCCON*8)+5;
+[; ;DEVICE.h: 346: volatile bit IRCF2 @ ((unsigned)&OSCCON*8)+6;
+[; ;DEVICE.h: 347: volatile bit LFMOD @ ((unsigned)&OSCCON*8)+7;
+[; ;DEVICE.h: 349: volatile union {
+[; ;DEVICE.h: 350: struct {
+[; ;DEVICE.h: 351: unsigned : 1;
+[; ;DEVICE.h: 352: unsigned LFIOFR : 1;
+[; ;DEVICE.h: 353: unsigned HFIOFR : 1;
+[; ;DEVICE.h: 354: unsigned : 1;
+[; ;DEVICE.h: 355: unsigned IRCF : 3;
+[; ;DEVICE.h: 356: unsigned LFMOD : 1;
+[; ;DEVICE.h: 357: };
+[; ;DEVICE.h: 358: struct {
+[; ;DEVICE.h: 359: unsigned : 4;
+[; ;DEVICE.h: 360: unsigned IRCF0 : 1;
+[; ;DEVICE.h: 361: unsigned IRCF1 : 1;
+[; ;DEVICE.h: 362: unsigned IRCF2 : 1;
+[; ;DEVICE.h: 363: };
+[; ;DEVICE.h: 364: } OSCCONbits @ 0x08F;
+[; ;DEVICE.h: 368: volatile unsigned char PR2 @ 0x092;
+[; ;DEVICE.h: 372: volatile unsigned char WPUA @ 0x095;
+[; ;DEVICE.h: 373: volatile unsigned char WPU @ 0x095;
+[; ;DEVICE.h: 375: volatile bit WPUA0 @ ((unsigned)&WPUA*8)+0;
+[; ;DEVICE.h: 376: volatile bit WPUA1 @ ((unsigned)&WPUA*8)+1;
+[; ;DEVICE.h: 377: volatile bit WPUA2 @ ((unsigned)&WPUA*8)+2;
+[; ;DEVICE.h: 378: volatile bit WPUA4 @ ((unsigned)&WPUA*8)+4;
+[; ;DEVICE.h: 379: volatile bit WPUA5 @ ((unsigned)&WPUA*8)+5;
+[; ;DEVICE.h: 381: volatile bit WPU0 @ ((unsigned)&WPUA*8)+0;
+[; ;DEVICE.h: 382: volatile bit WPU1 @ ((unsigned)&WPUA*8)+1;
+[; ;DEVICE.h: 383: volatile bit WPU2 @ ((unsigned)&WPUA*8)+2;
+[; ;DEVICE.h: 384: volatile bit WPU4 @ ((unsigned)&WPUA*8)+4;
+[; ;DEVICE.h: 385: volatile bit WPU5 @ ((unsigned)&WPUA*8)+5;
+[; ;DEVICE.h: 387: volatile union {
+[; ;DEVICE.h: 388: struct {
+[; ;DEVICE.h: 389: unsigned WPUA0 : 1;
+[; ;DEVICE.h: 390: unsigned WPUA1 : 1;
+[; ;DEVICE.h: 391: unsigned WPUA2 : 1;
+[; ;DEVICE.h: 392: unsigned : 1;
+[; ;DEVICE.h: 393: unsigned WPUA4 : 1;
+[; ;DEVICE.h: 394: unsigned WPUA5 : 1;
+[; ;DEVICE.h: 395: };
+[; ;DEVICE.h: 396: struct {
+[; ;DEVICE.h: 397: unsigned WPU0 : 1;
+[; ;DEVICE.h: 398: unsigned WPU1 : 1;
+[; ;DEVICE.h: 399: unsigned WPU2 : 1;
+[; ;DEVICE.h: 400: unsigned : 1;
+[; ;DEVICE.h: 401: unsigned WPU4 : 1;
+[; ;DEVICE.h: 402: unsigned WPU5 : 1;
+[; ;DEVICE.h: 403: };
+[; ;DEVICE.h: 404: } WPUAbits @ 0x095;
+[; ;DEVICE.h: 408: volatile unsigned char IOCA @ 0x096;
+[; ;DEVICE.h: 409: volatile unsigned char IOC @ 0x096;
+[; ;DEVICE.h: 411: volatile bit IOCA0 @ ((unsigned)&IOCA*8)+0;
+[; ;DEVICE.h: 412: volatile bit IOCA1 @ ((unsigned)&IOCA*8)+1;
+[; ;DEVICE.h: 413: volatile bit IOCA2 @ ((unsigned)&IOCA*8)+2;
+[; ;DEVICE.h: 414: volatile bit IOCA3 @ ((unsigned)&IOCA*8)+3;
+[; ;DEVICE.h: 415: volatile bit IOCA4 @ ((unsigned)&IOCA*8)+4;
+[; ;DEVICE.h: 416: volatile bit IOCA5 @ ((unsigned)&IOCA*8)+5;
+[; ;DEVICE.h: 418: volatile bit IOC0 @ ((unsigned)&IOCA*8)+0;
+[; ;DEVICE.h: 419: volatile bit IOC1 @ ((unsigned)&IOCA*8)+1;
+[; ;DEVICE.h: 420: volatile bit IOC2 @ ((unsigned)&IOCA*8)+2;
+[; ;DEVICE.h: 421: volatile bit IOC3 @ ((unsigned)&IOCA*8)+3;
+[; ;DEVICE.h: 422: volatile bit IOC4 @ ((unsigned)&IOCA*8)+4;
+[; ;DEVICE.h: 423: volatile bit IOC5 @ ((unsigned)&IOCA*8)+5;
+[; ;DEVICE.h: 425: volatile union {
+[; ;DEVICE.h: 426: struct {
+[; ;DEVICE.h: 427: unsigned IOCA0 : 1;
+[; ;DEVICE.h: 428: unsigned IOCA1 : 1;
+[; ;DEVICE.h: 429: unsigned IOCA2 : 1;
+[; ;DEVICE.h: 430: unsigned IOCA3 : 1;
+[; ;DEVICE.h: 431: unsigned IOCA4 : 1;
+[; ;DEVICE.h: 432: unsigned IOCA5 : 1;
+[; ;DEVICE.h: 433: };
+[; ;DEVICE.h: 434: struct {
+[; ;DEVICE.h: 435: unsigned IOC0 : 1;
+[; ;DEVICE.h: 436: unsigned IOC1 : 1;
+[; ;DEVICE.h: 437: unsigned IOC2 : 1;
+[; ;DEVICE.h: 438: unsigned IOC3 : 1;
+[; ;DEVICE.h: 439: unsigned IOC4 : 1;
+[; ;DEVICE.h: 440: unsigned IOC5 : 1;
+[; ;DEVICE.h: 441: };
+[; ;DEVICE.h: 442: } IOCAbits @ 0x096;
+[; ;DEVICE.h: 446: volatile unsigned char EEDAT @ 0x09A;
+[; ;DEVICE.h: 447: volatile unsigned char EEDATA @ 0x09A;
+[; ;DEVICE.h: 451: volatile unsigned char EEADR @ 0x09B;
+[; ;DEVICE.h: 455: volatile unsigned char EECON1 @ 0x09C;
+[; ;DEVICE.h: 457: volatile bit RD @ ((unsigned)&EECON1*8)+0;
+[; ;DEVICE.h: 458: volatile bit WREN1 @ ((unsigned)&EECON1*8)+2;
+[; ;DEVICE.h: 459: volatile bit WRERR @ ((unsigned)&EECON1*8)+3;
+[; ;DEVICE.h: 460: volatile bit WREN2 @ ((unsigned)&EECON1*8)+4;
+[; ;DEVICE.h: 461: volatile bit WREN3 @ ((unsigned)&EECON1*8)+5;
+[; ;DEVICE.h: 463: volatile union {
+[; ;DEVICE.h: 464: struct {
+[; ;DEVICE.h: 465: unsigned RD : 1;
+[; ;DEVICE.h: 466: unsigned : 1;
+[; ;DEVICE.h: 467: unsigned WREN1 : 1;
+[; ;DEVICE.h: 468: unsigned WRERR : 1;
+[; ;DEVICE.h: 469: unsigned WREN2 : 1;
+[; ;DEVICE.h: 470: unsigned WREN3 : 1;
+[; ;DEVICE.h: 471: };
+[; ;DEVICE.h: 472: } EECON1bits @ 0x09C;
+[; ;DEVICE.h: 476: volatile unsigned char EECON2 @ 0x09D;
+[; ;DEVICE.h: 478: volatile bit WR @ ((unsigned)&EECON2*8)+0;
+[; ;DEVICE.h: 480: volatile union {
+[; ;DEVICE.h: 481: struct {
+[; ;DEVICE.h: 482: unsigned WR : 1;
+[; ;DEVICE.h: 483: };
+[; ;DEVICE.h: 484: } EECON2bits @ 0x09d;
+[; ;DEVICE.h: 487: volatile unsigned char SFR00 @0x000;
+[; ;DEVICE.h: 488: volatile unsigned char SFR01 @0x001;
+[; ;DEVICE.h: 489: volatile unsigned char SFR02 @0x002;
+[; ;DEVICE.h: 490: volatile unsigned char SFR03 @0x003;
+[; ;DEVICE.h: 491: volatile unsigned char SFR04 @0x004;
+[; ;DEVICE.h: 492: volatile unsigned char SFR05 @0x005;
+[; ;DEVICE.h: 493: volatile unsigned char SFR06 @0x006;
+[; ;DEVICE.h: 494: volatile unsigned char SFR07 @0x007;
+[; ;DEVICE.h: 495: volatile unsigned char SFR08 @0x008;
+[; ;DEVICE.h: 496: volatile unsigned char SFR09 @0x009;
+[; ;DEVICE.h: 497: volatile unsigned char SFR0A @0x00A;
+[; ;DEVICE.h: 498: volatile unsigned char SFR0B @0x00B;
+[; ;DEVICE.h: 499: volatile unsigned char SFR0C @0x00C;
+[; ;DEVICE.h: 500: volatile unsigned char SFR0D @0x00D;
+[; ;DEVICE.h: 501: volatile unsigned char SFR0E @0x00E;
+[; ;DEVICE.h: 502: volatile unsigned char SFR0F @0x00F;
+[; ;DEVICE.h: 504: volatile unsigned char SFR10 @0x010;
+[; ;DEVICE.h: 505: volatile unsigned char SFR11 @0x011;
+[; ;DEVICE.h: 506: volatile unsigned char SFR12 @0x012;
+[; ;DEVICE.h: 507: volatile unsigned char SFR13 @0x013;
+[; ;DEVICE.h: 508: volatile unsigned char SFR14 @0x014;
+[; ;DEVICE.h: 509: volatile unsigned char SFR15 @0x015;
+[; ;DEVICE.h: 510: volatile unsigned char SFR16 @0x016;
+[; ;DEVICE.h: 511: volatile unsigned char SFR17 @0x017;
+[; ;DEVICE.h: 512: volatile unsigned char SFR18 @0x018;
+[; ;DEVICE.h: 513: volatile unsigned char SFR19 @0x019;
+[; ;DEVICE.h: 514: volatile unsigned char SFR1A @0x01A;
+[; ;DEVICE.h: 515: volatile unsigned char SFR1B @0x01B;
+[; ;DEVICE.h: 516: volatile unsigned char SFR1C @0x01C;
+[; ;DEVICE.h: 517: volatile unsigned char SFR1D @0x01D;
+[; ;DEVICE.h: 518: volatile unsigned char SFR1E @0x01E;
+[; ;DEVICE.h: 519: volatile unsigned char SFR1F @0x01F;
+[; ;DEVICE.h: 522: volatile unsigned char SFR80 @0x080;
+[; ;DEVICE.h: 523: volatile unsigned char SFR81 @0x081;
+[; ;DEVICE.h: 524: volatile unsigned char SFR82 @0x082;
+[; ;DEVICE.h: 525: volatile unsigned char SFR83 @0x083;
+[; ;DEVICE.h: 526: volatile unsigned char SFR84 @0x084;
+[; ;DEVICE.h: 527: volatile unsigned char SFR85 @0x085;
+[; ;DEVICE.h: 528: volatile unsigned char SFR86 @0x086;
+[; ;DEVICE.h: 529: volatile unsigned char SFR87 @0x087;
+[; ;DEVICE.h: 530: volatile unsigned char SFR88 @0x088;
+[; ;DEVICE.h: 531: volatile unsigned char SFR89 @0x089;
+[; ;DEVICE.h: 532: volatile unsigned char SFR8A @0x08A;
+[; ;DEVICE.h: 533: volatile unsigned char SFR8B @0x08B;
+[; ;DEVICE.h: 534: volatile unsigned char SFR8C @0x08C;
+[; ;DEVICE.h: 535: volatile unsigned char SFR8D @0x08D;
+[; ;DEVICE.h: 536: volatile unsigned char SFR8E @0x08E;
+[; ;DEVICE.h: 537: volatile unsigned char SFR8F @0x08F;
+[; ;DEVICE.h: 539: volatile unsigned char SFR90 @0x090;
+[; ;DEVICE.h: 540: volatile unsigned char SFR91 @0x091;
+[; ;DEVICE.h: 541: volatile unsigned char SFR92 @0x092;
+[; ;DEVICE.h: 542: volatile unsigned char SFR93 @0x093;
+[; ;DEVICE.h: 543: volatile unsigned char SFR94 @0x094;
+[; ;DEVICE.h: 544: volatile unsigned char SFR95 @0x095;
+[; ;DEVICE.h: 545: volatile unsigned char SFR96 @0x096;
+[; ;DEVICE.h: 546: volatile unsigned char SFR97 @0x097;
+[; ;DEVICE.h: 547: volatile unsigned char SFR98 @0x098;
+[; ;DEVICE.h: 548: volatile unsigned char SFR99 @0x099;
+[; ;DEVICE.h: 549: volatile unsigned char SFR9A @0x09A;
+[; ;DEVICE.h: 550: volatile unsigned char SFR9B @0x09B;
+[; ;DEVICE.h: 551: volatile unsigned char SFR9C @0x09C;
+[; ;DEVICE.h: 552: volatile unsigned char SFR9D @0x09D;
+[; ;DEVICE.h: 553: volatile unsigned char SFR9E @0x09E;
+[; ;DEVICE.h: 554: volatile unsigned char SFR9F @0x09F;
+[; ;SYSCFG.h: 28: extern void _nop(void);
+[; ;SYSCFG.h: 80: extern unsigned int flash_read(unsigned short addr);
+[; ;eeprom_routines.h: 41: extern unsigned char eeprom_write(unsigned char addr, unsigned char value);
+[; ;eeprom_routines.h: 42: extern unsigned char eeprom_read(unsigned char addr);
+[; ;eeprom_routines.h: 43: extern void eecpymem(volatile unsigned char *to, eeprom unsigned char *from, unsigned char size);
+[; ;eeprom_routines.h: 44: extern void memcpyee(eeprom unsigned char *to, const unsigned char *from, unsigned char size);
+[; ;SYSCFG.h: 154: extern void _delay(unsigned long);
+[; ;SYS_INIT.C: 1: ;
+[; ;config.h: 8: typedef signed char int8;
+[; ;config.h: 9: typedef signed int int16;
+[; ;config.h: 10: typedef signed long int32;
+[; ;config.h: 11: typedef unsigned char uint8;
+[; ;config.h: 12: typedef unsigned int uint16;
+[; ;config.h: 13: typedef unsigned long uint32;
+[; ;config.h: 15: typedef signed char* int8_p;
+[; ;config.h: 16: typedef signed int* int16_p;
+[; ;config.h: 17: typedef signed long* int32_p;
+[; ;config.h: 18: typedef unsigned char* uint8_p;
+[; ;config.h: 19: typedef unsigned int* uint16_p;
+[; ;config.h: 20: typedef unsigned long* uint32_p;
+[; ;config.h: 22: typedef signed long s32;
+[; ;config.h: 23: typedef signed short s16;
+[; ;config.h: 24: typedef signed char s8;
+[; ;config.h: 26: typedef signed long const sc32;
+[; ;config.h: 27: typedef signed short const sc16;
+[; ;config.h: 28: typedef signed char const sc8;
+[; ;config.h: 30: typedef volatile signed long vs32;
+[; ;config.h: 31: typedef volatile signed short vs16;
+[; ;config.h: 32: typedef volatile signed char vs8;
+[; ;config.h: 34: typedef volatile signed long const vsc32;
+[; ;config.h: 35: typedef volatile signed short const vsc16;
+[; ;config.h: 36: typedef volatile signed char const vsc8;
+[; ;config.h: 38: typedef unsigned long u32;
+[; ;config.h: 39: typedef unsigned short u16;
+[; ;config.h: 40: typedef unsigned char u8;
+[; ;config.h: 42: typedef unsigned long const uc32;
+[; ;config.h: 43: typedef unsigned short const uc16;
+[; ;config.h: 44: typedef unsigned char const uc8;
+[; ;config.h: 46: typedef volatile unsigned long vu32;
+[; ;config.h: 47: typedef volatile unsigned short vu16;
+[; ;config.h: 48: typedef volatile unsigned char vu8;
+[; ;config.h: 50: typedef volatile unsigned long const vuc32;
+[; ;config.h: 51: typedef volatile unsigned short const vuc16;
+[; ;config.h: 52: typedef volatile unsigned char const vuc8;
+[; ;config.h: 64: typedef enum
+[; ;config.h: 65: {
+[; ;config.h: 66: FALSE = 0,
+[; ;config.h: 67: TRUE = !FALSE
+[; ;config.h: 68: }bool;
+[; ;config.h: 70: typedef enum
+[; ;config.h: 71: {
+[; ;config.h: 72: RESET = 0,
+[; ;config.h: 73: SET = !RESET
+[; ;config.h: 74: }FlagStatus, ITStatus, BitStatus;
+[; ;config.h: 76: typedef enum
+[; ;config.h: 77: {
+[; ;config.h: 78: DISABLE = 0,
+[; ;config.h: 79: ENABLE = !DISABLE
+[; ;config.h: 80: }FunctionalState;
+[; ;config.h: 82: typedef enum
+[; ;config.h: 83: {
+[; ;config.h: 84: ERROR = 0,
+[; ;config.h: 85: SUCCESS = !ERROR
+[; ;config.h: 86: }ErrorStatus;
+[; ;config.h: 88: typedef struct
+[; ;config.h: 89: {
+[; ;config.h: 90: volatile u8 bit1 : 1;
+[; ;config.h: 91: volatile u8 bit2 : 1;
+[; ;config.h: 92: volatile u8 bit3 : 1;
+[; ;config.h: 93: volatile u8 bit4 : 1;
+[; ;config.h: 94: volatile u8 bit5 : 1;
+[; ;config.h: 95: volatile u8 bit6 : 1;
+[; ;config.h: 96: volatile u8 bit7 : 1;
+[; ;config.h: 97: volatile u8 bit8 : 1;
+[; ;config.h: 98: }FLAG;
+[; ;config.h: 99: extern FLAG Time_FLAG;
+[; ;yy_ir.h: 33: extern u8 RX_data,RX_dataBit,RX_dataNum,TX_dataBit;
+[; ;yy_ir.h: 34: extern u16 RX_highTime,TX_highTime,TX_lowTime;
+[; ;yy_ir.h: 35: extern u32 TX_data,TX_data1,TX_data2;
+[; ;yy_ir.h: 36: extern FlagStatus F_feedDog,F_RX,RX_EN;
+[; ;yy_ir.h: 38: void sys_init();
+"8 SYS_INIT.C
+[v _sys_init `(v  1 ef ]
+{
+[; ;SYS_INIT.C: 7: void sys_init()
+[; ;SYS_INIT.C: 8: {
+[e :U _sys_init ]
+[f ]
+[; ;SYS_INIT.C: 9: OSCCON = (OSCCON &0x8F)|(7<<4);
+"9
+[e = _OSCCON -> | & -> _OSCCON `i -> 143 `i << -> 7 `i -> 4 `i `uc ]
+[; ;SYS_INIT.C: 11: TRISA2 = 0;
+"11
+[e = _TRISA2 -> -> 0 `i `b ]
+[; ;SYS_INIT.C: 12: PA2 = 1;
+"12
+[e = _PA2 -> -> 1 `i `b ]
+[; ;SYS_INIT.C: 14: TRISA5 = 0;
+"14
+[e = _TRISA5 -> -> 0 `i `b ]
+[; ;SYS_INIT.C: 15: PA5 = 0;
+"15
+[e = _PA5 -> -> 0 `i `b ]
+[; ;SYS_INIT.C: 17: TRISA4 = 0;
+"17
+[e = _TRISA4 -> -> 0 `i `b ]
+[; ;SYS_INIT.C: 18: PA4 = 0;
+"18
+[e = _PA4 -> -> 0 `i `b ]
+[; ;SYS_INIT.C: 24: asm("clrwdt");
+"24
+[; clrwdt ;#
+[; ;SYS_INIT.C: 25: WDTCON = (WDTCON &0xE1)|(10<<1);
+"25
+[e = _WDTCON -> | & -> _WDTCON `i -> 225 `i << -> 10 `i -> 1 `i `uc ]
+[; ;SYS_INIT.C: 27: SWDTEN = DISABLE;
+"27
+[e = _SWDTEN -> . `E579 0 `b ]
+[; ;SYS_INIT.C: 36: OPTION = (0B00000000+1);
+"36
+[e = _OPTION -> + -> 0 `i -> 1 `i `uc ]
+[; ;SYS_INIT.C: 39: TMR0 = 152;
+"39
+[e = _TMR0 -> -> 152 `i `uc ]
+[; ;SYS_INIT.C: 46: T2CON &= (0<<3);
+"46
+[e =& _T2CON -> << -> 0 `i -> 3 `i `uc ]
+[; ;SYS_INIT.C: 47: T2CON &= 1;
+"47
+[e =& _T2CON -> -> 1 `i `uc ]
+[; ;SYS_INIT.C: 48: PR2 = 52;
+"48
+[e = _PR2 -> -> 52 `i `uc ]
+[; ;SYS_INIT.C: 59: GIE = ENABLE;
+"59
+[e = _GIE -> . `E579 1 `b ]
+[; ;SYS_INIT.C: 60: PEIE = ENABLE;
+"60
+[e = _PEIE -> . `E579 1 `b ]
+[; ;SYS_INIT.C: 61: T0IF = RESET;
+"61
+[e = _T0IF -> . `E573 0 `b ]
+[; ;SYS_INIT.C: 62: T0IE = ENABLE;
+"62
+[e = _T0IE -> . `E579 1 `b ]
+[; ;SYS_INIT.C: 63: TMR2IF = RESET;
+"63
+[e = _TMR2IF -> . `E573 0 `b ]
+[; ;SYS_INIT.C: 64: TMR2IE = ENABLE;
+"64
+[e = _TMR2IE -> . `E579 1 `b ]
+[; ;SYS_INIT.C: 66: }
+"66
+[e :UE 46 ]
+}
