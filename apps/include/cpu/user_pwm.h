@@ -1,0 +1,440 @@
+
+#ifndef _USER_PWM_H_
+#define _USER_PWM_H_
+
+#include "user_project.h"
+#include "key_drv_tch.h"
+
+#define USER_PWM0_EN		0
+#define USER_PWM1_EN		0		//time1默认做红外中断服务函数,PA4,1=BTSY,2=ICSY
+#define USER_PWM2_EN		0
+#define USER_PWM3_EN		1		//time3默认做UI显示服务函数,PB4
+
+#if USER_PWM0_EN	//timer0
+#define USER_SET_PWM0 
+#endif
+
+#if USER_PWM1_EN	//timer1
+#define USER_SET_PWM1_PND			0		//中断请求标志
+#define USER_CLR_PWM1_PCLR	 		(JL_TIMER1->CON |=  BIT(14))		//写1清中断请求标志SET_PWM1_PND
+#define USER_SET_PWM1_PWM_INV		0		//PWM输出反向
+#define USER_SET_PWM1_PWM_EN		1		//PWM使能
+#define USER_SET_PWM1_PSET3_0		0		//预分频n(1-16)，0~3-(1,4,16,64)*1;4~7-(1,4,16,64)*2;8~11-(1,4,16,64)*256;12~15-(1,4,16,64)*512;
+#define USER_SET_PWM1_SSEL1_0		0		//时钟源，0=系统时钟24M，1=IO输入，2=OSC时钟，3=RC时钟
+#define USER_SET_PWM1_MODE1_0		1		//工作模式，0=关闭，1=定时/计数模式，2=IO口上升捕获模式，3=IO口下降捕获模式
+
+#define USER_SET_PWM1_PRD(x)		(JL_TIMER1->PRD = x)		//0x0030~0x07FF,48~2047,超过此范围需要分频
+#define USER_SET_PWM1_PWM(x)		(JL_TIMER1->PWM = x)		//0~SET_PWM1_PRD
+
+#define USER_SET_PWM1_ON	 		(JL_TIMER1->CON |=  BIT(8))
+#define USER_SET_PWM1_OFF			(JL_TIMER1->CON &= ~(BIT(8)))
+#endif
+
+#if USER_PWM2_EN	//timer2
+#define USER_SET_PWM2 
+#endif
+
+#if USER_PWM3_EN	//timer3
+#define USER_SET_PWM3_PND		0		//中断请求标志
+#define USER_CLR_PWM3_PCLR	 	(JL_TIMER3->CON |=  (BIT(14)))		//写1清中断请求标志SET_PWM3_PND
+#define USER_SET_PWM3_PWM_INV	0		//PWM输出反向
+#define USER_SET_PWM3_PWM_EN	1		//PWM使能
+#define USER_SET_PWM3_PSET3_0	1		//预分频n(1-16)，0~3-(1,4,16,64)*1;4~7-(1,4,16,64)*2;8~11-(1,4,16,64)*256;12~15-(1,4,16,64)*512;
+#define USER_SET_PWM3_SSEL1_0	0		//时钟源，0=系统时钟24M，1=IO输入，2=OSC时钟，3=RC时钟
+#define USER_SET_PWM3_MODE1_0	1		//工作模式，0=关闭，1=定时/计数模式，2=IO口上升捕获模式，3=IO口下降捕获模式
+
+#define USER_SET_PWM3_PRD(x)		(JL_TIMER3->PRD = x)		//0x0030~0x07FF,48~2047,超过此范围需要分频
+#define USER_SET_PWM3_PWM(x)		(JL_TIMER3->PWM = x)		//0~SET_PWM3_PRD
+
+#define USER_SET_PWM3_ON	 		(JL_TIMER3->CON |=  (BIT(8)))
+#define USER_SET_PWM3_OFF			(JL_TIMER3->CON &= ~(BIT(8)))
+#endif
+
+#define USER_TIME3_DIV_EN	0
+
+//***********************************************************************************************//
+//***********************************************************************************************//
+#if(USER_PWM1_EN==1)	//BTSY
+
+#define SET_USER_BOOST_DUTY			256		//占空比BOOST
+
+#define SET_USER_BOOST_DUTY_DIV		1		//占空比分频
+#define SET_USER_BOOST_DUTY_FIXED	10		//占空比补偿
+
+//满电高亮模式 >3.9V
+#define SET_USER_BOOST_DUTY_W_LV1_H_PHS1		(130/SET_USER_BOOST_DUTY_DIV+SET_USER_BOOST_DUTY_FIXED)		//起始110
+#define SET_USER_BOOST_DUTY_W_LV1_H_PHS2		(140/SET_USER_BOOST_DUTY_DIV+SET_USER_BOOST_DUTY_FIXED)		//逐渐升高
+#define SET_USER_BOOST_DUTY_W_LV1_H_PHS3		(90/SET_USER_BOOST_DUTY_DIV+SET_USER_BOOST_DUTY_FIXED)		//1逐渐降低
+#define SET_USER_BOOST_DUTY_W_LV1_H_PHS4		(78/SET_USER_BOOST_DUTY_DIV+SET_USER_BOOST_DUTY_FIXED)		//2逐渐降低
+#define SET_USER_BOOST_DUTY_W_LV1_H_PHS5		(60/SET_USER_BOOST_DUTY_DIV+SET_USER_BOOST_DUTY_FIXED)		//3逐渐降低
+
+#define SET_USER_BOOST_DUTY_W_LV2_H_PHS1		(87/SET_USER_BOOST_DUTY_DIV+SET_USER_BOOST_DUTY_FIXED)		//起始
+#define SET_USER_BOOST_DUTY_W_LV2_H_PHS2		(37/SET_USER_BOOST_DUTY_DIV+SET_USER_BOOST_DUTY_FIXED)		//逐渐降低
+
+#define SET_USER_BOOST_DUTY_W_LV3_H_PHS1		(40/SET_USER_BOOST_DUTY_DIV+SET_USER_BOOST_DUTY_FIXED)	//350//20//55
+#define SET_USER_BOOST_DUTY_W_LV3_H_PHS2		(27/SET_USER_BOOST_DUTY_DIV+SET_USER_BOOST_DUTY_FIXED)	//350//20//55
+
+//普通模式 3.7V-3.9V
+#define SET_USER_BOOST_DUTY_W_LV1_M_PHS1		(105/SET_USER_BOOST_DUTY_DIV+SET_USER_BOOST_DUTY_FIXED)	//35//780
+#define SET_USER_BOOST_DUTY_W_LV1_M_PHS2		(115/SET_USER_BOOST_DUTY_DIV+SET_USER_BOOST_DUTY_FIXED)	//35//780
+#define SET_USER_BOOST_DUTY_W_LV1_M_PHS3		(80/SET_USER_BOOST_DUTY_DIV+SET_USER_BOOST_DUTY_FIXED)	//35//780
+#define SET_USER_BOOST_DUTY_W_LV1_M_PHS4		(68/SET_USER_BOOST_DUTY_DIV+SET_USER_BOOST_DUTY_FIXED)	//35//780
+#define SET_USER_BOOST_DUTY_W_LV1_M_PHS5		(50/SET_USER_BOOST_DUTY_DIV+SET_USER_BOOST_DUTY_FIXED)	//35//780
+
+#define SET_USER_BOOST_DUTY_W_LV2_M_PHS1		(80/SET_USER_BOOST_DUTY_DIV+SET_USER_BOOST_DUTY_FIXED)	//30//590
+#define SET_USER_BOOST_DUTY_W_LV2_M_PHS2		(30/SET_USER_BOOST_DUTY_DIV+SET_USER_BOOST_DUTY_FIXED)	//30//590
+
+#define SET_USER_BOOST_DUTY_W_LV3_M_PHS1		(40/SET_USER_BOOST_DUTY_DIV+SET_USER_BOOST_DUTY_FIXED)	//20//55
+#define SET_USER_BOOST_DUTY_W_LV3_M_PHS2		(27/SET_USER_BOOST_DUTY_DIV+SET_USER_BOOST_DUTY_FIXED)	//20//55
+
+//低电模式 <3.7V
+#define SET_USER_BOOST_DUTY_W_LV1_L_PHS1		(82/SET_USER_BOOST_DUTY_DIV+SET_USER_BOOST_DUTY_FIXED)	//35//700
+#define SET_USER_BOOST_DUTY_W_LV1_L_PHS2		(92/SET_USER_BOOST_DUTY_DIV+SET_USER_BOOST_DUTY_FIXED)	//35//700
+#define SET_USER_BOOST_DUTY_W_LV1_L_PHS3		(72/SET_USER_BOOST_DUTY_DIV+SET_USER_BOOST_DUTY_FIXED)	//35//700
+#define SET_USER_BOOST_DUTY_W_LV1_L_PHS4		(60/SET_USER_BOOST_DUTY_DIV+SET_USER_BOOST_DUTY_FIXED)	//35//700
+#define SET_USER_BOOST_DUTY_W_LV1_L_PHS5		(40/SET_USER_BOOST_DUTY_DIV+SET_USER_BOOST_DUTY_FIXED)	//35//700
+
+#define SET_USER_BOOST_DUTY_W_LV2_L_PHS1		(60/SET_USER_BOOST_DUTY_DIV+SET_USER_BOOST_DUTY_FIXED)	//30//450
+#define SET_USER_BOOST_DUTY_W_LV2_L_PHS2		(30/SET_USER_BOOST_DUTY_DIV+SET_USER_BOOST_DUTY_FIXED)	//30//450
+
+#define SET_USER_BOOST_DUTY_W_LV3_L_PHS1		(40/SET_USER_BOOST_DUTY_DIV+SET_USER_BOOST_DUTY_FIXED)	//20//55
+#define SET_USER_BOOST_DUTY_W_LV3_L_PHS2		(27/SET_USER_BOOST_DUTY_DIV+SET_USER_BOOST_DUTY_FIXED)	//20//55
+//***********************************************************************************************//
+#define SET_USER_BOOST_DUTY_R_LV1_PHS1			40	//4//40
+#define SET_USER_BOOST_DUTY_R_LV2_PHS1			30	//3//35
+
+#endif
+//***********************************************************************************************//
+//***********************************************************************************************//
+#if(USER_PWM1_EN==2)	//ICSY
+
+#define SET_USER_BOOST_DUTY			4000		//占空比BOOST
+
+#define SET_USER_BOOST_DUTY_DIV		1		//占空比分频
+#define SET_USER_BOOST_DUTY_FIXED	0		//占空比补偿
+
+//满电高亮模式 >3.9V
+#define SET_USER_BOOST_DUTY_W_LV1_H_PHS1		(1800/SET_USER_BOOST_DUTY_DIV+SET_USER_BOOST_DUTY_FIXED)		//起始 1780
+#define SET_USER_BOOST_DUTY_W_LV1_H_PHS2		(3000/SET_USER_BOOST_DUTY_DIV+SET_USER_BOOST_DUTY_FIXED)		//逐渐升高 2550 2950
+#define SET_USER_BOOST_DUTY_W_LV1_H_PHS3		(1200/SET_USER_BOOST_DUTY_DIV+SET_USER_BOOST_DUTY_FIXED)		//逐渐降低
+#define SET_USER_BOOST_DUTY_W_LV1_H_PHS4		(1000/SET_USER_BOOST_DUTY_DIV+SET_USER_BOOST_DUTY_FIXED)		//逐渐降低
+
+#define SET_USER_BOOST_DUTY_W_LV2_H_PHS1		(1300/SET_USER_BOOST_DUTY_DIV+SET_USER_BOOST_DUTY_FIXED)		//起始
+#define SET_USER_BOOST_DUTY_W_LV2_H_PHS2		(1150/SET_USER_BOOST_DUTY_DIV+SET_USER_BOOST_DUTY_FIXED)		//逐渐降低
+
+#define SET_USER_BOOST_DUTY_W_LV3_H_PHS1		(1000/SET_USER_BOOST_DUTY_DIV+SET_USER_BOOST_DUTY_FIXED)	//350//20//55
+#define SET_USER_BOOST_DUTY_W_LV3_H_PHS2		(900/SET_USER_BOOST_DUTY_DIV+SET_USER_BOOST_DUTY_FIXED)	//350//20//55
+
+//普通模式 3.7V-3.9V
+#define SET_USER_BOOST_DUTY_W_LV1_M_PHS1		(1250/SET_USER_BOOST_DUTY_DIV+SET_USER_BOOST_DUTY_FIXED)	//35//780
+#define SET_USER_BOOST_DUTY_W_LV2_M_PHS1		(1000/SET_USER_BOOST_DUTY_DIV+SET_USER_BOOST_DUTY_FIXED)	//30//590
+#define SET_USER_BOOST_DUTY_W_LV3_M_PHS1		(750/SET_USER_BOOST_DUTY_DIV+SET_USER_BOOST_DUTY_FIXED)	//20//55
+
+//低电模式 <3.7V
+#define SET_USER_BOOST_DUTY_W_LV1_L_PHS1		(1000/SET_USER_BOOST_DUTY_DIV+SET_USER_BOOST_DUTY_FIXED)	//35//700
+#define SET_USER_BOOST_DUTY_W_LV2_L_PHS1		(750/SET_USER_BOOST_DUTY_DIV+SET_USER_BOOST_DUTY_FIXED)	//30//450
+#define SET_USER_BOOST_DUTY_W_LV3_L_PHS1		(500/SET_USER_BOOST_DUTY_DIV+SET_USER_BOOST_DUTY_FIXED)	//20//55
+
+#define SET_USER_BOOST_DUTY_R_LV1_PHS1			550	//4//40
+#define SET_USER_BOOST_DUTY_R_LV2_PHS1			270	//3//35
+
+#endif
+//***********************************************************************************************//
+//***********************************************************************************************//
+#if USER_PWM3_EN	//SY
+
+#define SET_USER_PWM_DUTY_W		750	//250/500/1000/2000	//占空比W
+#define SET_USER_PWM_DUTY_W_L	550		//低电量时有杂音，白光1、2档周期改为此设定值
+//*************************************************************************//
+#define SET_USER_PWM_DUTY_DIV		1		//占空比分频
+#define SET_USER_PWM_DUTY_FIXED		0		//占空比补偿
+//*************************************************************************//
+#if(SET_USER_PWM_DUTY_W == 2000)
+//#define SET_USER_PWM_FRE	10000	//频率
+#define SET_USER_PWM_FRE	10000	//31250	//频率24000，频率高了放歌会闪
+//#define SET_USER_PWM_FRE	50000	//频率
+
+#if(SEL_V_LED_R == 3)
+#define SET_USER_PWM_DUTY_R	20		//100	//占空比R
+#elif(SEL_V_LED_R == 4)
+#define SET_USER_PWM_DUTY_R	20		//100	//占空比R
+#elif(SEL_V_LED_R == 6)
+#define SET_USER_PWM_DUTY_R	20		//100	//占空比R
+#endif
+
+//满电高亮模式 >3.9V
+#define SET_USER_PWM_DUTY_W_LV1_H_PHS1		(1250/SET_USER_PWM_DUTY_DIV+SET_USER_PWM_DUTY_FIXED)	//1500	//起始
+#define SET_USER_PWM_DUTY_W_LV1_H_PHS2		(1950/SET_USER_PWM_DUTY_DIV+SET_USER_PWM_DUTY_FIXED)	//逐渐升高
+#define SET_USER_PWM_DUTY_W_LV1_H_PHS3		(900/SET_USER_PWM_DUTY_DIV+SET_USER_PWM_DUTY_FIXED)		//逐渐降低
+#define SET_USER_PWM_DUTY_W_LV1_H_PHS4		(625/SET_USER_PWM_DUTY_DIV+SET_USER_PWM_DUTY_FIXED)		//逐渐降低
+
+#define SET_USER_PWM_DUTY_W_LV2_H_PHS1		(530/SET_USER_PWM_DUTY_DIV+SET_USER_PWM_DUTY_FIXED)		//800//950		//起始
+#define SET_USER_PWM_DUTY_W_LV2_H_PHS2		(230/SET_USER_PWM_DUTY_DIV+SET_USER_PWM_DUTY_FIXED)		//650//800		//逐渐降低
+
+#define SET_USER_PWM_DUTY_W_LV3_H_PHS1		(280/SET_USER_PWM_DUTY_DIV+SET_USER_PWM_DUTY_FIXED)		//350//20//55
+#define SET_USER_PWM_DUTY_W_LV3_H_PHS2		(200/SET_USER_PWM_DUTY_DIV+SET_USER_PWM_DUTY_FIXED)		//350//20//55
+
+#if(SEL_V_LED_R == 3)
+#define SET_USER_PWM_DUTY_R_LV1_H_PHS1		(12/SET_USER_PWM_DUTY_DIV+SET_USER_PWM_DUTY_FIXED)		//4//20//40
+#define SET_USER_PWM_DUTY_R_LV2_H_PHS1		(8/SET_USER_PWM_DUTY_DIV+SET_USER_PWM_DUTY_FIXED)		//3//35
+#elif(SEL_V_LED_R == 4)
+#define SET_USER_PWM_DUTY_R_LV1_H_PHS1		(20/SET_USER_PWM_DUTY_DIV+SET_USER_PWM_DUTY_FIXED)		//4//40
+#define SET_USER_PWM_DUTY_R_LV2_H_PHS1		(15/SET_USER_PWM_DUTY_DIV+SET_USER_PWM_DUTY_FIXED)		//3//35
+#elif(SEL_V_LED_R == 6)
+#define SET_USER_PWM_DUTY_R_LV1_H_PHS1		(4/SET_USER_PWM_DUTY_DIV+SET_USER_PWM_DUTY_FIXED)		//4//20//40
+#define SET_USER_PWM_DUTY_R_LV2_H_PHS1		(3/SET_USER_PWM_DUTY_DIV+SET_USER_PWM_DUTY_FIXED)		//3//35
+#endif
+
+//普通模式 3.7V-3.9V
+#define SET_USER_PWM_DUTY_W_LV1_M_PHS1		(680/SET_USER_PWM_DUTY_DIV+SET_USER_PWM_DUTY_FIXED)		//35//780
+#define SET_USER_PWM_DUTY_W_LV2_M_PHS1		(490/SET_USER_PWM_DUTY_DIV+SET_USER_PWM_DUTY_FIXED)		//30//590
+#define SET_USER_PWM_DUTY_W_LV3_M_PHS1		(190/SET_USER_PWM_DUTY_DIV+SET_USER_PWM_DUTY_FIXED)		//20//55
+
+#if(SEL_V_LED_R == 3)
+#define SET_USER_PWM_DUTY_R_LV1_M_PHS1		(15/SET_USER_PWM_DUTY_DIV+SET_USER_PWM_DUTY_FIXED)		//4//20//40
+#define SET_USER_PWM_DUTY_R_LV2_M_PHS1		(10/SET_USER_PWM_DUTY_DIV+SET_USER_PWM_DUTY_FIXED)		//3//35
+#elif(SEL_V_LED_R == 4)
+#define SET_USER_PWM_DUTY_R_LV1_M_PHS1		(20/SET_USER_PWM_DUTY_DIV+SET_USER_PWM_DUTY_FIXED)		//4//20//40
+#define SET_USER_PWM_DUTY_R_LV2_M_PHS1		(15/SET_USER_PWM_DUTY_DIV+SET_USER_PWM_DUTY_FIXED)		//3//35
+#elif(SEL_V_LED_R == 6)
+#define SET_USER_PWM_DUTY_R_LV1_M_PHS1		(4/SET_USER_PWM_DUTY_DIV+SET_USER_PWM_DUTY_FIXED)		//4//20//40
+#define SET_USER_PWM_DUTY_R_LV2_M_PHS1		(3/SET_USER_PWM_DUTY_DIV+SET_USER_PWM_DUTY_FIXED)		//3//35
+#endif
+
+//低电模式 <3.7V
+#define SET_USER_PWM_DUTY_W_LV1_L_PHS1		(625/SET_USER_PWM_DUTY_DIV+SET_USER_PWM_DUTY_FIXED)		//35//700
+#define SET_USER_PWM_DUTY_W_LV1_L_PHS1_L	(100/SET_USER_PWM_DUTY_DIV+SET_USER_PWM_DUTY_FIXED)		//35//111		//低电量时有杂音，白光1、2档占空比改为此设定值
+#define SET_USER_PWM_DUTY_W_LV2_L_PHS1		(400/SET_USER_PWM_DUTY_DIV+SET_USER_PWM_DUTY_FIXED)		//30//450
+#define SET_USER_PWM_DUTY_W_LV2_L_PHS1_L	(78/SET_USER_PWM_DUTY_DIV+SET_USER_PWM_DUTY_FIXED)		//30//82			//低电量时有杂音，白光1、2档占空比改为此设定值
+#define SET_USER_PWM_DUTY_W_LV3_L_PHS1		(125/SET_USER_PWM_DUTY_DIV+SET_USER_PWM_DUTY_FIXED)		//20//55
+
+#if(SEL_V_LED_R == 3)
+#define SET_USER_PWM_DUTY_R_LV1_L_PHS1		(18/SET_USER_PWM_DUTY_DIV+SET_USER_PWM_DUTY_FIXED)		//4//20//40
+#define SET_USER_PWM_DUTY_R_LV2_L_PHS1		(13/SET_USER_PWM_DUTY_DIV+SET_USER_PWM_DUTY_FIXED)		//3//35
+#elif(SEL_V_LED_R == 4)
+#define SET_USER_PWM_DUTY_R_LV1_L_PHS1		(20/SET_USER_PWM_DUTY_DIV+SET_USER_PWM_DUTY_FIXED)		//4//20//40
+#define SET_USER_PWM_DUTY_R_LV2_L_PHS1		(15/SET_USER_PWM_DUTY_DIV+SET_USER_PWM_DUTY_FIXED)		//3//35
+#elif(SEL_V_LED_R == 6)
+#define SET_USER_PWM_DUTY_R_LV1_L_PHS1		(4/SET_USER_PWM_DUTY_DIV+SET_USER_PWM_DUTY_FIXED)		//4//20//40
+#define SET_USER_PWM_DUTY_R_LV2_L_PHS1		(3/SET_USER_PWM_DUTY_DIV+SET_USER_PWM_DUTY_FIXED)		//3//35
+#endif
+
+//************************************************************************//
+#elif(SET_USER_PWM_DUTY_W == 1000)
+//#define SET_USER_PWM_FRE	10000	//频率
+#define SET_USER_PWM_FRE	10000	//31250	//频率24000，频率高了放歌会闪
+//#define SET_USER_PWM_FRE	50000	//频率
+
+#if(SEL_V_LED_R == 3)
+#define SET_USER_PWM_DUTY_R	20		//100	//占空比R
+#elif(SEL_V_LED_R == 4)
+#define SET_USER_PWM_DUTY_R	20		//100	//占空比R
+#elif(SEL_V_LED_R == 6)
+#define SET_USER_PWM_DUTY_R	20		//100	//占空比R
+#endif
+
+//满电高亮模式 >3.9V
+#define SET_USER_PWM_DUTY_W_LV1_H_PHS1		750		//起始
+#define SET_USER_PWM_DUTY_W_LV1_H_PHS2		980		//逐渐升高
+#define SET_USER_PWM_DUTY_W_LV1_H_PHS3		550	//逐渐降低
+
+#define SET_USER_PWM_DUTY_W_LV2_H_PHS1		470		//起始
+#define SET_USER_PWM_DUTY_W_LV2_H_PHS2		400		//逐渐降低
+
+#define SET_USER_PWM_DUTY_W_LV3_H_PHS1		220//20//55
+
+#if(SEL_V_LED_R == 3)
+#define SET_USER_PWM_DUTY_R_LV1_H_PHS1		12//4//20//40
+#define SET_USER_PWM_DUTY_R_LV2_H_PHS1		8//3//35
+#elif(SEL_V_LED_R == 4)
+#define SET_USER_PWM_DUTY_R_LV1_H_PHS1		18//4//40
+#define SET_USER_PWM_DUTY_R_LV2_H_PHS1		12//3//35
+#elif(SEL_V_LED_R == 6)
+#define SET_USER_PWM_DUTY_R_LV1_H_PHS1		4//4//20//40
+#define SET_USER_PWM_DUTY_R_LV2_H_PHS1		3//3//35
+#endif
+
+//普通模式 3.7V-3.9V
+#define SET_USER_PWM_DUTY_W_LV1_M_PHS1		390//35//70
+#define SET_USER_PWM_DUTY_W_LV2_M_PHS1		290//30//65
+#define SET_USER_PWM_DUTY_W_LV3_M_PHS1		95//20//55
+
+#if(SEL_V_LED_R == 3)
+#define SET_USER_PWM_DUTY_R_LV1_M_PHS1		15//4//20//40
+#define SET_USER_PWM_DUTY_R_LV2_M_PHS1		10//3//35
+#elif(SEL_V_LED_R == 4)
+#define SET_USER_PWM_DUTY_R_LV1_M_PHS1		18//4//20//40
+#define SET_USER_PWM_DUTY_R_LV2_M_PHS1		12//3//35
+#elif(SEL_V_LED_R == 6)
+#define SET_USER_PWM_DUTY_R_LV1_M_PHS1		4//4//20//40
+#define SET_USER_PWM_DUTY_R_LV2_M_PHS1		3//3//35
+#endif
+
+//低电模式 <3.7V
+#define SET_USER_PWM_DUTY_W_LV1_L_PHS1		350//35//70
+#define SET_USER_PWM_DUTY_W_LV2_L_PHS1		220//30//65
+#define SET_USER_PWM_DUTY_W_LV3_L_PHS1		90//20//55
+
+#if(SEL_V_LED_R == 3)
+#define SET_USER_PWM_DUTY_R_LV1_L_PHS1		18//4//20//40
+#define SET_USER_PWM_DUTY_R_LV2_L_PHS1		13//3//35
+#elif(SEL_V_LED_R == 4)
+#define SET_USER_PWM_DUTY_R_LV1_L_PHS1		18//4//20//40
+#define SET_USER_PWM_DUTY_R_LV2_L_PHS1		12//3//35
+#elif(SEL_V_LED_R == 6)
+#define SET_USER_PWM_DUTY_R_LV1_L_PHS1		4//4//20//40
+#define SET_USER_PWM_DUTY_R_LV2_L_PHS1		3//3//35
+#endif
+//************************************************************************//
+#elif(SET_USER_PWM_DUTY_W == 500)
+//#define SET_USER_PWM_FRE	10000	//频率
+#define SET_USER_PWM_FRE	10000	//31250	//频率24000，频率高了放歌会闪
+//#define SET_USER_PWM_FRE	50000	//频率
+
+#if(SEL_V_LED_R == 3)
+#define SET_USER_PWM_DUTY_R	20		//100	//占空比R
+#elif(SEL_V_LED_R == 4)
+#define SET_USER_PWM_DUTY_R	20		//100	//占空比R
+#elif(SEL_V_LED_R == 6)
+#define SET_USER_PWM_DUTY_R	20		//100	//占空比R
+#endif
+
+//满电高亮模式 >3.9V
+#define SET_USER_PWM_DUTY_W_LV1_H_PHS1		380		//起始
+#define SET_USER_PWM_DUTY_W_LV1_H_PHS2		490		//逐渐升高
+#define SET_USER_PWM_DUTY_W_LV1_H_PHS3		270	//逐渐降低
+
+#define SET_USER_PWM_DUTY_W_LV2_H_PHS1		230		//起始
+#define SET_USER_PWM_DUTY_W_LV2_H_PHS2		200		//逐渐降低
+
+#define SET_USER_PWM_DUTY_W_LV3_H_PHS1		110//20//55
+
+#if(SEL_V_LED_R == 3)
+#define SET_USER_PWM_DUTY_R_LV1_H_PHS1		12//4//20//40
+#define SET_USER_PWM_DUTY_R_LV2_H_PHS1		8//3//35
+#elif(SEL_V_LED_R == 4)
+#define SET_USER_PWM_DUTY_R_LV1_H_PHS1		18//4//40
+#define SET_USER_PWM_DUTY_R_LV2_H_PHS1		12//3//35
+#elif(SEL_V_LED_R == 6)
+#define SET_USER_PWM_DUTY_R_LV1_H_PHS1		4//4//20//40
+#define SET_USER_PWM_DUTY_R_LV2_H_PHS1		3//3//35
+#endif
+
+//普通模式 3.7V-3.9V
+#define SET_USER_PWM_DUTY_W_LV1_M_PHS1		195//35//70
+#define SET_USER_PWM_DUTY_W_LV2_M_PHS1		145//30//65
+#define SET_USER_PWM_DUTY_W_LV3_M_PHS1		48//20//55
+
+#if(SEL_V_LED_R == 3)
+#define SET_USER_PWM_DUTY_R_LV1_M_PHS1		15//4//20//40
+#define SET_USER_PWM_DUTY_R_LV2_M_PHS1		10//3//35
+#elif(SEL_V_LED_R == 4)
+#define SET_USER_PWM_DUTY_R_LV1_M_PHS1		18//4//20//40
+#define SET_USER_PWM_DUTY_R_LV2_M_PHS1		12//3//35
+#elif(SEL_V_LED_R == 6)
+#define SET_USER_PWM_DUTY_R_LV1_M_PHS1		4//4//20//40
+#define SET_USER_PWM_DUTY_R_LV2_M_PHS1		3//3//35
+#endif
+
+//低电模式 <3.7V
+#define SET_USER_PWM_DUTY_W_LV1_L_PHS1		112//35//70
+#define SET_USER_PWM_DUTY_W_LV2_L_PHS1		75//30//65
+#define SET_USER_PWM_DUTY_W_LV3_L_PHS1		46//20//55
+
+#if(SEL_V_LED_R == 3)
+#define SET_USER_PWM_DUTY_R_LV1_L_PHS1		18//4//20//40
+#define SET_USER_PWM_DUTY_R_LV2_L_PHS1		13//3//35
+#elif(SEL_V_LED_R == 4)
+#define SET_USER_PWM_DUTY_R_LV1_L_PHS1		18//4//20//40
+#define SET_USER_PWM_DUTY_R_LV2_L_PHS1		12//3//35
+#elif(SEL_V_LED_R == 6)
+#define SET_USER_PWM_DUTY_R_LV1_L_PHS1		4//4//20//40
+#define SET_USER_PWM_DUTY_R_LV2_L_PHS1		3//3//35
+#endif	//SET_USER_PWM_DUTY_W == 500
+//************************************************************************//
+#elif(SET_USER_PWM_DUTY_W == 250)
+//#define SET_USER_PWM_FRE	10000	//频率
+#define SET_USER_PWM_FRE	10000	//31250	//频率24000，频率高了放歌会闪
+//#define SET_USER_PWM_FRE	50000	//频率
+
+#if(SEL_V_LED_R == 3)
+#define SET_USER_PWM_DUTY_R	20		//100	//占空比R
+#elif(SEL_V_LED_R == 4)
+#define SET_USER_PWM_DUTY_R	20		//100	//占空比R
+#elif(SEL_V_LED_R == 6)
+#define SET_USER_PWM_DUTY_R	20		//100	//占空比R
+#endif
+
+//满电高亮模式 >3.9V
+#define SET_USER_PWM_DUTY_W_LV1_H_PHS1		135//1500	//起始
+#define SET_USER_PWM_DUTY_W_LV1_H_PHS2		248	//逐渐升高
+#define SET_USER_PWM_DUTY_W_LV1_H_PHS3		100	//逐渐降低
+
+#define SET_USER_PWM_DUTY_W_LV2_H_PHS1		82		//起始
+#define SET_USER_PWM_DUTY_W_LV2_H_PHS2		65		//逐渐降低
+
+#define SET_USER_PWM_DUTY_W_LV3_H_PHS1		38//20//55
+
+#if(SEL_V_LED_R == 3)
+#define SET_USER_PWM_DUTY_R_LV1_H_PHS1		12//4//20//40
+#define SET_USER_PWM_DUTY_R_LV2_H_PHS1		8//3//35
+#elif(SEL_V_LED_R == 4)
+#define SET_USER_PWM_DUTY_R_LV1_H_PHS1		42//4//40
+#define SET_USER_PWM_DUTY_R_LV2_H_PHS1		15//3//35
+#elif(SEL_V_LED_R == 6)
+#define SET_USER_PWM_DUTY_R_LV1_H_PHS1		4//4//20//40
+#define SET_USER_PWM_DUTY_R_LV2_H_PHS1		3//3//35
+#endif
+
+//普通模式 3.7V-3.9V
+#define SET_USER_PWM_DUTY_W_LV1_M_PHS1		68//35//70
+#define SET_USER_PWM_DUTY_W_LV2_M_PHS1		60//30//65
+#define SET_USER_PWM_DUTY_W_LV3_M_PHS1		30//20//55
+
+#if(SEL_V_LED_R == 3)
+#define SET_USER_PWM_DUTY_R_LV1_M_PHS1		15//4//20//40
+#define SET_USER_PWM_DUTY_R_LV2_M_PHS1		10//3//35
+#elif(SEL_V_LED_R == 4)
+#define SET_USER_PWM_DUTY_R_LV1_M_PHS1		42//4//20//40
+#define SET_USER_PWM_DUTY_R_LV2_M_PHS1		15//3//35
+#elif(SEL_V_LED_R == 6)
+#define SET_USER_PWM_DUTY_R_LV1_M_PHS1		4//4//20//40
+#define SET_USER_PWM_DUTY_R_LV2_M_PHS1		3//3//35
+#endif
+
+//低电模式 <3.7V
+#define SET_USER_PWM_DUTY_W_LV1_L_PHS1		58//35//70
+#define SET_USER_PWM_DUTY_W_LV2_L_PHS1		40//30//65
+#define SET_USER_PWM_DUTY_W_LV3_L_PHS1		15//20//55
+
+#if(SEL_V_LED_R == 3)
+#define SET_USER_PWM_DUTY_R_LV1_L_PHS1		18//4//20//40
+#define SET_USER_PWM_DUTY_R_LV2_L_PHS1		13//3//35
+#elif(SEL_V_LED_R == 4)
+#define SET_USER_PWM_DUTY_R_LV1_L_PHS1		42//4//20//40
+#define SET_USER_PWM_DUTY_R_LV2_L_PHS1		15//3//35
+#elif(SEL_V_LED_R == 6)
+#define SET_USER_PWM_DUTY_R_LV1_L_PHS1		4//4//20//40
+#define SET_USER_PWM_DUTY_R_LV2_L_PHS1		3//3//35
+#endif	//SEL_V_LED_R
+//************************************************************************//
+#endif	//SET_USER_PWM_DUTY_W == 250
+//***********************************************************************************************//
+#endif	//BTSY or SY
+//***********************************************************************************************//
+//***********************************************************************************************//
+
+#define PWM_CH_BOOST	PA4_CHANNEL
+#define PWM_CH_LED_R	PB3_CHANNEL
+#define PWM_CH_LED_W	PB4_CHANNEL
+
+extern u16 pwmBoostDuty,pwmLedRDuty,pwmLedWDuty;
+
+void user_setPwm(u8 channel,u8 pwm_duty); //频率固定
+
+#if USER_PWM1_EN
+void timer1_init();
+#endif
+
+#endif
+
